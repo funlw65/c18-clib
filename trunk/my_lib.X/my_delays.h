@@ -15,11 +15,6 @@
 #endif
 
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
 #if (F_CPU == 48000000) // 4/48MHz 1/12 = 0.0833
 #define delay_1us() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_2us() delay_1us();delay_1us();
@@ -154,12 +149,6 @@ extern "C" {
 #define delay_95ms() Delay10KTCYx(152)  //= 10000 x 152 / 16 = 95ms
 #define delay_100ms() Delay10KTCYx(160)  //= 10000 x 160 / 16 = 100ms
 #define delay_150ms() Delay10KTCYx(240)  //= 10000 x 240 / 16 = 150ms
-#endif
-
-
-
-#ifdef	__cplusplus
-}
 #endif
 
 #endif	/* MY_DELAYS_H */
