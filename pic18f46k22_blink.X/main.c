@@ -9,7 +9,7 @@
 #error Only for MPLAB C18 compiler!
 #endif
 
-//#define NOBOOT 1
+//#define NOBOOT 1 // uncomment if you don't use a bootloader
 
 // enable one of the following seven boards
 #define ROSSO_SER 1 //(18F46K22, 16MHz crystal, 64MHz, BootBTN = RA4, BootLED = RC2)
