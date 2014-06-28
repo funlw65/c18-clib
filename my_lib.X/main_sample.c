@@ -12,13 +12,13 @@
 //#define NOBOOT 1 // uncomment if you don't use a bootloader
 
 // enable one of the following seven boards
-#define ROSSO_SER 1 //(18F46K22, 64MHz, BootBTN = RA4, BootLED = RC2)
-//#define PINGUINOP8B2_HID 2 //(18F4550, 48MHz, BootBTN and BootLED uses RC2)
-//#define PINGUINOP8B2_CDC 3 //(18F4550, 48MHz, BootBTN and BootLED uses RC2)
-//#define PINGUINOP8B3_HID 4 //(18F4550, 48MHz, BootBTN = RA4, BootLED = RC2)
-//#define PINGUINOP8B3_CDC 5 //(18F4550, 48MHz, BootBTN = RA4, BootLED = RC2)
-//#define FREEJALDUINO_CDC 6 //(18F2550, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
-//#define FREEJALDUINO_HID 7 //(18F2550, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
+#define ROSSO_SER 1 //(18F46K22, 16MHz crystal, 64MHz, BootBTN = RA4, BootLED = RC2)
+//#define PINGUINOP8B2_HID 2 //(18F4550, 20MHz crystal, 48MHz, BootBTN and BootLED uses RC2)
+//#define PINGUINOP8B2_CDC 3 //(18F4550, 20MHz crystal, 48MHz, BootBTN and BootLED uses RC2)
+//#define PINGUINOP8B3_HID 4 //(18F4550, 20MHz crystal, 48MHz, BootBTN = RA4, BootLED = RC2)
+//#define PINGUINOP8B3_CDC 5 //(18F4550, 20MHz crystal, 48MHz, BootBTN = RA4, BootLED = RC2)
+//#define FREEJALDUINO_CDC 6 //(18F2550, 20MHz crystal, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
+//#define FREEJALDUINO_HID 7 //(18F2550, 20MHz crystal, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
 
 
 // disable following line if your hardware differs
@@ -60,7 +60,7 @@ void low_vector(void) {
 
 #pragma code  // return to the default // code section
 void main() {
-    AllDigital();
+    AllDigital(); // enable all pins as digital
 }
 
 #pragma interrupt high_isr
