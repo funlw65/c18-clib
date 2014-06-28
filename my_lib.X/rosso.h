@@ -9,7 +9,7 @@
 #define	ROSSO_H
 
 #ifdef ROSSO_SER
-#define F_CPU 64000000
+#define _XTAL_FREQ 64000000
 #include <p18f46k22.h>
 #ifndef NOBOOT
 #define APP_START          0x300
@@ -26,7 +26,7 @@
 #endif
 
 #ifdef PINGUINOP8B2_HID
-#define F_CPU 48000000
+#define _XTAL_FREQ 48000000
 #include <p18f4550.h>
 #ifndef NOBOOT
 #define APP_START          0x1000
@@ -43,7 +43,7 @@
 #endif
 
 #ifdef PINGUINOP8B2_CDC
-#define F_CPU 48000000
+#define _XTAL_FREQ 48000000
 #include <p18f4550.h>
 #ifndef NOBOOT
 #define APP_START          0x800
@@ -60,7 +60,7 @@
 #endif
 
 #ifdef PINGUINOP8B3_HID
-#define F_CPU 48000000
+#define _XTAL_FREQ 48000000
 #include <p18f4550.h>
 #ifndef NOBOOT
 #define APP_START          0x1000
@@ -77,7 +77,7 @@
 #endif
 
 #ifdef PINGUINOP8B3_CDC
-#define F_CPU 48000000
+#define _XTAL_FREQ 48000000
 #include <p18f4550.h>
 #ifndef NOBOOT
 #define APP_START          0x800
@@ -94,7 +94,7 @@
 #endif
 
 #ifdef FREEJALDUINO_CDC
-#define F_CPU 48000000
+#define _XTAL_FREQ 48000000
 #include <p18f2550.h>
 #ifndef NOBOOT
 #define APP_START          0x800
@@ -111,7 +111,7 @@
 #endif
 
 #ifdef FREEJALDUINO_HID
-#define F_CPU 48000000
+#define _XTAL_FREQ 48000000
 #include <p18f2550.h>
 #ifndef NOBOOT
 #define APP_START          0x1000
@@ -128,7 +128,7 @@
 #endif
 
 #ifdef NOBOOT
-#if (F_CPU == 64000000)
+#if (_XTAL_FREQ == 64000000)
 #pragma config FOSC = HSMP      // Oscillator Selection bits (HS oscillator (medium power 4-16 MHz))
 #pragma config PLLCFG = ON      // 4X PLL Enable (Oscillator multiplied by 4)
 #pragma config PRICLKEN = ON    // Primary clock enable bit (Primary clock is always enabled)
@@ -187,7 +187,7 @@
 
 // CONFIG7H
 #pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot Block (000000-0007FFh) not protected from table reads executed in other blocks)
-#elif (F_CPU == 48000000)
+#elif (_XTAL_FREQ == 48000000)
 #pragma config PLLDIV   = 5         // (20 MHz crystal on PICDEM FS USB board)
 #pragma config CPUDIV   = OSC1_PLL2
 #pragma config USBDIV   = 2         // Clock source from 96MHz PLL/2

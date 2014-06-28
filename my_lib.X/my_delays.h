@@ -15,7 +15,7 @@
 #endif
 
 
-#if (F_CPU == 48000000) // 4/48MHz 1/12 = 0.0833
+#if (_XTAL_FREQ == 48000000) // 4/48MHz 1/12 = 0.0833
 #define delay_1us() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_2us() delay_1us();delay_1us();
 #define delay_3us() delay_1us();delay_2us();
@@ -83,7 +83,7 @@
 #define delay_150ms() Delay10KTCYx(180) //= 10000 x 180 / 12 = 150ms
 //#define delay_200ms() Delay10KTCYx(240) //= 10000 x 240 / 12 = 200ms
 
-#elif (F_CPU == 64000000)  // 4/64MHz = 1/16 = 0.0625
+#elif (_XTAL_FREQ == 64000000)  // 4/64MHz = 1/16 = 0.0625
 #define delay_1us() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_2us() delay_1us();delay_1us();
 #define delay_3us() delay_1us();delay_2us();
