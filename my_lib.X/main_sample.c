@@ -36,14 +36,6 @@ interrupt low_priority
 #endif
 low_isr(void);
 
-
-
-void interrupt low_priority
-low_isr(void){
-    //
-}
-#endif
-
 #ifdef __18CXX
 #ifndef NOBOOT
 #pragma romdata bootloader = 0x2A
