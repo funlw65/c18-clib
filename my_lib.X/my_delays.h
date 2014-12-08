@@ -83,6 +83,21 @@
 #define delay_150ms() Delay10KTCYx(180) //= 10000 x 180 / 12 = 150ms
 //#define delay_200ms() Delay10KTCYx(240) //= 10000 x 240 / 12 = 200ms
 
+void mydelay_us(unsigned word x){
+    unsigned word i;
+    for(i=0; i<x; i++){
+        delay_1us();
+    }
+}
+
+void mydelay_ms(unsigned word x){
+    unsigned word i;
+    for(i=0; i<x; i++){
+        delay_1ms();
+    }
+}
+
+
 #elif (_XTAL_FREQ == 64000000)  // 4/64MHz = 1/16 = 0.0625
 #define delay_1us() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_2us() delay_1us();delay_1us();
@@ -149,6 +164,22 @@
 #define delay_95ms() Delay10KTCYx(152)  //= 10000 x 152 / 16 = 95ms
 #define delay_100ms() Delay10KTCYx(160)  //= 10000 x 160 / 16 = 100ms
 #define delay_150ms() Delay10KTCYx(240)  //= 10000 x 240 / 16 = 150ms
+
+void mydelay_us(unsigned int x){
+    unsigned int i;
+    for(i=0; i<x; i++){
+        delay_1us();
+    }
+}
+
+void mydelay_ms(unsigned int x){
+    unsigned int i;
+    for(i=0; i<x; i++){
+        delay_1ms();
+    }
+}
+
+
 #endif
 
 #endif	/* MY_DELAYS_H */
