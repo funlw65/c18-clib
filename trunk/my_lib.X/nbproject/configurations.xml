@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>my_delays.h</itemPath>
       <itemPath>rosso.h</itemPath>
+      <itemPath>rosso_isr_delays.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
