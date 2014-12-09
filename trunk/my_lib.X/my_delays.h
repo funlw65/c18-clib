@@ -154,19 +154,19 @@
 
 #endif
 
-void mydelay_us(unsigned int x){
-    unsigned int i;
+void mydelay_us(UINT16 x){
+    UINT16 i;
     for(i=0; i<x; i++){
         delay_1us();
     }
-};
+}
 
-void mydelay_ms(unsigned int x){
-    unsigned int i;
+void mydelay_ms(UINT16 x){
+    UINT16 i;
     for(i=0; i<x; i++){
         delay_1ms();
     }
-};
+}
 
 #endif	/* MY_DELAYS_H */
 

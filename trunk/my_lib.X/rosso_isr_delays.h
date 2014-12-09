@@ -19,79 +19,82 @@ extern "C" {
 #define TMR0_ISR_RATE 1000
 #endif
 
-    unsigned int tmr0_isr_countdown[TMR0_DELAY_SLOTS];
-    unsigned int tmr0_isr_counter;
-    unsigned char tmr0_load;
+    INT16 tmr0_isr_countdown[TMR0_DELAY_SLOTS];
+    UINT16 tmr0_isr_walker;
+    UINT8 tmr0_load;
 
-    unsigned int tmr0_isr_counter(void) {
-        unsigned int temp;
+    UINT16 tmr0_isr_counter(void) {
+        UINT16 temp;
         INTCONbits.TMR0IE = 0;
-        temp = tmr0_isr_counter;
+        temp = tmr0_isr_walker;
         INTCONbits.TMR0IE = 1;
         return (temp);
     }
 
-    void tmr0_set_delay(unsigned char slot, unsigned int ticks) {
+    void tmr0_set_delay(UINT8 slot, INT16 ticks) {
         if (slot >= TMR0_DELAY_SLOTS) slot = 0;
         INTCONbits.TMR0IE = 0;
         tmr0_isr_countdown[slot] = ticks;
         INTCONbits.TMR0IE = 1;
     }
 
-    bool tmr0_check_delay(unsigned char slot) {
-        if (slot >= TMR0_DELAY_SLOTS) return (true);
+    BOOL tmr0_check_delay(UINT8 slot) {
+        if (slot >= TMR0_DELAY_SLOTS) return (TRUE);
         if (tmr0_isr_countdown[slot] == 0) {
             if (tmr0_isr_countdown[slot] == 0) {
                 //-- note: double checking is done to cope with the isr
                 //-- decrementing from 0x100 to 0x0ff without disabling the isr.
-                return (true); //-- delay passed
+                return (TRUE); //-- delay passed
             }
         }
-        return (false); //-- still waiting
+        return (FALSE); //-- still waiting
     }
-#define _XTAL_FREQ 64000000
 
-void tmr0_isr_init(void) {
-        const unsigned long tmr0_div = ((unsigned long) _XTAL_FREQ / 4 / TMR0_ISR_RATE) - 1;
-        unsigned char i;
-#if (tmr0_div > ((256 * 256) - 1)) 
+    void tmr0_isr_init(void) {
+        //const UINT32 tmr0_div = (_XTAL_FREQ / 4 / TMR0_ISR_RATE) - 1;
+#define tmr0_div  ((_XTAL_FREQ / 4 / TMR0_ISR_RATE) - 1)
+        UINT8 i;
+#if (tmr0_div > ((256 * 256) - 1))
 #error "requested ISR rate is too low"
 #elif (tmr0_div > ((128 * 256) - 1)) 
         T0CONbits.T0PS = 7; // prescaler 256
-        tmr0_load = 255 - (unsigned char) (tmr0_div / 256);
+        tmr0_load = 255 - (UINT8) (tmr0_div / 256);
 
 #elif (tmr0_div > ((64 * 256) - 1))
         T0CONbits.T0PS = 6; // prescaler 128
-        tmr0_load = 255 - (unsigned char) (tmr0_div / 128);
+        tmr0_load = 255 - (UINT8) (tmr0_div / 128);
 
 #elif (tmr0_div > ((32 * 256) - 1))
         T0CONbits.T0PS = 5; // prescaler 64
-        tmr0_load = 255 - (unsigned char) (tmr0_div / 64);
+        tmr0_load = 255 - (UINT8) (tmr0_div / 64);
 
 #elif (tmr0_div > ((16 * 256) - 1)) 
         T0CONbits.T0PS = 4; // prescaler 32
-        tmr0_load = 255 - (unsigned char) (tmr0_div / 32);
+        tmr0_load = 255 - (UINT8) (tmr0_div / 32);
 
 #elif (tmr0_div > ((8 * 256) - 1)) 
         T0CONbits.T0PS = 3; // prescaler 16
-        tmr0_load = 255 - (unsigned char) (tmr0_div / 16);
+        tmr0_load = 255 - (UINT8) (tmr0_div / 16);
 
 #elif (tmr0_div > ((4 * 256) - 1))
         T0CONbits.T0PS = 2; // prescaler 8
-        tmr0_load = 255 - (unsigned char) (tmr0_div / 8);
+        tmr0_load = 255 - (UINT8) (tmr0_div / 8);
 
 #elif (tmr0_div > ((2 * 256) - 1)) 
         T0CONbits.T0PS = 1; // prescaler 4
-        tmr0_load = 255 - (unsigned char) (tmr0_div / 4);
+        tmr0_load = 255 - (UINT8) (tmr0_div / 4);
 
 #else
         T0CONbits.T0PS = 0; //prescaler 2
         tmr0_load = 255; //- tmr0_div / 2
 #endif
-
+        /*Enable high and low priority interrupts */
+        RCON = 0;
+        RCONbits.IPEN = 1;
+        T0CONbits.T08BIT = 1;
         T0CONbits.T0CS = 0; // internal clock
         T0CONbits.PSA = 0; // assign prescaler to timer0
-
+        INTCONbits.RBIF = 0;
         INTCONbits.TMR0IF = 0;
         INTCONbits.TMR0IE = 1;
         INTCONbits.GIE = 1; // enable global interrupts
@@ -101,14 +104,15 @@ void tmr0_isr_init(void) {
     }
 
     //call the following from the inside high_isr() or low_isr() from main.c
+
     void tmr0_isr_int(void) {
-        unsigned char index;
+        UINT8 index;
         if (INTCONbits.TMR0IF) {
             TMR0L = tmr0_load;
             //-- counters
-            tmr0_isr_counter = tmr0_isr_counter + 1;
+            tmr0_isr_walker = tmr0_isr_walker + 1;
             for (index = 0; index < TMR0_DELAY_SLOTS; index++) {
-                if (tmr0_isr_countdown[index] != 0)
+                if (tmr0_isr_countdown[index] > 0)
                     tmr0_isr_countdown[index] = tmr0_isr_countdown[index] - 1;
             }
             INTCONbits.TMR0IF = 0;
