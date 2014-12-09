@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>my_delays.h</itemPath>
       <itemPath>rosso.h</itemPath>
       <itemPath>rosso_isr_delays.h</itemPath>
     </logicalFolder>
@@ -34,7 +33,7 @@
         <platformTool>Simulator</platformTool>
         <languageToolchain>C18</languageToolchain>
         <languageToolchainVersion>3.46</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
