@@ -8,6 +8,8 @@
       <itemPath>rosso_isr_delays.h</itemPath>
       <itemPath>rosso_i2c_master.h</itemPath>
       <itemPath>rosso_i2c2_master.h</itemPath>
+      <itemPath>rosso_delays.h</itemPath>
+      <itemPath>rosso_old.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -22,6 +24,8 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>pic18f46k22_evb.brd</itemPath>
+      <itemPath>pic18f46k22_evb.sch</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
