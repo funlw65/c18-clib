@@ -1,5 +1,5 @@
 /*
- * File:   main.c
+ * File:   main_example.c
  * Author: texan
  *
  * Created on June 21, 2014, 4:18 AM
@@ -17,7 +17,6 @@
 //#define FREEJALDUINO_HID 7 //(18F2550, 20MHz crystal, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
 // disable following line if your hardware differs
 #define ONBOARD 1 // enable the default onboard definitions
-// enable one of the following two
 #include <rosso_old.h> // processor type, speed, configuration bits, hardware, app_offset.
 
 // declaring the headers for the interrupt functions
@@ -62,7 +61,7 @@ void low_vector(void) {
 #pragma code  // return to the default // code section
 #endif
 void main() {
-    AllDigital();
+    AllDigital(); // all pins digital
 #ifdef ONBOARD
     OnBoardLED_dir = 0; //output
     OnBoardButton_dir = 1; //input
