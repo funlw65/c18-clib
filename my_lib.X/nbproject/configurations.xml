@@ -6,6 +6,8 @@
                    projectFiles="true">
       <itemPath>rosso.h</itemPath>
       <itemPath>rosso_isr_delays.h</itemPath>
+      <itemPath>rosso_i2c_master.h</itemPath>
+      <itemPath>rosso_i2c2_master.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

@@ -51,8 +51,8 @@ BOOL tmr0_check_delay(UINT8 slot) {
     if (slot >= TMR0_DELAY_SLOTS) return (TRUE);
     if (tmr0_isr_countdown[slot] == 0) {
         if (tmr0_isr_countdown[slot] == 0) {
-            //-- note: double checking is done to cope with the isr
-            //-- decrementing from 0x100 to 0x0ff without disabling the isr.
+            // note: double checking is done to cope with the isr
+            // decrementing from 0x100 to 0x0ff without disabling the isr.
             return (TRUE); //-- delay passed
         }
     }
@@ -118,7 +118,6 @@ void tmr0_isr_init(void) {
 }
 
 //call the following from the inside high_isr() or low_isr() from main.c
-
 void tmr0_isr_intr(void) {
 #ifdef TMR0_SLOTED
     UINT8 index;
