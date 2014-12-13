@@ -1,11 +1,13 @@
-_main: CODE, 890 0 76
-_tmr0_set_delay: CODE, 1062 0 36
-_high_isr: CODE, 776 0 348
-_tmr0_isr_init: CODE, 966 0 58
-_tmr0_isr_intr: CODE, 806 0 70
-__initialization: CODE, 1124 0 4
-_tmr0_check_delay: CODE, 1024 0 20
-PL2: CODE, 876 0 14
-PL4: CODE, 1044 0 18
+_main: CODE, 806 0 122
+_tmr0_set_delay: CODE, 1108 0 36
+_high_isr: CODE, 776 0 426
+_tmr0_isr_init: CODE, 1012 0 58
+_tmr0_isr_intr: CODE, 928 0 70
+_USART_HW_init: CODE, 1144 0 32
+__initialization: CODE, 1216 0 4
+_USART_HW_write: CODE, 1202 0 14
+_tmr0_check_delay: CODE, 1070 0 20
+PL2: CODE, 998 0 14
+PL4: CODE, 1090 0 18
 _low_isr: CODE, 792 0 10
-Total: 654
+Total: 824
