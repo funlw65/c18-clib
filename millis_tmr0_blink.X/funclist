@@ -1,8 +1,8 @@
-_main: CODE, 806 0 126
-_high_isr: CODE, 776 0 280
-_tmr0_isr_init: CODE, 932 0 40
-_tmr0_isr_intr: CODE, 1010 0 22
-__initialization: CODE, 1032 0 12
-_tmr0_millis: CODE, 972 0 38
-_low_isr: CODE, 792 0 10
-Total: 528
+_main: CODE, 934 0 200
+_high_isr: CODE, 776 0 464
+_tmr0_isr_init: CODE, 1240 0 50
+_tmr0_isr_intr: CODE, 1328 0 36
+__initialization: CODE, 1364 0 12
+_tmr0_millis: CODE, 1290 0 38
+_low_isr: CODE, 792 0 138
+Total: 938
