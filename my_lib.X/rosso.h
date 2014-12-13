@@ -1,16 +1,28 @@
 /* 
- * File:   rosso.h
- * Author: texan
+ * File:   rosso_old.h
+ * Author: Worker
  *
- * Created on June 26, 2014, 9:38 AM
+ * Created on December 10, 2014, 4:36 PM
  */
 
-#ifndef ROSSO_H
-#define	ROSSO_H
+#ifndef ROSSO_OLD_H
+#define	ROSSO_OLD_H
+
+#if __18CXX
+#define ei() INTCONbits.GIE=1;
+#define di() INTCONbits.GIE=0;
+#endif
 
 #ifdef ROSSO_SER
 #define _XTAL_FREQ 64000000
 #include <p18f46k22.h>
+#ifdef __18CXX
+#ifndef NOBOOT
+#define APP_START          0x300
+#define APP_HINT           0x308
+#define APP_LINT           0x318
+#endif
+#endif
 #define AllDigital()       ANSELA=0;ANSELB=0;ANSELC=0;ANSELD=0;ANSELE=0;ADCON0=0;ADCON1=0;ADCON2=0;CM1CON0=0;CM2CON0=0;CM2CON1=0;
 #ifdef ONBOARD // onboard definitions
 #define OnBoardLED         LATCbits.LATC2
@@ -23,6 +35,13 @@
 #ifdef PINGUINOP8B2_HID
 #define _XTAL_FREQ 48000000
 #include <p18f4550.h>
+#ifdef __18CXX
+#ifndef NOBOOT
+#define APP_START          0x1000
+#define APP_HINT           0x1008
+#define APP_LINT           0x1018
+#endif
+#endif
 #define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
 #ifdef ONBOARD // onboard definitions
 #define OnBoardLED         LATCbits.LATC2
@@ -35,6 +54,13 @@
 #ifdef PINGUINOP8B2_CDC
 #define _XTAL_FREQ 48000000
 #include <p18f4550.h>
+#ifdef __18CXX
+#ifndef NOBOOT
+#define APP_START          0x800
+#define APP_HINT           0x808
+#define APP_LINT           0x818
+#endif
+#endif
 #define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
 #ifdef ONBOARD // onboard definitions
 #define OnBoardLED         LATCbits.LATC2
@@ -47,6 +73,13 @@
 #ifdef PINGUINOP8B3_HID
 #define _XTAL_FREQ 48000000
 #include <p18f4550.h>
+#ifdef __18CXX
+#ifndef NOBOOT
+#define APP_START          0x1000
+#define APP_HINT           0x1008
+#define APP_LINT           0x1018
+#endif
+#endif
 #define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
 #ifdef ONBOARD // onboard definitions
 #define OnBoardLED         LATCbits.LATC2
@@ -59,6 +92,13 @@
 #ifdef PINGUINOP8B3_CDC
 #define _XTAL_FREQ 48000000
 #include <p18f4550.h>
+#ifdef __18CXX
+#ifndef NOBOOT
+#define APP_START          0x800
+#define APP_HINT           0x808
+#define APP_LINT           0x818
+#endif
+#endif
 #define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
 #ifdef ONBOARD // onboard definitions
 #define OnBoardLED         LATCbits.LATC2
@@ -71,6 +111,13 @@
 #ifdef FREEJALDUINO_CDC
 #define _XTAL_FREQ 48000000
 #include <p18f2550.h>
+#ifdef __18CXX
+#ifndef NOBOOT
+#define APP_START          0x800
+#define APP_HINT           0x808
+#define APP_LINT           0x818
+#endif
+#endif
 #define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
 #ifdef ONBOARD // onboard definitions
 #define OnBoardLED         LATCbits.LATC2
@@ -83,6 +130,13 @@
 #ifdef FREEJALDUINO_HID
 #define _XTAL_FREQ 48000000
 #include <p18f2550.h>
+#ifdef __18CXX
+#ifndef NOBOOT
+#define APP_START          0x1000
+#define APP_HINT           0x1008
+#define APP_LINT           0x1018
+#endif
+#endif
 #define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
 #ifdef ONBOARD // onboard definitions
 #define OnBoardLED         LATCbits.LATC2
@@ -194,6 +248,5 @@
 #endif //F_CPU
 #endif //NOBOOT
 
-
-#endif	/* ROSSO_H */
+#endif	/* ROSSO_OLD_H */
 

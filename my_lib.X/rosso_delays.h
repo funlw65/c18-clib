@@ -151,22 +151,23 @@
 #define delay_95ms() Delay10KTCYx(152)  //= 10000 x 152 / 16 = 95ms
 #define delay_100ms() Delay10KTCYx(160)  //= 10000 x 160 / 16 = 100ms
 #define delay_150ms() Delay10KTCYx(240)  //= 10000 x 240 / 16 = 150ms
-
 #endif
 
-void mydelay_us(UINT16 x){
+#if __18CXX
+void _delay_us(UINT16 x){
     UINT16 i;
     for(i=0; i<x; i++){
         delay_1us();
     }
 }
 
-void mydelay_ms(UINT16 x){
+void _delay_ms(UINT16 x){
     UINT16 i;
     for(i=0; i<x; i++){
         delay_1ms();
     }
 }
+#endif
 
 #endif	/* ROSSO_DELAYS_H */
 

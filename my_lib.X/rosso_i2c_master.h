@@ -16,10 +16,10 @@
 #define I2C_LEVEL    TRUE // this should be user set-able.. is ok for now...
 
 #ifndef I2C_SCL_DIR
-#error "define IDC_SCL_DIR before including this header"
+#error "define I2C_SCL_DIR before including this header"
 #endif
 #ifndef I2C_SDA_DIR
-#error "define IDC_SDA_DIR before including this header"
+#error "define I2C_SDA_DIR before including this header"
 #endif
 
 void i2c_init(UINT8 speed) {

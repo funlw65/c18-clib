@@ -15,10 +15,10 @@
 #define TMR0_ISR_RATE 1000
 #endif
 #ifdef MILLIS
-#ifdef TMR0_ISR_RATE
+#if (TMR0_ISR_RATE != 1000)
 #undef TMR0_ISR_RATE
-#endif
 #define TMR0_ISR_RATE 1000 // MILLIS needs exact this value
+#endif
 #endif
 
 #ifdef TMR0_SLOTED
