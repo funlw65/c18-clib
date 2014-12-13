@@ -73,7 +73,6 @@ void main() {
     ei(); // enable general interrupts
     tmr0_isr_init();
     tmr0_set_delay(0, 250);
-    USART_HW_init();
     while (1) {
         if (tmr0_check_delay(0) == TRUE) {
             tmr0_set_delay(0, 250);
