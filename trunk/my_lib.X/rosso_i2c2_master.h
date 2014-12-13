@@ -69,6 +69,5 @@ UINT8 i2c2_read(BOOL myack) {
     return (SSP2BUF);
 }
 
-
 #endif	/* ROSSO_I2C2_MASTER_H */
 

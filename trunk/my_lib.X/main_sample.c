@@ -17,7 +17,7 @@
 //#define FREEJALDUINO_HID 7 //(18F2550, 20MHz crystal, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
 // disable following line if your hardware differs
 #define ONBOARD 1 // enable the default onboard definitions
-#include <rosso_old.h> // processor type, speed, configuration bits, hardware, app_offset.
+#include <rosso.h> // processor type, speed, configuration bits, hardware, app_offset.
 
 // declaring the headers for the interrupt functions
 void
@@ -34,8 +34,8 @@ low_isr(void);
 
 #ifdef __18CXX
 #ifndef NOBOOT
-#pragma romdata bootloader = 0x2A
-const rom char bootloader[APP_START - 0x2A];
+#pragma romdata bootloader = 0x6
+const rom char bootloader[APP_START - 0x6];
 extern void _startup(void);
 
 #pragma code AppVector = APP_START
