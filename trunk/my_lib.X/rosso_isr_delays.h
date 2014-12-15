@@ -11,10 +11,10 @@
 #ifndef TMR0_DELAY_SLOTS
 #define TMR0_DELAY_SLOTS 1
 #endif
-#ifndef TMR0_ISR_RATE
+#ifndef TMR0_ISR_RATE // if is not defined, then default it to 1000
 #define TMR0_ISR_RATE 1000
 #endif
-#ifdef MILLIS
+#ifdef TMR0_MILLIS
 #if (TMR0_ISR_RATE != 1000)
 #undef TMR0_ISR_RATE
 #define TMR0_ISR_RATE 1000 // MILLIS needs exact this value
