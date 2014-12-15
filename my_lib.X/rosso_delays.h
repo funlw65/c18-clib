@@ -154,14 +154,14 @@
 #endif
 
 #if __18CXX
-void _delay_us(UINT16 x){
+void __delay_us(UINT16 x){
     UINT16 i;
     for(i=0; i<x; i++){
         delay_1us();
     }
 }
 
-void _delay_ms(UINT16 x){
+void __delay_ms(UINT16 x){
     UINT16 i;
     for(i=0; i<x; i++){
         delay_1ms();

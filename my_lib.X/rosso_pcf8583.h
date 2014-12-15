@@ -1,10 +1,23 @@
 /* 
  * File:   rosso_pcf8583.h
- * Author: Worker
+ * Author: Vasile Guta-Ciucur
  *
  * Created on December 13, 2014, 6:50 PM
  */
 
+/*
+ * Requirements:
+ * You have to configure and include the header for I2C or I2C2
+ * before including this header.
+ *
+ * You also ave to make some definitions for the PCF8583 I2C address
+ * and to define which I2C is used, like bellow:
+ *
+ * #define PCF8583_USE_I2C
+ * #define PCF8583_PHYSICAL_ADDRESS 0xA0 // 0x00 may be used by I2C EEPROM
+ * #include <rosso_pcf8583.h>
+ *
+ */
 #ifndef ROSSO_PCF8583_H
 #define	ROSSO_PCF8583_H
 
