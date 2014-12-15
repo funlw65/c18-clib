@@ -16,6 +16,7 @@
 
 
 #if (_XTAL_FREQ == 48000000) // 4/48MHz 1/12 = 0.0833
+#define delay_500ns() Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_1us() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_2us() delay_1us();delay_1us();
 #define delay_3us() delay_1us();delay_2us();
@@ -86,6 +87,7 @@
 
 
 #elif (_XTAL_FREQ == 64000000)  // 4/64MHz = 1/16 = 0.0625
+#define delay_500ns() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_1us() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_2us() delay_1us();delay_1us();
 #define delay_3us() delay_1us();delay_2us();

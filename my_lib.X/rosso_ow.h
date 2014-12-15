@@ -208,7 +208,7 @@ void ow_command_with_parasite(UINT8 command, UINT8 *id) {
     ow_command_intern(command, id, 1);
 }
 
-UINT8 crc8(void){
+UINT8 ow_crc8(void){
     // not yet available
 }
 
