@@ -1,6 +1,7 @@
 /* 
  * File:   rosso_isr_delays.h
- * Author: Worker
+ * Author: Joep Suijs, Copyright (C) 2008 Joep Suijs
+ * Modified and Adapted to "C" by Vasile Guta Ciucur
  *
  * Created on December 8, 2014, 7:32 PM
  */
