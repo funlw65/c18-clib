@@ -14,6 +14,15 @@
       <itemPath>rosso_pcf8583.h</itemPath>
       <itemPath>rosso_conversion.h</itemPath>
       <itemPath>rosso_ow.h</itemPath>
+      <itemPath>arial_14.h</itemPath>
+      <itemPath>arial_bold_14.h</itemPath>
+      <itemPath>corsiva_12.h</itemPath>
+      <itemPath>fixednums15x31.h</itemPath>
+      <itemPath>fixednums7x15.h</itemPath>
+      <itemPath>fixednums8x16.h</itemPath>
+      <itemPath>systemfont5x7.h</itemPath>
+      <itemPath>verdana_digits_24.h</itemPath>
+      <itemPath>rosso_lcd4.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

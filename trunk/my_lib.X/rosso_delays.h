@@ -19,13 +19,13 @@
 #define delay_500ns() Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_1us() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_2us() delay_1us();delay_1us();
-#define delay_3us() delay_1us();delay_2us();
-#define delay_4us() delay_1us();delay_3us();
-#define delay_5us() delay_1us();delay_4us();
-#define delay_6us() delay_1us();delay_5us();
-#define delay_7us() delay_1us();delay_6us();
-#define delay_8us() delay_1us();delay_7us();
-#define delay_9us() delay_1us();delay_8us();
+#define delay_3us() delay_1us();delay_1us();delay_1us();
+#define delay_4us() delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_5us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_6us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_7us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_8us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_9us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
 
 #define delay_10us() Delay10TCYx(12)  //= 10 x 12 / 12 = 10us
 #define delay_15us() Delay10TCYx(18)  //= 10 x 18 / 12 = 15us
@@ -84,19 +84,17 @@
 #define delay_150ms() Delay10KTCYx(180) //= 10000 x 180 / 12 = 150ms
 //#define delay_200ms() Delay10KTCYx(240) //= 10000 x 240 / 12 = 200ms
 
-
-
 #elif (_XTAL_FREQ == 64000000)  // 4/64MHz = 1/16 = 0.0625
 #define delay_500ns() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_1us() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_2us() delay_1us();delay_1us();
-#define delay_3us() delay_1us();delay_2us();
-#define delay_4us() delay_1us();delay_3us();
-#define delay_5us() delay_1us();delay_4us();
-#define delay_6us() delay_1us();delay_5us();
-#define delay_7us() delay_1us();delay_6us();
-#define delay_8us() delay_1us();delay_7us();
-#define delay_9us() delay_1us();delay_8us();
+#define delay_3us() delay_1us();delay_1us();delay_1us();
+#define delay_4us() delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_5us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_6us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_7us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_8us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
+#define delay_9us() delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();delay_1us();
 
 #define delay_10us() Delay10TCYx(16)  //= 10 x 16 / 16 = 10us
 #define delay_15us() Delay10TCYx(24)  //= 10 x 24 / 16 = 15us

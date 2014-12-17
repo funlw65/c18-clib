@@ -18,6 +18,7 @@
  * #include <rosso_pcf8583.h>
  *
  */
+
 #ifndef ROSSO_PCF8583_H
 #define	ROSSO_PCF8583_H
 
