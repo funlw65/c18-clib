@@ -1,9 +1,0 @@
-_main: CODE, 1070 0 110
-_tmr0_isr_int: CODE, 934 0 136
-_tmr0_set_delay: CODE, 1426 0 42
-_high_isr: CODE, 776 0 510
-_tmr0_isr_init: CODE, 1286 0 72
-__initialization: CODE, 1468 0 8
-_tmr0_check_delay: CODE, 1358 0 68
-_low_isr: CODE, 792 0 138
-Total: 1084
