@@ -129,65 +129,65 @@ void pcf8583_setyear(UINT8 cn, UINT8 yr) {
 #endif
 }
 
-void pcf8583_set_datetime(UINT8 hours, UINT8 minutes, UINT8 seconds, UINT8 dayofweek, UINT8 day, UINT8 month, UINT8 leapyear, UINT8 century, UINT8 year){
-  UINT8 LyDd, WdMo;
-  INT16 err;
-  LyDd = (UINT8)((dectobcd(leapyear) << 6) | dectobcd(day));
-  WdMo = (UINT8)((dectobcd(dayofweek) << 5) | dectobcd(month));
+void pcf8583_set_datetime(UINT8 hours, UINT8 minutes, UINT8 seconds, UINT8 dayofweek, UINT8 day, UINT8 month, UINT8 leapyear, UINT8 century, UINT8 year) {
+    UINT8 LyDd, WdMo;
+    INT16 err;
+    LyDd = (UINT8) ((dectobcd(leapyear) << 6) | dectobcd(day));
+    WdMo = (UINT8) ((dectobcd(dayofweek) << 5) | dectobcd(month));
 #if defined(PCF8583_USE_I2C)
-  // Stop the RTC from counting, before writing to the time and date registers
-  i2c_start();
-  err = i2c_write(PCF8583_W_ADDR);
-  err = i2c_write(PCF8583_CTRL_STATUS_REG);
-  err = i2c_write(PCF8583_STOP_COUNTING);
-  i2c_stop();
+    // Stop the RTC from counting, before writing to the time and date registers
+    i2c_start();
+    err = i2c_write(PCF8583_W_ADDR);
+    err = i2c_write(PCF8583_CTRL_STATUS_REG);
+    err = i2c_write(PCF8583_STOP_COUNTING);
+    i2c_stop();
 
-  // Write to the date and time registers
-  i2c_start();
-  err = i2c_write(PCF8583_W_ADDR);
-  err = i2c_write(PCF8583_100S_REG);
-  err = i2c_write(dectobcd(0));
-  err = i2c_write(dectobcd(seconds));
-  err = i2c_write(dectobcd(minutes));
-  err = i2c_write(dectobcd(hours));
-  err = i2c_write(LyDd);
-  err = i2c_write(WdMo);
-  i2c_stop();
+    // Write to the date and time registers
+    i2c_start();
+    err = i2c_write(PCF8583_W_ADDR);
+    err = i2c_write(PCF8583_100S_REG);
+    err = i2c_write(dectobcd(0));
+    err = i2c_write(dectobcd(seconds));
+    err = i2c_write(dectobcd(minutes));
+    err = i2c_write(dectobcd(hours));
+    err = i2c_write(LyDd);
+    err = i2c_write(WdMo);
+    i2c_stop();
 
-  // allow the PCF8583 to start counting again
-  i2c_start();
-  err = i2c_write(PCF8583_W_ADDR);
-  err = i2c_write(PCF8583_CTRL_STATUS_REG);
-  err = i2c_write(PCF8583_START_COUNTING);
-  i2c_stop();
+    // allow the PCF8583 to start counting again
+    i2c_start();
+    err = i2c_write(PCF8583_W_ADDR);
+    err = i2c_write(PCF8583_CTRL_STATUS_REG);
+    err = i2c_write(PCF8583_START_COUNTING);
+    i2c_stop();
 #elif defined(PCF8583_USE_I2C2)
-  // Stop the RTC from counting, before writing to the time and date registers
-  i2c2_start();
-  err = i2c2_write(PCF8583_W_ADDR);
-  err = i2c2_write(PCF8583_CTRL_STATUS_REG);
-  err = i2c2_write(PCF8583_STOP_COUNTING);
-  i2c2_stop();
+    // Stop the RTC from counting, before writing to the time and date registers
+    i2c2_start();
+    err = i2c2_write(PCF8583_W_ADDR);
+    err = i2c2_write(PCF8583_CTRL_STATUS_REG);
+    err = i2c2_write(PCF8583_STOP_COUNTING);
+    i2c2_stop();
 
-  // Write to the date and time registers
-  i2c2_start();
-  err = i2c2_write(PCF8583_W_ADDR);
-  err = i2c2_write(PCF8583_100S_REG);
-  err = i2c2_write(dectobcd(0));
-  err = i2c2_write(dectobcd(seconds));
-  err = i2c2_write(dectobcd(minutes));
-  err = i2c2_write(dectobcd(hours));
-  err = i2c2_write(LyDd);
-  err = i2c2_write(WdMo);
-  i2c2_stop();
+    // Write to the date and time registers
+    i2c2_start();
+    err = i2c2_write(PCF8583_W_ADDR);
+    err = i2c2_write(PCF8583_100S_REG);
+    err = i2c2_write(dectobcd(0));
+    err = i2c2_write(dectobcd(seconds));
+    err = i2c2_write(dectobcd(minutes));
+    err = i2c2_write(dectobcd(hours));
+    err = i2c2_write(LyDd);
+    err = i2c2_write(WdMo);
+    i2c2_stop();
 
-  // allow the PCF8583 to start counting again
-  i2c2_start();
-  err = i2c2_write(PCF8583_W_ADDR);
-  err = i2c2_write(PCF8583_CTRL_STATUS_REG);
-  err = i2c2_write(PCF8583_START_COUNTING);
-  i2c2_stop();
+    // allow the PCF8583 to start counting again
+    i2c2_start();
+    err = i2c2_write(PCF8583_W_ADDR);
+    err = i2c2_write(PCF8583_CTRL_STATUS_REG);
+    err = i2c2_write(PCF8583_START_COUNTING);
+    i2c2_stop();
 #endif
-  pcf8583_setyear(century, year);
+    pcf8583_setyear(century, year);
 }
 
 void pcf8583_get_datetime(UINT8 * hr, UINT8 * mn, UINT8 * sc, UINT8 * dow, UINT8 * dy, UINT8 * mt, UINT8 * lp, UINT8 * ct, UINT8 * yr) {
@@ -241,28 +241,27 @@ void pcf8583_get_datetime(UINT8 * hr, UINT8 * mn, UINT8 * sc, UINT8 * dow, UINT8
     }
 }
 
-function pcf8583_read_reg(reg:byte):byte;
-var tmp:byte; err:shortint;
-begin
-{$if defined(PCF8583_USE_I2C)}
-  I2C_START;
-  err := I2C_WRITE(PCF8583_W_ADDR);
-  err := I2C_WRITE(reg);
-  I2C_RESTART;
-  err := I2C_WRITE(PCF8583_R_ADDR);
-  tmp := I2C_READ(false);
-  I2C_STOP;
-{$elseif defined(PCF8583_USE_I2C2)}
-  I2C2_START;
-  err := I2C2_WRITE(PCF8583_W_ADDR);
-  err := I2C2_WRITE(reg);
-  I2C2_RESTART;
-  err := I2C2_WRITE(PCF8583_R_ADDR);
-  tmp := I2C2_READ(false);
-  I2C2_STOP;
-{$ifend}
-  return(tmp);
-end;
+UINT8 pcf8583_read_reg(UINT8 reg) {
+    INT8 tmp, err;
+#if defined(PCF8583_USE_I2C)
+    i2c_start();
+    err = i2c_write(PCF8583_W_ADDR);
+    err = i2c_write(reg);
+    i2c_restart();
+    err = i2c_write(PCF8583_R_ADDR);
+    tmp = i2c_read(false);
+    i2c_stop();
+#elif defined(PCF8583_USE_I2C2)
+    i2c2_start();
+    err = i2c2_write(PCF8583_W_ADDR);
+    err = i2c2_write(reg);
+    i2c2_restart();
+    err = i2c2_write(PCF8583_R_ADDR);
+    tmp = i2c2_read(false);
+    i2c2_stop();
+#endif
+    return (tmp);
+}
 
 // Set the alarm type:
 // [atype] parameter have following values:
@@ -270,127 +269,124 @@ end;
 //    1 = daily alarm
 //    2 = weekdays alarm
 // other types are not implemented yet.
-procedure pcf8583_en_dis_alarm(atype:byte);
-var
-  cfg:volatile byte;
-  alarmcfg:volatile byte;
-  err:shortint;
-begin
-  cfg := pcf8583_read_reg(PCF8583_CTRL_STATUS_REG);
-  if(atype > 2) then atype := 1;
-  if(atype = 0) then
-    cfg.2 := 0
-  else begin
-    cfg.0 := 0;
-    cfg.1 := 0;
-    cfg.2 := 1;
-    alarmcfg := 0;
-    alarmcfg.4 := byte(atype);
-    alarmcfg.7 := 1;
-  end;
-{$if defined(PCF8583_USE_I2C)}
-  // writing into CONTROL STATUS REG
-  I2C_START;
-  err := I2C_WRITE(PCF8583_W_ADDR);
-  err := I2C_WRITE(PCF8583_CTRL_STATUS_REG);
-  err := I2C_WRITE(cfg);
-  I2C_STOP;
-{$elseif defined(PCF8583_USE_I2C2)}
-  // writing into CONTROL STATUS REG
-  I2C2_START;
-  err := I2C2_WRITE(PCF8583_W_ADDR);
-  err := I2C2_WRITE(PCF8583_CTRL_STATUS_REG);
-  err := I2C2_WRITE(cfg);
-  I2C2_STOP;
-{$ifend}
-  if (atype <> 0) then begin
-{$if defined(PCF8583_USE_I2C)}
-    // writing into ALARM CONTROL REG
-    I2C_START;
-    err := I2C_WRITE(PCF8583_W_ADDR);
-    err := I2C_WRITE(PCF8583_ALARM_CONTROL_REG);
-    err := I2C_WRITE(alarmcfg);
-    I2C_STOP;
-{$elseif defined(PCF8583_USE_I2C2)}
-    // writing into ALARM CONTROL REG
-    I2C2_START;
-    err := I2C2_WRITE(PCF8583_W_ADDR);
-    err := I2C2_WRITE(PCF8583_ALARM_CONTROL_REG);
-    err := I2C2_WRITE(alarmcfg);
-    I2C2_STOP;
-{$ifend}
-  end;
-end;
 
-void pcf8583_set_alarm_weekdays(BOOL d0, BOOL d1, BOOL d2, BOOL d3, BOOL d4, BOOL d5, BOOL d6){
-  UINT8_BITS wd;
-  INT8 err;
-  wd.bits.b0 = d0;
-  wd.bits.b1 = d1;
-  wd.bits.b2 = d2;
-  wd.bits.b3 = d3;
-  wd.bits.b4 = d4;
-  wd.bits.b5 = d5;
-  wd.bits.b6 = d6;
+void pcf8583_en_dis_alarm(UINT8 atype) {
+    UINT8_BITS cfg, alarmcfg;
+    INT8 err;
+    cfg.Val = pcf8583_read_reg(PCF8583_CTRL_STATUS_REG);
+    if (atype > 2) atype = 1;
+    if (atype == 0) cfg.bits.b2 = 0;
+    else {
+        cfg.bits.b0 = 0;
+        cfg.bits.b1 = 0;
+        cfg.bits.b2 = 1;
+        alarmcfg.Val = 0;
+        alarmcfg.bits.b4 = (UINT8) (atype);
+        alarmcfg.bits.b7 = 1;
+    }
 #if defined(PCF8583_USE_I2C)
-  i2c_start();
-  err = i2c_write(PCF8583_W_ADDR);
-  err = i2c_write(PCF8583_ALARM_MONTHS_REG);
-  err = i2c_write(wd.Val);
-  i2c_stop();
+    // writing into CONTROL STATUS REG
+    i2c_start();
+    err = i2c_write(PCF8583_W_ADDR);
+    err = i2c_write(PCF8583_CTRL_STATUS_REG);
+    err = i2c_write(cfg.Val);
+    i2c_stop();
 #elif defined(PCF8583_USE_I2C2)
-  i2c2_start();
-  err = i2c2_write(PCF8583_W_ADDR);
-  err = i2c2_write(PCF8583_ALARM_MONTHS_REG);
-  err = i2c2_write(wd.Val);
-  i2c2_stop();
+    // writing into CONTROL STATUS REG
+    i2c2_start();
+    err = i2c2_write(PCF8583_W_ADDR);
+    err = i2c2_write(PCF8583_CTRL_STATUS_REG);
+    err = i2c2_write(cfg.Val);
+    i2c2_stop();
+#endif
+    if (atype != 0) {
+#if defined(PCF8583_USE_I2C)
+        // writing into ALARM CONTROL REG
+        i2c_start();
+        err = i2c_write(PCF8583_W_ADDR);
+        err = i2c_write(PCF8583_ALARM_CONTROL_REG);
+        err = i2c_write(alarmcfg.Val);
+        i2c_stop();
+#elif defined(PCF8583_USE_I2C2)
+        // writing into ALARM CONTROL REG
+        i2c2_start();
+        err = i2c2_write(PCF8583_W_ADDR);
+        err = i2c2_write(PCF8583_ALARM_CONTROL_REG);
+        err = i2c2_write(alarmcfg.Val);
+        i2c2_stop();
+#endif
+    }
+}
+
+void pcf8583_set_alarm_weekdays(BOOL d0, BOOL d1, BOOL d2, BOOL d3, BOOL d4, BOOL d5, BOOL d6) {
+    UINT8_BITS wd;
+    INT8 err;
+    wd.bits.b0 = d0;
+    wd.bits.b1 = d1;
+    wd.bits.b2 = d2;
+    wd.bits.b3 = d3;
+    wd.bits.b4 = d4;
+    wd.bits.b5 = d5;
+    wd.bits.b6 = d6;
+#if defined(PCF8583_USE_I2C)
+    i2c_start();
+    err = i2c_write(PCF8583_W_ADDR);
+    err = i2c_write(PCF8583_ALARM_MONTHS_REG);
+    err = i2c_write(wd.Val);
+    i2c_stop();
+#elif defined(PCF8583_USE_I2C2)
+    i2c2_start();
+    err = i2c2_write(PCF8583_W_ADDR);
+    err = i2c2_write(PCF8583_ALARM_MONTHS_REG);
+    err = i2c2_write(wd.Val);
+    i2c2_stop();
 #endif
 }
 
-void pcf8583_set_alarm_time(UINT8 hours, UINT8 minutes, UINT8 seconds){
-// you need a pull-up 10K resistor on INT pin of PCF8583
-INT8 err;
+void pcf8583_set_alarm_time(UINT8 hours, UINT8 minutes, UINT8 seconds) {
+    // you need a pull-up 10K resistor on INT pin of PCF8583
+    INT8 err;
 #if defined(PCF8583_USE_I2C)
-  i2c_start();
-  err = i2c_write(PCF8583_W_ADDR);
-  err = i2c_write(PCF8583_ALARM_100S_REG);
-  err = i2c_write(dectobcd(0));
-  err = i2c_write(dectobcd(seconds));
-  err = i2c_write(dectobcd(minutes));
-  err = i2c_write(dectobcd(hours));
-  i2c_stop();
+    i2c_start();
+    err = i2c_write(PCF8583_W_ADDR);
+    err = i2c_write(PCF8583_ALARM_100S_REG);
+    err = i2c_write(dectobcd(0));
+    err = i2c_write(dectobcd(seconds));
+    err = i2c_write(dectobcd(minutes));
+    err = i2c_write(dectobcd(hours));
+    i2c_stop();
 #elif defined(PCF8583_USE_I2C2)
-  i2c2_start();
-  err = i2c2_write(PCF8583_W_ADDR);
-  err = i2c2_write(PCF8583_ALARM_100S_REG);
-  err = i2c2_write(dectobcd(0));
-  err = i2c2_write(dectobcd(seconds));
-  err = i2c2_write(dectobcd(minutes));
-  err = i2c2_write(dectobcd(hours));
-  i2c2_stop();
+    i2c2_start();
+    err = i2c2_write(PCF8583_W_ADDR);
+    err = i2c2_write(PCF8583_ALARM_100S_REG);
+    err = i2c2_write(dectobcd(0));
+    err = i2c2_write(dectobcd(seconds));
+    err = i2c2_write(dectobcd(minutes));
+    err = i2c2_write(dectobcd(hours));
+    i2c2_stop();
 #endif
 }
 
-void pcf8583_stop_alarm(void){ // It only stops the "sound of alarm", it doesn't disable it!
-  UINT8_BITS cfg;
-  INT8 err;
-  cfg.Val = pcf8583_read_reg(PCF8583_CTRL_STATUS_REG);
-  cfg.bits.b0 = FALSE; // clears timer alarm flag
-  cfg.bits.b1 = FALSE; // clears clock alarm flag
+void pcf8583_stop_alarm(void) { // It only stops the "sound of alarm", it doesn't disable it!
+    UINT8_BITS cfg;
+    INT8 err;
+    cfg.Val = pcf8583_read_reg(PCF8583_CTRL_STATUS_REG);
+    cfg.bits.b0 = FALSE; // clears timer alarm flag
+    cfg.bits.b1 = FALSE; // clears clock alarm flag
 #if defined(PCF8583_USE_I2C)
-  //  writing into ALARM CONTROL REG
-  i2c_start();
-  err = i2c_write(PCF8583_W_ADDR);
-  err = i2c_write(PCF8583_CTRL_STATUS_REG);
-  err = i2c_write(cfg.Val);
-  i2c_stop();
+    //  writing into ALARM CONTROL REG
+    i2c_start();
+    err = i2c_write(PCF8583_W_ADDR);
+    err = i2c_write(PCF8583_CTRL_STATUS_REG);
+    err = i2c_write(cfg.Val);
+    i2c_stop();
 #elif defined(PCF8583_USE_I2C2)
-  //  writing into ALARM CONTROL REG
-  i2c2_start();
-  err = i2c2_write(PCF8583_W_ADDR);
-  err = i2c2_write(PCF8583_CTRL_STATUS_REG);
-  err = i2c2_write(cfg.Val);
-  i2c2_stop();
+    //  writing into ALARM CONTROL REG
+    i2c2_start();
+    err = i2c2_write(PCF8583_W_ADDR);
+    err = i2c2_write(PCF8583_CTRL_STATUS_REG);
+    err = i2c2_write(cfg.Val);
+    i2c2_stop();
 #endif
 }
 
