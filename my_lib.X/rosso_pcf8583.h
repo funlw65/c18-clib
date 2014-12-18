@@ -249,7 +249,7 @@ UINT8 pcf8583_read_reg(UINT8 reg) {
     err = i2c_write(reg);
     i2c_restart();
     err = i2c_write(PCF8583_R_ADDR);
-    tmp = i2c_read(false);
+    tmp = i2c_read(FALSE);
     i2c_stop();
 #elif defined(PCF8583_USE_I2C2)
     i2c2_start();
@@ -257,7 +257,7 @@ UINT8 pcf8583_read_reg(UINT8 reg) {
     err = i2c2_write(reg);
     i2c2_restart();
     err = i2c2_write(PCF8583_R_ADDR);
-    tmp = i2c2_read(false);
+    tmp = i2c2_read(FALSE);
     i2c2_stop();
 #endif
     return (tmp);
