@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="7.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9305,6 +9305,8 @@ by exp-lbrs.ulp</description>
 <part name="DZ1" library="SparkFun-DiscreteSemi" deviceset="DIODE-ZENER" device="PTH" value="5V1"/>
 <part name="DZ2" library="SparkFun-DiscreteSemi" deviceset="DIODE-ZENER" device="PTH" value="5V1"/>
 <part name="JP21" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="C10" library="SparkFun-Passives" deviceset="CAP" device="PTH1" value="22pF"/>
+<part name="R24" library="SparkFun-Resistors" deviceset="RESISTOR" device="AXIAL-0.3" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -9395,6 +9397,8 @@ by exp-lbrs.ulp</description>
 <instance part="DZ1" gate="G$1" x="142.24" y="12.7" rot="R90"/>
 <instance part="DZ2" gate="G$1" x="147.32" y="12.7" rot="R90"/>
 <instance part="JP21" gate="G$1" x="259.08" y="187.96" rot="R180"/>
+<instance part="C10" gate="G$1" x="180.34" y="200.66" rot="R180"/>
+<instance part="R24" gate="G$1" x="233.68" y="170.18" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -9784,6 +9788,8 @@ by exp-lbrs.ulp</description>
 <wire x1="259.08" y1="154.94" x2="248.92" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="154.94" x2="248.92" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="160.02" x2="233.68" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="R24" gate="G$1" pin="1"/>
+<wire x1="233.68" y1="165.1" x2="233.68" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP16" gate="A" pin="2"/>
@@ -10231,6 +10237,11 @@ by exp-lbrs.ulp</description>
 <pinref part="IC2" gate="G$1" pin="OSCI"/>
 <pinref part="Y2" gate="G$1" pin="2"/>
 <wire x1="198.12" y1="187.96" x2="187.96" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="2"/>
+<wire x1="180.34" y1="203.2" x2="180.34" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="205.74" x2="187.96" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="205.74" x2="187.96" y2="187.96" width="0.1524" layer="91"/>
+<junction x="187.96" y="187.96"/>
 </segment>
 </net>
 <net name="D4" class="0">
@@ -10455,6 +10466,10 @@ by exp-lbrs.ulp</description>
 <pinref part="JP14" gate="G$1" pin="3"/>
 <wire x1="220.98" y1="182.88" x2="231.14" y2="182.88" width="0.1524" layer="91"/>
 <wire x1="231.14" y1="182.88" x2="231.14" y2="185.42" width="0.1524" layer="91"/>
+<pinref part="R24" gate="G$1" pin="2"/>
+<wire x1="231.14" y1="182.88" x2="233.68" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="182.88" x2="233.68" y2="175.26" width="0.1524" layer="91"/>
+<junction x="231.14" y="182.88"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -10524,10 +10539,14 @@ by exp-lbrs.ulp</description>
 <pinref part="D3" gate="G$1" pin="C"/>
 <wire x1="170.18" y1="193.04" x2="170.18" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="VDD"/>
-<wire x1="198.12" y1="193.04" x2="170.18" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="193.04" x2="180.34" y2="193.04" width="0.1524" layer="91"/>
 <junction x="170.18" y="193.04"/>
 <pinref part="D4" gate="G$1" pin="C"/>
+<wire x1="180.34" y1="193.04" x2="170.18" y2="193.04" width="0.1524" layer="91"/>
 <wire x1="170.18" y1="190.5" x2="170.18" y2="193.04" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="180.34" y1="195.58" x2="180.34" y2="193.04" width="0.1524" layer="91"/>
+<junction x="180.34" y="193.04"/>
 </segment>
 </net>
 </nets>
