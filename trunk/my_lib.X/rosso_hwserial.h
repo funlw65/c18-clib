@@ -19,6 +19,13 @@
 #ifndef ROSSO_HWSERIAL_H
 #define	ROSSO_HWSERIAL_H
 
+#ifndef USART_RX_TRIS
+#error "define USART_RX_TRIS in your main program"
+#endif
+#ifndef USART_TX_TRIS
+#error "define USART_TX_TRIS in your main program"
+#endif
+
 /* THIS IS NOT WORKING
 void _calculate_baudrate(void){
 #define max_deviation 5
