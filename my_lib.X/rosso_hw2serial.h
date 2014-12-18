@@ -19,6 +19,13 @@
 #ifndef ROSSO_HW2SERIAL_H
 #define	ROSSO_HW2SERIAL_H
 
+#ifndef USART_RX2_TRIS
+#error "define USART_RX2_TRIS in your main program"
+#endif
+#ifndef USART_TX2_TRIS
+#error "define USART_TX2_TRIS in your main program"
+#endif
+
 void USART_HW2_init(void) {
     UINT16 usart_div = ((_XTAL_FREQ / USART_BAUDRATE2) / 4) - 1;
     TXSTA2 = 0b00000000; // reset (8 databits, async)

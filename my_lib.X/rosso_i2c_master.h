@@ -13,7 +13,7 @@
 #define	I2C_100KHZ   (_XTAL_FREQ /   100000 / 4 - 1)
 #define	I2C_400KHZ   (_XTAL_FREQ /   400000 / 4 - 1)
 #define	I2C_1MHZ     (_XTAL_FREQ /  1000000 / 4 - 1)
-#define I2C_LEVEL    TRUE // this should be user set-able.. is ok for now...
+#define I2C_LEVEL    // this should be user set-able.. is ok for now...
 
 #ifndef I2C_SCL_DIR
 #error "define I2C_SCL_DIR before including this header"
