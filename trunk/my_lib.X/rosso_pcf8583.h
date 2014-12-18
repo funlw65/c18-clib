@@ -8,13 +8,13 @@
 /*
  * Requirements:
  * You have to configure and include the header for I2C or I2C2
- * before including this header.
+ * and the rosso_conversion.h before including this header.
  *
  * You also ave to make some definitions for the PCF8583 I2C address
  * and to define which I2C is used, like bellow:
  *
  * #define PCF8583_USE_I2C
- * #define PCF8583_PHYSICAL_ADDRESS 0xA0 // 0x00 may be used by I2C EEPROM
+ * #define PCF8583_PHYSICAL_ADDRESS 0xA2 // 0x00 may be used by I2C EEPROM
  * #include <rosso_pcf8583.h>
  *
  */
@@ -22,15 +22,7 @@
 #ifndef ROSSO_PCF8583_H
 #define	ROSSO_PCF8583_H
 
-#if defined(PCF8583_USE_I2C)
-#if defined(PCF8583_USE_I2C2)
-#undef PCF8583_USE_I2C2
-#endif
-#elif defined(PCF8583_USE_I2C2)
-#if defined(PCF8583_USE_I2C)
-#undef PCF8583_USE_I2C
-#endif
-#else
+#if !defined(PCF8583_USE_I2C) && !defined(PCF8583_USE_I2C2)
 #error "You must define which I2C use your PCF8583 RTC"
 #endif
 
@@ -72,16 +64,16 @@
 // TODO: Timer alarm not implemented yet
 // TODO: Event counter not implemented yet
 
-volatile UINT8 RTC_seconds; // 00 to 59
-volatile UINT8 RTC_minutes; // 00 to 59
-volatile UINT8 RTC_hours; // 00 to 23
+UINT8 RTC_seconds; // 00 to 59
+UINT8 RTC_minutes; // 00 to 59
+UINT8 RTC_hours; // 00 to 23
 //--
-volatile UINT8 RTC_day; // 1 to 31
-volatile UINT8 RTC_month; // 1 to 12
-volatile UINT8 RTC_century; // 20
-volatile UINT8 RTC_year; // 00 to 99
-volatile UINT8 RTC_dayofweek; // 0 to 6 (Sun = 0, Mon = 1, ..., Sat = 6)
-volatile UINT8 RTC_leapyear; // 0 to 3 (0 - leapyear and 1,2,3 not)
+UINT8 RTC_day; // 1 to 31
+UINT8 RTC_month; // 1 to 12
+UINT8 RTC_century; // 20
+UINT8 RTC_year; // 00 to 99
+UINT8 RTC_dayofweek; // 0 to 6 (Sun = 0, Mon = 1, ..., Sat = 6)
+UINT8 RTC_leapyear; // 0 to 3 (0 - leapyear and 1,2,3 not)
 // 2012 was leapyear    ( leapyear = 0)
 // 2014 is not leapyear ( leapyear = 2)
 
@@ -95,8 +87,8 @@ void pcf8583_getyear(UINT8 * cn, UINT8 * yr) {
     err = i2c_write(PCF8583_RAM_ADDR);
     i2c_restart();
     err = i2c_write(PCF8583_R_ADDR);
-    cn = i2c_read(TRUE);
-    yr = i2c_read(FALSE);
+    *cn = i2c_read(TRUE);
+    *yr = i2c_read(FALSE);
     i2c_stop();
 #elif defined(PCF8583_USE_I2C2)
     i2c2_start();
@@ -104,8 +96,8 @@ void pcf8583_getyear(UINT8 * cn, UINT8 * yr) {
     err = i2c2_write(PCF8583_RAM_ADDR);
     i2c2_restart();
     err = i2c2_write(PCF8583_R_ADDR);
-    cn = i2c2_read(TRUE);
-    yr = i2c2_read(FALSE);
+    *cn = i2c2_read(TRUE);
+    *yr = i2c2_read(FALSE);
     i2c2_stop();
 #endif
 }
@@ -200,9 +192,9 @@ void pcf8583_get_datetime(UINT8 * hr, UINT8 * mn, UINT8 * sc, UINT8 * dow, UINT8
     err = i2c_write(PCF8583_SECONDS_REG);
     i2c_restart();
     err = i2c_write(PCF8583_R_ADDR);
-    sc = bcdtodec(i2c_read(TRUE));
-    mn = bcdtodec(i2c_read(TRUE));
-    hr = bcdtodec((i2c_read(TRUE) & 0b00111111));
+    *sc = bcdtodec(i2c_read(TRUE));
+    *mn = bcdtodec(i2c_read(TRUE));
+    *hr = bcdtodec((i2c_read(TRUE) & 0b00111111));
     LyDd = i2c_read(TRUE);
     WdMo = i2c_read(FALSE);
     i2c_stop();
@@ -213,31 +205,31 @@ void pcf8583_get_datetime(UINT8 * hr, UINT8 * mn, UINT8 * sc, UINT8 * dow, UINT8
     err = i2c2_write(PCF8583_SECONDS_REG);
     i2c2_restart();
     err = i2c2_write(PCF8583_R_ADDR);
-    sc = bcdtodec(i2c2_read(TRUE));
-    mn = bcdtodec(i2c2_read(TRUE));
-    hr = bcdtodec((i2c2_read(TRUE) & 0b00111111));
+    *sc = bcdtodec(i2c2_read(TRUE));
+    *mn = bcdtodec(i2c2_read(TRUE));
+    *hr = bcdtodec((i2c2_read(TRUE) & 0b00111111));
     LyDd = i2c2_read(TRUE);
     WdMo = i2c2_read(FALSE);
     i2c2_stop();
 #endif
     tmp = ((WdMo & 0b11100000) >> 5);
-    dow = bcdtodec(tmp);
+    *dow = bcdtodec(tmp);
 
     tmp = (WdMo & 0b00011111);
-    mt = bcdtodec(tmp);
+    *mt = bcdtodec(tmp);
 
     tmp = ((LyDd & 0b11000000) >> 6);
-    lp = bcdtodec(tmp);
+    *lp = bcdtodec(tmp);
 
     tmp = (LyDd & 0b00111111);
-    dy = bcdtodec(tmp);
+    *dy = bcdtodec(tmp);
 
-    pcf8583_getyear(&ct, &yr);
+    pcf8583_getyear(ct, yr);
 
     // check if RTC incremented the leapyear so we update our year in NVRAM
-    if (lp != (yr % 4)) {
-        yr = yr + 1;
-        pcf8583_setyear(ct, yr);
+    if (*lp != (*yr % 4)) {
+        *yr = *yr + 1;
+        pcf8583_setyear(*ct, *yr);
     }
 }
 
