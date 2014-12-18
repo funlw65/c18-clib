@@ -10,9 +10,9 @@
 
 // I2C Baud rate
 #define	I2C2_SLOWEST  127 //-- (40 kHz @ 20 MHz Fosc)
-#define	I2C2_100KHZ   _XTAL_FREQ /   100000 / 4 - 1
-#define	I2C2_400KHZ   _XTAL_FREQ /   400000 / 4 - 1
-#define	I2C2_1MHZ     _XTAL_FREQ /  1000000 / 4 - 1
+#define	I2C2_100KHZ   (_XTAL_FREQ /   100000 / 4 - 1)
+#define	I2C2_400KHZ   (_XTAL_FREQ /   400000 / 4 - 1)
+#define	I2C2_1MHZ     (_XTAL_FREQ /  1000000 / 4 - 1)
 #define I2C2_LEVEL    TRUE // this should be user set-able.. is ok for now...
 
 #ifndef	I2C_SCL2_DIR
@@ -29,8 +29,11 @@ void i2c2_init(UINT8 speed) {
     SSP2CON2 = 0b00100000;
     if (speed > I2C2_SLOWEST) SSP2ADD = I2C2_SLOWEST;
     else SSP2ADD = speed;
-    if (I2C2_LEVEL) SSP2STAT = 0b00000000;
-    else SSP2STAT = 0b01000000;
+    #if defined(I2C2_LEVEL)
+        SSP2STAT = 0b00000000;
+    #else
+        SSP2STAT = 0b01000000;
+    #endif
 }
 
 void i2c2_start(void) {
