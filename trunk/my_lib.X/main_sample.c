@@ -1,8 +1,11 @@
 /*
+ * This is a template for your "Il Pinguino Rosso" project.
  * File:   main_example.c
- * Author: texan
+ * Author: @YourNameHere
  *
- * Created on June 21, 2014, 4:18 AM
+ * Created on @YourCurrentDate
+ * It is wise to keep the header of your main.c file
+ * 
  */
 
 #include <GenericTypeDefs.h>
