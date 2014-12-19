@@ -1,6 +1,6 @@
 /* 
  * File:   main.c
- * Author: Worker
+ * Author: Vasile Guta-Ciucur
  *
  * Created on December 16, 2014, 9:34 PM
  */
