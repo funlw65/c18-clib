@@ -1,6 +1,6 @@
 /* 
  * File:   main.c
- * Author: Worker
+ * Author: Vasile Guta Ciucur
  *
  * Created on December 18, 2014, 11:49 PM
  */
@@ -25,8 +25,7 @@
 #define PCF8583_USE_I2C
 #define PCF8583_PHYSICAL_ADDRESS 0xA2 // 0x00 may be used by I2C EEPROM
 #include <rosso_pcf8583.h>
-//this time we are using the lcd library defaults for pinout
-#include <rosso_delays.h> // required by LCD lib. bellow
+#include <rosso_delays.h> // required by the main program
 #define USART_BAUDRATE 19200
 #define USART_RX_TRIS TRISCbits.RC7
 #define USART_TX_TRIS TRISCbits.RC6
@@ -101,7 +100,7 @@ void main() {
     RTC_century = 20; //
     RTC_year = 14; // 0 to 99
     RTC_dayofweek = 2; // 0 to 6 (Sun, Mon, etc..)
-    RTC_leapyear = 2; // 0 to 3 (o - is leapyear and 1,2,3 not)
+    RTC_leapyear = 2; // 0 to 3 (0 - is leapyear and 1,2,3 not)
     // 2012 was leapyear    ( leapyear = 0)
     // 2014 is not leapyear ( leapyear = 2)
     //
