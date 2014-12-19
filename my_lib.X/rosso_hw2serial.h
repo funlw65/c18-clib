@@ -11,6 +11,7 @@
  * By example:
  *
  * #define USART_BAUDRATE2 19200
+ * // the following not true for TX2 and RX2 but it serves as example
  * #define USART_RX2_TRIS TRISCbits.RC7
  * #define USART_TX2_TRIS TRISCbits.RC6
  * #include <rosso_hw2serial.h>

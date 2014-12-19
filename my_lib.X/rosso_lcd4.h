@@ -6,6 +6,11 @@
  * Created on December 16, 2014, 3:32 PM
  */
 
+/*
+ * It depends on rosso_delays.h header which must be included
+ * in the main.c before this one.
+ */
+
 #ifndef ROSSO_LCD4_H
 #define	ROSSO_LCD4_H
 
