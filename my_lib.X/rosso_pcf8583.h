@@ -23,7 +23,7 @@
 #define	ROSSO_PCF8583_H
 
 #if !defined(PCF8583_USE_I2C) && !defined(PCF8583_USE_I2C2)
-//#error "You must define which I2C use your PCF8583 RTC"
+#error "You must define which I2C use your PCF8583 RTC"
 #endif
 
 #if !defined(PCF8583_PHYSICAL_ADDRESS)
