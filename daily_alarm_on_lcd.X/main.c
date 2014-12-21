@@ -11,7 +11,9 @@
  * with a 10K pull-up resistor. The OnBoardLED (RC2) will simulate
  * the alarm and the OnBoardButton (RA4) will stop the alarm.
  * The clock and date is displayed on a 2x16 4bit LCD display (data
- * on the upper part of port B [B4-B7], RS on RE1 and E to RE2 pins)
+ * on the upper part of port B [B4-B7], RS on RE1 and E to RE2 pins).
+ * PCF8583 is connected to I2C at 0xA2 address (to make room for an
+ * eventual I2C EEPROM).
  */
 
 #include <GenericTypeDefs.h>
