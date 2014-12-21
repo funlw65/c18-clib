@@ -23,7 +23,7 @@
 #define	ROSSO_PCF8583_H
 
 #if !defined(PCF8583_USE_I2C) && !defined(PCF8583_USE_I2C2)
-#error "You must define which I2C use your PCF8583 RTC"
+//#error "You must define which I2C use your PCF8583 RTC"
 #endif
 
 #if !defined(PCF8583_PHYSICAL_ADDRESS)
@@ -273,7 +273,9 @@ void pcf8583_en_dis_alarm(UINT8 atype) {
         cfg.bits.b1 = 0;
         cfg.bits.b2 = 1;
         alarmcfg.Val = 0;
-        alarmcfg.bits.b4 = (UINT8) (atype);
+        alarmcfg.bits.b4 = atype;
+        alarmcfg.bits.b5 = atype >> 1;
+        alarmcfg.bits.b6 = atype >> 2;
         alarmcfg.bits.b7 = 1;
     }
 #if defined(PCF8583_USE_I2C)
