@@ -106,7 +106,7 @@ void main() {
     TRISCbits.RC0 = 1; // set as input
     // =====================================================================
     // if you need to set the RTC, uncomment the following and run once
-    RTC_seconds = 40; // 0 to 59
+    RTC_seconds = 55; // 0 to 59
     RTC_minutes = 59; // 0 to 59
     RTC_hours = 23; // 0 to 23
     RTC_day = 13; // 1 to 31
@@ -124,8 +124,8 @@ void main() {
     // =================== SET THE ALARM ===================================
     pcf8583_en_dis_alarm(PCF8583_WEEKDAYS_ALARM);
     pcf8583_set_alarm_time(0,0,0);
-    //In which days alarm is on: SU MO TU WE TH FR SA
-    pcf8583_set_alarm_weekdays(  0, 1, 1, 1, 1, 1, 0);
+    //In which days alarm is on: SU   MO   TU   WE   TH   FR     SA
+    pcf8583_set_alarm_weekdays(CLEAR, SET, SET, SET, SET, SET, CLEAR);
     // =====================================================================
 
     while (1) {
