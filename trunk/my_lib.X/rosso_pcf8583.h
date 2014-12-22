@@ -56,9 +56,11 @@
 #define PCF8583_START_COUNTING    0x00
 #define PCF8583_STOP_COUNTING     0x80
 // Constants for Alarm Type
-#define PCF8583_NO_ALARM          0
-#define PCF8583_DAILY_ALARM       1
-#define PCF8583_WEEKDAYS_ALARM    2
+typedef enum{
+    PCF8583_NO_ALARM,
+    PCF8583_DAILY_ALARM,
+    PCF8583_WEEKDAYS_ALARM
+}ALARMTYPE;
 // PCF8583_MONTH_ALARM // not implemented, TODO.
 
 // TODO: Timer alarm not implemented yet
@@ -262,12 +264,11 @@ UINT8 pcf8583_read_reg(UINT8 reg) {
 //    2 = weekdays alarm
 // other types are not implemented yet.
 
-void pcf8583_en_dis_alarm(UINT8 atype) {
+void pcf8583_en_dis_alarm(ALARMTYPE atype) {
     UINT8_BITS cfg, alarmcfg;
     INT8 err;
     cfg.Val = pcf8583_read_reg(PCF8583_CTRL_STATUS_REG);
-    if (atype > 2) atype = 1;
-    if (atype == 0) cfg.bits.b2 = 0;
+    if (atype == PCF8583_NO_ALARM) cfg.bits.b2 = 0;
     else {
         cfg.bits.b0 = 0;
         cfg.bits.b1 = 0;
