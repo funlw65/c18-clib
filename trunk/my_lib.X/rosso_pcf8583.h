@@ -313,7 +313,7 @@ void pcf8583_en_dis_alarm(ALARMTYPE atype) {
     }
 }
 
-void pcf8583_set_alarm_weekdays(BOOL d0, BOOL d1, BOOL d2, BOOL d3, BOOL d4, BOOL d5, BOOL d6) {
+void pcf8583_set_alarm_weekdays(BIT d0, BIT d1, BIT d2, BIT d3, BIT d4, BIT d5, BIT d6) {
     UINT8_BITS wd;
     INT8 err;
     wd.bits.b0 = d0;
