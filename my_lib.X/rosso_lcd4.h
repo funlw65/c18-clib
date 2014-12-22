@@ -64,10 +64,6 @@
 #error "valid values for LCD Nr. Lines are 1, 2, 4"
 #endif
 
-// Define some chipsets
-#define LCD_HD44780 0 // standard
-#define LCD_ST7066U 1 // A - E
-
 #define LCD_CLEAR_DISPLAY        0b00000001
 #define LCD_RETURN_HOME          0b00000010
 #define LCD_DISPLAY_ONOFF        0b00001000
@@ -77,6 +73,13 @@
 #define LCD_DISPLAY_SHIFT_LEFT   0b00011000
 #define LCD_SET_DDRAM_ADDRESS    0b10000000
 #define LCD_SET_CGRAM_ADDRESS    0b01000000
+
+// Define some chipsets
+typedef enum
+{
+    LCD_HD44780,
+    LCD_ST7066U
+} CHIP;
 
 // global variable for cursor position
 UINT8 LCD_POS;
@@ -204,7 +207,7 @@ void lcd_progress(UINT8 line, UINT8 amount, UINT8 pattern) {
     for (i = 0; i < LCD_NR_CHARS - amount; i++) lcd_write_char(' ');
 }
 
-void lcd_init(UINT8 chipset) {
+void lcd_init(CHIP chipset) {
 #ifndef LCD_RS_DIR
 #error "you must define LCD_RS_DIR"
 #endif
@@ -230,54 +233,56 @@ void lcd_init(UINT8 chipset) {
     LCD_D6_DIR = 0;
     LCD_D7_DIR = 0;
     //
-    if (chipset > 1) chipset = 0;
-    if (chipset == LCD_HD44780) {
-        LCD_RS = 0; // set to control char mode
-        delay_25ms(); // power-up delay (> 15 ms)
-        __lcd_write_nibble(0b00000011); // function set
-        delay_5ms(); // > 4.1 milliseconds
-        __lcd_write_nibble(0b00000011); // function set
-        delay_100us(); // > 100 us
-        __lcd_write_nibble(0b00000011); // function set
-        delay_35us(); // > 37 us
-        delay_3us();
-        __lcd_write_nibble(0b00000010); // select 4-bits mode
-        delay_35us(); // > 37 us
-        delay_3us();
-        _lcd_write_command(0b00101000); // 2 lines, 5x8 dots font
-        _lcd_write_command(0b00011100); // cursor (not data) move right
-        _lcd_write_command(0b00001100); // display on, cursor off, no blink
-        _lcd_write_command(0b00000110); // cursor shift right, no data shift
-        // during read/write operations
-        lcd_clear_screen(); // clear display
-    } else {
-        __lcd_write_nibble(0b00000011);
-        delay_40us();
-        __lcd_write_nibble(0b00000010);
-        __lcd_write_nibble(0b00001100);
-        delay_40us();
-        __lcd_write_nibble(0b00000010);
-        __lcd_write_nibble(0b00001100);
-        delay_35us(); // > 37 us
-        delay_3us();
-        __lcd_write_nibble(0b00000000); // display on / off
-        __lcd_write_nibble(0b00001100);
-        delay_35us(); // > 37 us
-        delay_3us();
-        __lcd_write_nibble(0b00000000); // display clear
-        __lcd_write_nibble(0b00000001);
-        delay_1ms();
-        delay_500us();
-        delay_40us();
-        __lcd_write_nibble(0b00000000); // entry mode set
-        __lcd_write_nibble(0b00000110);
-        delay_35us(); // > 37 us
-        delay_3us();
-        __lcd_write_nibble(0b00000000); // display clear
-        __lcd_write_nibble(0b00000001);
-        delay_1ms();
-        delay_500us();
-        delay_40us();
+    LCD_RS = 0; // set to control char mode
+    switch(chipset){
+        case LCD_HD44780:
+            delay_25ms(); // power-up delay (> 15 ms)
+            __lcd_write_nibble(0b00000011); // function set
+            delay_5ms(); // > 4.1 milliseconds
+            __lcd_write_nibble(0b00000011); // function set
+            delay_100us(); // > 100 us
+            __lcd_write_nibble(0b00000011); // function set
+            delay_35us(); // > 37 us
+            delay_3us();
+            __lcd_write_nibble(0b00000010); // select 4-bits mode
+            delay_35us(); // > 37 us
+            delay_3us();
+            _lcd_write_command(0b00101000); // 2 lines, 5x8 dots font
+            _lcd_write_command(0b00011100); // cursor (not data) move right
+            _lcd_write_command(0b00001100); // display on, cursor off, no blink
+            _lcd_write_command(0b00000110); // cursor shift right, no data shift
+            // during read/write operations
+            lcd_clear_screen(); // clear display
+        break;
+        case LCD_ST7066U:
+            __lcd_write_nibble(0b00000011);
+            delay_40us();
+            __lcd_write_nibble(0b00000010);
+            __lcd_write_nibble(0b00001100);
+            delay_40us();
+            __lcd_write_nibble(0b00000010);
+            __lcd_write_nibble(0b00001100);
+            delay_35us(); // > 37 us
+            delay_3us();
+            __lcd_write_nibble(0b00000000); // display on / off
+            __lcd_write_nibble(0b00001100);
+            delay_35us(); // > 37 us
+            delay_3us();
+            __lcd_write_nibble(0b00000000); // display clear
+            __lcd_write_nibble(0b00000001);
+            delay_1ms();
+            delay_500us();
+            delay_40us();
+            __lcd_write_nibble(0b00000000); // entry mode set
+            __lcd_write_nibble(0b00000110);
+            delay_35us(); // > 37 us
+            delay_3us();
+            __lcd_write_nibble(0b00000000); // display clear
+            __lcd_write_nibble(0b00000001);
+            delay_1ms();
+            delay_500us();
+            delay_40us();
+        break;
     }
 }
 
