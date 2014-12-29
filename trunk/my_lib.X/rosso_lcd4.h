@@ -9,6 +9,7 @@
 /*
  * It depends on rosso_delays.h header which must be included
  * in the main.c before this one.
+ *
  */
 
 #ifndef ROSSO_LCD4_H

@@ -8,20 +8,16 @@
 #ifndef ROSSO_I2C2_MASTER_H
 #define	ROSSO_I2C2_MASTER_H
 
-// I2C Baud rate
-//#define	I2C2_SLOWEST  127 //-- (40 kHz @ 20 MHz Fosc)
-//#define	I2C2_100KHZ   (_XTAL_FREQ /   100000 / 4 - 1)
-//#define	I2C2_400KHZ   (_XTAL_FREQ /   400000 / 4 - 1)
-//#define	I2C2_1MHZ     (_XTAL_FREQ /  1000000 / 4 - 1)
-#define I2C2_LEVEL    // this should be user set-able.. is ok for now...
+#ifndef I2C_LEVEL
+#define I2C_LEVEL    // this should be user set-able.. is ok for now...
 
 typedef enum{
-    I2C2_1MHZ    = (_XTAL_FREQ /  1000000 / 4 - 1),
-    I2C2_400KHZ  = (_XTAL_FREQ /   400000 / 4 - 1),
-    I2C2_100KHZ  = (_XTAL_FREQ /   100000 / 4 - 1),
-    I2C2_SLOWEST = 127
-} I2C2SPEED;
-
+    I2C_1MHZ    = (_XTAL_FREQ /  1000000 / 4 - 1),
+    I2C_400KHZ  = (_XTAL_FREQ /   400000 / 4 - 1),
+    I2C_100KHZ  = (_XTAL_FREQ /   100000 / 4 - 1),
+    I2C_SLOWEST = 127
+} I2CSPEED;
+#endif
 
 #ifndef	I2C_SCL2_DIR
 #error "define I2C_SCL2_DIR before including this header"
@@ -30,14 +26,14 @@ typedef enum{
 #error "define I2C_SCL2_DIR before including this header"
 #endif
 
-void i2c2_init(I2C2SPEED speed) {
+void i2c2_init(I2CSPEED speed) {
     I2C_SCL2_DIR = 1;
     I2C_SDA2_DIR = 1;
     SSP2CON1 = 0b00101000;
     SSP2CON2 = 0b00100000;
-    if (speed > I2C2_SLOWEST) SSP2ADD = I2C2_SLOWEST;
+    if (speed > I2C_SLOWEST) SSP2ADD = I2C_SLOWEST;
     else SSP2ADD = speed;
-    #if defined(I2C2_LEVEL)
+    #if defined(I2C_LEVEL)
         SSP2STAT = 0b00000000;
     #else
         SSP2STAT = 0b01000000;
