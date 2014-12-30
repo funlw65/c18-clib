@@ -1,6 +1,7 @@
 /* 
  * File:   rosso_spi_master.h
  * Author: MCHP
+ * Adapted by: Vasile Guta Ciucur
  *
  * Created on December 28, 2014, 3:15 PM
  */
@@ -34,7 +35,6 @@ typedef enum{
     MODE_11
 } SPIMODE;
 
-/* SSPCON1 REGISTER */
 #define   SSPENB        0b00100000           // Enable serial port and configures SCK, SDO, SDI
 
 typedef enum{
@@ -69,17 +69,17 @@ void SPI_init(SPISPEED spi_rate, SPIMODE bus_mode, SPIPHASE smp_phase) {
     }
     else if(bus_mode == 3) SSPCON1bits.CKP = 1; // clock idle state high
     //set SPI pins directions;
-#ifdef SPI_SDO_DIR
-    error "define SPI_SDO_DIR - the TRIS, ya know?"
+#ifndef SPI_SDO_DIR
+    #error "define SPI_SDO_DIR - the TRIS, ya know?"
 #endif
-#ifdef SPI_SDI_DIR
-    error "define SPI_SDI_DIR - the TRIS, ya know?"
+#ifndef SPI_SDI_DIR
+    #error "define SPI_SDI_DIR - the TRIS, ya know?"
 #endif
-#ifdef SPI_CLK_DIR
-    error "define SPI_CLK_DIR - the TRIS, ya know?"
+#ifndef SPI_CLK_DIR
+    #error "define SPI_CLK_DIR - the TRIS, ya know?"
 #endif
-#ifdef SPI_SS_DIR
-    error "define SPI_SS_DIR - the TRIS, ya know?"
+#ifndef SPI_SS_DIR
+    #error "define SPI_SS_DIR - the TRIS, ya know?"
 #endif
     if(spi_rate == SLV_SSON){
         SPI_CLK_DIR = 1;
@@ -91,6 +91,9 @@ void SPI_init(SPISPEED spi_rate, SPIMODE bus_mode, SPIPHASE smp_phase) {
     SPI_SDI_DIR = 1;
     SSPCON1 |= SSPENB; // enable synchronous serial port
 }
+
+#define SPI_Low_Speed()  SPI2_init(SPI_FOSC_64, MODE_00, SMP_END);
+#define SPI_High_Speed() SPI2_init(SPI_FOSC_4,  MODE_00, SMP_END);
 
 UINT8 SPI_read(void) {
     UINT8 TempVar;
