@@ -6,25 +6,18 @@
  */
 
 /*
- * It requires from you a definition of desired baudrate and to define
- * your TX and RX pins before including this header. 
+ * It requires from you a definition of desired baudrate before including this header. 
  * By example:
  *
  * #define USART_BAUDRATE2 19200
- * // the following not true for TX2 and RX2 but it serves as example
- * #define USART_RX2_TRIS TRISCbits.RC7
- * #define USART_TX2_TRIS TRISCbits.RC6
  * #include <rosso_hw2serial.h>
  */
 
 #ifndef ROSSO_HW2SERIAL_H
 #define	ROSSO_HW2SERIAL_H
 
-#ifndef USART_RX2_TRIS
-#error "define USART_RX2_TRIS in your main program"
-#endif
-#ifndef USART_TX2_TRIS
-#error "define USART_TX2_TRIS in your main program"
+#ifndef USART_BAUDRATE2
+#define USART_BAUDRATE2 19200
 #endif
 
 void USART_HW2_init(void) {
@@ -40,8 +33,8 @@ void USART_HW2_init(void) {
     //_calculate_baudrate();  // transmit and receive speed
     PIE3bits.RC2IE = FALSE; // disable receive interrupts
     PIE3bits.TX2IE = FALSE; // disable transmit interrupts
-    USART_RX2_TRIS = 1; // make receive pin input
-    USART_TX2_TRIS = 1; // make transmit pin input! (required by some older .. PICs like 16f628)
+    //USART_RX2_TRIS = 1; // make receive pin input
+    //USART_TX2_TRIS = 0;
     TXSTA2bits.TXEN = TRUE; // Enable transmitter
     // (makes transmit pin output)
     RCSTA2bits.SPEN = 1; // activate serial port
@@ -53,9 +46,7 @@ void USART_HW2_disable(void) {
     RCSTA2bits.SPEN = FALSE; // disable serial port
 }
 
-void USART_HW2_enable(void) {
-    RCSTA2bits.SPEN = TRUE; // enable serial port
-}
+#define USART_HW2_enable() RCSTA2bits.SPEN=TRUE; // enable serial port
 
 void USART_HW2_write(UINT8 data) {
     while (!PIR3bits.TX2IF); // wait while transmission pending
@@ -74,6 +65,8 @@ BOOL USART_HW2_read(UINT8 *data) {
     return (TRUE);
 }
 
+#define USART_HW2_datardy()  (PIR3bits.RC2IF)
+#define USART_HW2_databusy() (!TXSTA2bits.TRMT)
 
 #endif	/* ROSSO_HWSERIAL_H */
 

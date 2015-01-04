@@ -1,5 +1,3 @@
-
-
 /*
  *
  * Corsiva_12
@@ -35,17 +33,13 @@
  *     uint8_t    font_data[];
  *                  // bit field of all characters
  */
-
-#include <inttypes.h>
-#include <avr/pgmspace.h>
-
 #ifndef CORSIVA_12_H
 #define CORSIVA_12_H
 
 #define CORSIVA_12_WIDTH 10
 #define CORSIVA_12_HEIGHT 11
 
-static const uint8_t Corsiva_12[] PROGMEM = {
+static const UINT8 Corsiva_12[] = {
     0x16, 0x3A, // size
     0x0A, // width
     0x0B, // height

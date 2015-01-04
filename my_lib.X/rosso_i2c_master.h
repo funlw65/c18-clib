@@ -1,12 +1,15 @@
 /* 
  * File:   rosso_i2c.h
- * Author: Worker
+ * Author: Vasile Guta Ciucur
  *
  * Created on December 9, 2014, 11:36 PM
  */
 
 #ifndef ROSSO_I2C_MASTER_H
 #define	ROSSO_I2C_MASTER_H
+
+#define I2C_SCL_DIR TRISCbits.RC3
+#define I2C_SDA_DIR TRISCbits.RC4
 
 #ifndef I2C_LEVEL
 #define I2C_LEVEL    // this should be user set-able.. is ok for now...
@@ -17,13 +20,6 @@ typedef enum{
     I2C_100KHZ  = (_XTAL_FREQ /   100000 / 4 - 1),
     I2C_SLOWEST = 127
 } I2CSPEED;
-#endif
-
-#ifndef I2C_SCL_DIR
-#error "define I2C_SCL_DIR before including this header"
-#endif
-#ifndef I2C_SDA_DIR
-#error "define I2C_SDA_DIR before including this header"
 #endif
 
 void i2c_init(I2CSPEED speed) {

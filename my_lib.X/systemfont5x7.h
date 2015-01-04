@@ -29,9 +29,6 @@
  *                  // bit field of all characters
  */
 
-#include <inttypes.h>
-#include <avr/pgmspace.h>
-
 #ifndef SYSTEM5x7_H
 #define SYSTEM5x7_H
 
@@ -45,7 +42,7 @@
 
 #define SystemFont5x7 System5x7
 
-static const uint8_t System5x7[] PROGMEM = {
+static const UINT8 System5x7[] = {
     0x0, 0x0, // size of zero indicates fixed width font, actual length is width * height
     0x05, // width
     0x07, // height

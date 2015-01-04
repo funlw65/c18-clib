@@ -23,6 +23,10 @@
       <itemPath>systemfont5x7.h</itemPath>
       <itemPath>verdana_digits_24.h</itemPath>
       <itemPath>rosso_lcd4.h</itemPath>
+      <itemPath>rosso_pwm.h</itemPath>
+      <itemPath>rosso_hwspi.h</itemPath>
+      <itemPath>rosso_hwspi2.h</itemPath>
+      <itemPath>TypeDefs.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
