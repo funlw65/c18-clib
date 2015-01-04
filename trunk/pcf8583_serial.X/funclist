@@ -1,24 +1,24 @@
 ___awdiv: CODE, 2442 0 164
 _pcf8583_get_datetime: CODE, 1828 0 312
 _pcf8583_set_datetime: CODE, 1510 0 318
-_i2c_start: CODE, 3316 0 8
-_i2c_restart: CODE, 3324 0 8
+_i2c_start: CODE, 3298 0 8
+_i2c_restart: CODE, 3306 0 8
 ___awmod: CODE, 2606 0 144
 _main: CODE, 934 0 576
 _high_isr: CODE, 776 0 2076
-_USART_HW_init: CODE, 3034 0 54
+_USART_HW_init: CODE, 3034 0 50
 _dectobcd: CODE, 2980 0 54
-__initialization: CODE, 3278 0 12
-_bcdtodec: CODE, 3234 0 22
-_USART_HW_write: CODE, 3296 0 12
-_i2c_write: CODE, 3206 0 28
+__initialization: CODE, 3262 0 10
+_bcdtodec: CODE, 3218 0 22
+_USART_HW_write: CODE, 3278 0 12
+_i2c_write: CODE, 3166 0 28
 _pcf8583_getyear: CODE, 2852 0 70
-_pcf8583_setyear: CODE, 3088 0 44
+_pcf8583_setyear: CODE, 3084 0 44
 ___lbdiv: CODE, 2922 0 58
-_Delay10KTCYx: CODE, 3256 0 22
-_i2c_stop: CODE, 3308 0 8
-_i2c_read: CODE, 3132 0 38
-_i2c_init: CODE, 3170 0 36
+_Delay10KTCYx: CODE, 3240 0 22
+_i2c_stop: CODE, 3290 0 8
+_i2c_read: CODE, 3128 0 38
+_i2c_init: CODE, 3194 0 24
 _byte2dec: CODE, 2140 0 302
 _low_isr: CODE, 792 0 138
-Total: 4504
+Total: 4486
