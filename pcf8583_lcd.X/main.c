@@ -9,23 +9,12 @@
  * Demonstrating I2C master, LCD, PCF8583, Delays, Conversions
  */
 
-#include <GenericTypeDefs.h>
+#include <TypeDefs.h>
 //#define NOBOOT 1 // uncomment if you don't use a bootloader
-// enable one of the following seven boards
-#define ROSSO_SER 1 //(18F46K22, 16MHz crystal, 64MHz, BootBTN = RA4, BootLED = RC2)
-//#define PINGUINOP8B2_HID 2 //(18F4550, 20MHz crystal, 48MHz, BootBTN and BootLED uses RC2)
-//#define PINGUINOP8B2_CDC 3 //(18F4550, 20MHz crystal, 48MHz, BootBTN and BootLED uses RC2)
-//#define PINGUINOP8B3_HID 4 //(18F4550, 20MHz crystal, 48MHz, BootBTN = RA4, BootLED = RC2)
-//#define PINGUINOP8B3_CDC 5 //(18F4550, 20MHz crystal, 48MHz, BootBTN = RA4, BootLED = RC2)
-//#define FREEJALDUINO_CDC 6 //(18F2550, 20MHz crystal, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
-//#define FREEJALDUINO_HID 7 //(18F2550, 20MHz crystal, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
 // disable following line if your hardware differs
 #define ONBOARD 1 // enable the default onboard definitions
 #include <rosso.h> // processor type, speed, configuration bits, hardware, app_offset.
 #include <rosso_conversion.h>
-#define I2C_SCL_DIR TRISCbits.RC3 // note that this is for 18F46k22
-#define I2C_SDA_DIR TRISCbits.RC4
-#define I2C_LEVEL 
 #include <rosso_i2c_master.h>
 #define PCF8583_USE_I2C
 #define PCF8583_PHYSICAL_ADDRESS 0xA2 // 0x00 may be used by I2C EEPROM
@@ -89,7 +78,7 @@ void main() {
     OnBoardButton_dir = 1; //input
     OnBoardLED = 0;
 #endif
-    //ei(); // enable general interrupts if needed
+    //sei(); // enable general interrupts if needed
     // Add other initializations you may have...
     i2c_init(I2C_100KHZ);
     lcd_init(LCD_HD44780);
