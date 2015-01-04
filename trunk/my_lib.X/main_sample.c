@@ -1,26 +1,22 @@
 /*
- * This is a template for your "Il Pinguino Rosso" project.
  * File:   main_example.c
  * Author: @YourNameHere
  *
  * Created on @YourCurrentDate
- * It is wise to keep the header of your main.c file
+ * Description: @What ever your app is doing, but for now is:
+ *    This is a template for your "Il Pinguino Rosso" project.
  * 
  */
 
-#include <GenericTypeDefs.h>
+#include <TypeDefs.h>
 //#define NOBOOT 1 // uncomment if you don't use a bootloader
-// enable one of the following seven boards
-#define ROSSO_SER 1 //(18F46K22, 16MHz crystal, 64MHz, BootBTN = RA4, BootLED = RC2)
-//#define PINGUINOP8B2_HID 2 //(18F4550, 20MHz crystal, 48MHz, BootBTN and BootLED uses RC2)
-//#define PINGUINOP8B2_CDC 3 //(18F4550, 20MHz crystal, 48MHz, BootBTN and BootLED uses RC2)
-//#define PINGUINOP8B3_HID 4 //(18F4550, 20MHz crystal, 48MHz, BootBTN = RA4, BootLED = RC2)
-//#define PINGUINOP8B3_CDC 5 //(18F4550, 20MHz crystal, 48MHz, BootBTN = RA4, BootLED = RC2)
-//#define FREEJALDUINO_CDC 6 //(18F2550, 20MHz crystal, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
-//#define FREEJALDUINO_HID 7 //(18F2550, 20MHz crystal, 48MHz, UserLED1 = RA4, UserLED2 = RC2)
 // disable following line if your hardware differs
 #define ONBOARD 1 // enable the default onboard definitions
 #include <rosso.h> // processor type, speed, configuration bits, hardware, app_offset.
+// add here other definitions and include header files if needed
+
+// add here your global variables and other fuctions you need
+
 
 // declaring the headers for the interrupt functions
 void
@@ -37,8 +33,8 @@ low_isr(void);
 
 #ifdef __18CXX
 #ifndef NOBOOT
-#pragma romdata bootloader = 0x6
-const rom char bootloader[APP_START - 0x6];
+#pragma romdata bootloader = 0x06
+const rom char bootloader[APP_START - 0x06];
 extern void _startup(void);
 
 #pragma code AppVector = APP_START
@@ -62,20 +58,19 @@ void low_vector(void) {
 #endif
 
 #pragma code  // return to the default // code section
-#endif
+#endif // let this be close to main function with nothing between
 void main() {
     AllDigital(); // all pins digital
 #ifdef ONBOARD
-    OnBoardLED_dir = 0; //output
-    OnBoardButton_dir = 1; //input
-    OnBoardLED = 0;
+    OnBoardLED_dir = 0; // set pin as output
+    OnBoardButton_dir = 1; // set pin as input
+    OnBoardLED = 0; // set the LED off
 #endif
-    //ei(); // enable general interrupts if needed
+    //sei(); // enable general interrupts if needed
     // Add other initializations you may have...
     while (1) {
         // Add your repeating code...
     }
-
 }
 
 #ifdef __18CXX
@@ -99,4 +94,3 @@ interrupt low_priority
 low_isr(void) {
     //
 }
-

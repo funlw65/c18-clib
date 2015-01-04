@@ -1,5 +1,3 @@
-
-
 /*
  *
  * Verdana28
@@ -36,17 +34,13 @@ row
  *     uint8_t    font_data[];
  *                  // bit field of all characters
  */
-
-#include <inttypes.h>
-#include <avr/pgmspace.h>
-
 #ifndef VERDANA24_H
 #define VERDANA24_H
 
 #define VERDANA24_WIDTH 10
 #define VERDANA24_HEIGHT 24
 
-static const uint8_t Verdana24[] PROGMEM = {
+static const UINT8 Verdana24[] = {
     0x0E, 0xF9, // size
     0x0A, // width
     0x18, // height

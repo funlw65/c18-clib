@@ -1,6 +1,6 @@
 /* 
  * File:   rosso_conversion.h
- * Author: Worker
+ * Author: Vasile Guta Ciucur
  *
  * Created on December 13, 2014, 7:55 PM
  */

@@ -100,16 +100,12 @@ void tmr0_isr_init(void) {
     T0CONbits.T0PS = 0; //prescaler 2
     tmr0_load = 255; //- tmr0_div / 2
 #endif
-    /*Enable high and low priority interrupts */
-    RCON = 0;
-    RCONbits.IPEN = 1;
     T0CONbits.T08BIT = 1;
     T0CONbits.T0CS = 0; // internal clock
     T0CONbits.PSA = 0; // assign prescaler to timer0
     INTCONbits.RBIF = 0;
     INTCONbits.TMR0IF = 0;
     INTCONbits.TMR0IE = 1;
-    INTCONbits.PEIE = 1;
 #ifdef TMR0_MILLIS
     tmr0_isr_walker = 0;
 #endif

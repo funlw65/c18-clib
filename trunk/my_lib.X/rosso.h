@@ -1,6 +1,6 @@
 /* 
  * File:   rosso_old.h
- * Author: Worker
+ * Author: Vasile Guta Ciucur
  *
  * Created on December 10, 2014, 4:36 PM
  */
@@ -8,12 +8,9 @@
 #ifndef ROSSO_OLD_H
 #define	ROSSO_OLD_H
 
-#if __18CXX
-#define ei() INTCONbits.GIE=1;
-#define di() INTCONbits.GIE=0;
-#endif
+#define sei() RCON=0;RCONbits.IPEN=1;INTCONbits.PEIE=1;INTCONbits.GIE=1;
+#define cli() INTCONbits.GIE=0;
 
-#ifdef ROSSO_SER
 #define _XTAL_FREQ 64000000
 #include <p18f46k22.h>
 #ifdef __18CXX
@@ -23,131 +20,16 @@
 #define APP_LINT           0x318
 #endif
 #endif
-#define AllDigital()       ANSELA=0;ANSELB=0;ANSELC=0;ANSELD=0;ANSELE=0;ADCON0=0;ADCON1=0;ADCON2=0;CM1CON0=0;CM2CON0=0;CM2CON1=0;
-#ifdef ONBOARD // onboard definitions
+#define AllDigital() ANSELA=0;ANSELB=0;ANSELC=0;ANSELD=0;ANSELE=0;ADCON0=0;ADCON1=0;ADCON2=0;CM1CON0=0;CM2CON0=0;CM2CON1=0;
+#ifdef ONBOARD // onboard definitions for "Il Pinguino Rosso" dev. board
 #define OnBoardLED         LATCbits.LATC2
 #define OnBoardButton      PORTAbits.RA4
-#define OnBoardLED_dir     TRISCbits.TRISC2
-#define OnBoardButton_dir  TRISAbits.TRISA4
-#endif
-#endif
-
-#ifdef PINGUINOP8B2_HID
-#define _XTAL_FREQ 48000000
-#include <p18f4550.h>
-#ifdef __18CXX
-#ifndef NOBOOT
-#define APP_START          0x1000
-#define APP_HINT           0x1008
-#define APP_LINT           0x1018
-#endif
-#endif
-#define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
-#ifdef ONBOARD // onboard definitions
-#define OnBoardLED         LATCbits.LATC2
-#define OnBoardButton      PORTAbits.RC2
-#define OnBoardLED_dir     TRISCbits.TRISC2
-#define OnBoardButton_dir  TRISAbits.TRISC2
-#endif
+#define OnBoardLED_dir     TRISCbits.RC2
+#define OnBoardButton_dir  TRISAbits.RA4
 #endif
 
-#ifdef PINGUINOP8B2_CDC
-#define _XTAL_FREQ 48000000
-#include <p18f4550.h>
-#ifdef __18CXX
-#ifndef NOBOOT
-#define APP_START          0x800
-#define APP_HINT           0x808
-#define APP_LINT           0x818
-#endif
-#endif
-#define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
-#ifdef ONBOARD // onboard definitions
-#define OnBoardLED         LATCbits.LATC2
-#define OnBoardButton      PORTAbits.RC2
-#define OnBoardLED_dir     TRISCbits.TRISC2
-#define OnBoardButton_dir  TRISAbits.TRISC2
-#endif
-#endif
-
-#ifdef PINGUINOP8B3_HID
-#define _XTAL_FREQ 48000000
-#include <p18f4550.h>
-#ifdef __18CXX
-#ifndef NOBOOT
-#define APP_START          0x1000
-#define APP_HINT           0x1008
-#define APP_LINT           0x1018
-#endif
-#endif
-#define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
-#ifdef ONBOARD // onboard definitions
-#define OnBoardLED         LATCbits.LATC2
-#define OnBoardButton      PORTAbits.RA4
-#define OnBoardLED_dir     TRISCbits.TRISC2
-#define OnBoardButton_dir  TRISAbits.TRISA4
-#endif
-#endif
-
-#ifdef PINGUINOP8B3_CDC
-#define _XTAL_FREQ 48000000
-#include <p18f4550.h>
-#ifdef __18CXX
-#ifndef NOBOOT
-#define APP_START          0x800
-#define APP_HINT           0x808
-#define APP_LINT           0x818
-#endif
-#endif
-#define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
-#ifdef ONBOARD // onboard definitions
-#define OnBoardLED         LATCbits.LATC2
-#define OnBoardButton      PORTAbits.RA4
-#define OnBoardLED_dir     TRISCbits.TRISC2
-#define OnBoardButton_dir  TRISAbits.TRISA4
-#endif
-#endif
-
-#ifdef FREEJALDUINO_CDC
-#define _XTAL_FREQ 48000000
-#include <p18f2550.h>
-#ifdef __18CXX
-#ifndef NOBOOT
-#define APP_START          0x800
-#define APP_HINT           0x808
-#define APP_LINT           0x818
-#endif
-#endif
-#define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
-#ifdef ONBOARD // onboard definitions
-#define OnBoardLED         LATCbits.LATC2
-#define OnBoardLED2        LATAbits.LATA4
-#define OnBoardLED_dir     TRISCbits.TRISC2
-#define OnBoardLED2_dir    TRISAbits.TRISA4
-#endif
-#endif
-
-#ifdef FREEJALDUINO_HID
-#define _XTAL_FREQ 48000000
-#include <p18f2550.h>
-#ifdef __18CXX
-#ifndef NOBOOT
-#define APP_START          0x1000
-#define APP_HINT           0x1008
-#define APP_LINT           0x1018
-#endif
-#endif
-#define AllDigital()       ADCON0=0;ADCON1=15;ADCON2=0;CMCON=7;
-#ifdef ONBOARD // onboard definitions
-#define OnBoardLED         LATCbits.LATC2
-#define OnBoardButton      PORTAbits.RA4
-#define OnBoardLED_dir     TRISCbits.TRISC2
-#define OnBoardButton_dir  TRISAbits.TRISA4
-#endif
-#endif
 
 #ifdef NOBOOT
-#if (_XTAL_FREQ == 64000000)
 #pragma config FOSC = HSMP      // Oscillator Selection bits (HS oscillator (medium power 4-16 MHz))
 #pragma config PLLCFG = ON      // 4X PLL Enable (Oscillator multiplied by 4)
 #pragma config PRICLKEN = ON    // Primary clock enable bit (Primary clock is always enabled)
@@ -206,46 +88,6 @@
 
 // CONFIG7H
 #pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot Block (000000-0007FFh) not protected from table reads executed in other blocks)
-#elif (_XTAL_FREQ == 48000000)
-#pragma config PLLDIV   = 5         // (20 MHz crystal on PICDEM FS USB board)
-#pragma config CPUDIV   = OSC1_PLL2
-#pragma config USBDIV   = 2         // Clock source from 96MHz PLL/2
-#pragma config FOSC     = HSPLL_HS
-#pragma config FCMEN    = OFF
-#pragma config IESO     = OFF
-#pragma config PWRT     = OFF
-#pragma config BOR      = ON
-#pragma config BORV     = 3
-#pragma config VREGEN   = ON		//USB Voltage Regulator
-#pragma config WDT      = OFF
-#pragma config WDTPS    = 32768
-#pragma config MCLRE    = ON
-#pragma config LPT1OSC  = OFF
-#pragma config PBADEN   = OFF		//NOTE: modifying this value here won't have an effect
-    //      #pragma config CCP2MX   = ON
-#pragma config STVREN   = ON
-#pragma config LVP      = OFF
-    //      #pragma config ICPRT    = OFF       // Dedicated In-Circuit Debug/Programming
-#pragma config XINST    = OFF       // Extended Instruction Set
-#pragma config CP0      = OFF
-#pragma config CP1      = OFF
-    //      #pragma config CP2      = OFF
-    //      #pragma config CP3      = OFF
-#pragma config CPB      = OFF
-    //      #pragma config CPD      = OFF
-#pragma config WRT0     = OFF
-#pragma config WRT1     = OFF
-    //      #pragma config WRT2     = OFF
-    //      #pragma config WRT3     = OFF
-#pragma config WRTB     = OFF       // Boot Block Write Protection
-#pragma config WRTC     = OFF
-    //      #pragma config WRTD     = OFF
-#pragma config EBTR0    = OFF
-#pragma config EBTR1    = OFF
-    //      #pragma config EBTR2    = OFF
-    //      #pragma config EBTR3    = OFF
-#pragma config EBTRB    = OFF
-#endif //F_CPU
 #endif //NOBOOT
 
 #endif	/* ROSSO_OLD_H */

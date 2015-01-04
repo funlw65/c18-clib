@@ -6,21 +6,13 @@
  * Created on December 28, 2014, 3:15 PM
  */
 
-/*
- * Before including this header, define the pins for SPI peripheral
- * like this:
- *
- * #define SPI_SDO_DIR TRISXbits.RXn
- * #define SPI_SDI_DIR TRISXbits.RXn
- * #define SPI_CLK_DIR TRISXbits.RXn
- * #define SPI_SS_DIR  TRISXbits.RXn
- *
- * where 'X' is the port letter and 'n' is the pin number.
- * 
- */
-
 #ifndef ROSSO_HWSPI_H
 #define	ROSSO_HWSPI_H
+
+#define SPI_SDO_DIR TRISCbits.RC5
+#define SPI_SDI_DIR TRISCbits.RC4
+#define SPI_CLK_DIR TRISCbits.RC3
+#define SPI_SS_DIR  TRISAbits.RA5
 
 #ifndef SSPENB
 typedef enum{
@@ -69,18 +61,6 @@ void SPI_init(SPISPEED spi_rate, SPIMODE bus_mode, SPIPHASE smp_phase) {
     }
     else if(bus_mode == 3) SSPCON1bits.CKP = 1; // clock idle state high
     //set SPI pins directions;
-#ifndef SPI_SDO_DIR
-    #error "define SPI_SDO_DIR - the TRIS, ya know?"
-#endif
-#ifndef SPI_SDI_DIR
-    #error "define SPI_SDI_DIR - the TRIS, ya know?"
-#endif
-#ifndef SPI_CLK_DIR
-    #error "define SPI_CLK_DIR - the TRIS, ya know?"
-#endif
-#ifndef SPI_SS_DIR
-    #error "define SPI_SS_DIR - the TRIS, ya know?"
-#endif
     if(spi_rate == SLV_SSON){
         SPI_CLK_DIR = 1;
         SPI_SS_DIR = 1;
@@ -92,8 +72,8 @@ void SPI_init(SPISPEED spi_rate, SPIMODE bus_mode, SPIPHASE smp_phase) {
     SSPCON1 |= SSPENB; // enable synchronous serial port
 }
 
-#define SPI_Low_Speed()  SPI2_init(SPI_FOSC_64, MODE_00, SMP_END);
-#define SPI_High_Speed() SPI2_init(SPI_FOSC_4,  MODE_00, SMP_END);
+#define SPI_Low_Speed()  CloseSPI();SPI_init(SPI_FOSC_64, MODE_00, SMP_END);
+#define SPI_High_Speed() CloseSPI();SPI_init(SPI_FOSC_4,  MODE_00, SMP_END);
 
 UINT8 SPI_read(void) {
     UINT8 TempVar;
