@@ -1,12 +1,12 @@
 /* 
- * File:   rosso_old.h
+ * File:   rosso.h
  * Author: Vasile Guta Ciucur
  *
  * Created on December 10, 2014, 4:36 PM
  */
 
-#ifndef ROSSO_OLD_H
-#define	ROSSO_OLD_H
+#ifndef ROSSO_H
+#define	ROSSO_H
 
 #define sei() RCON=0;RCONbits.IPEN=1;INTCONbits.PEIE=1;INTCONbits.GIE=1;
 #define cli() INTCONbits.GIE=0;
@@ -90,5 +90,5 @@
 #pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot Block (000000-0007FFh) not protected from table reads executed in other blocks)
 #endif //NOBOOT
 
-#endif	/* ROSSO_OLD_H */
+#endif	/* ROSSO_H */
 

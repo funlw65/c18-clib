@@ -104,6 +104,10 @@ union PWMDC {
 #define CCP_5_SEL_TMR_MASK		(~0b00110000)  	//Maks CCP TIMER Source selection bits
 #endif
 
+#define PWM4_TRIS    TRISBbits.RB0
+#define PWM5_TRIS    TRISAbits.RA4
+
+
 void OpenEPWM1(UINT8 period, UINT8 timer_source) {
     ECCP1CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
 
@@ -115,22 +119,301 @@ void OpenEPWM1(UINT8 period, UINT8 timer_source) {
         T2CONbits.TMR2ON = 0; // STOP TIMERx registers to POR state
         PR2 = period; // Set period
         T2CONbits.TMR2ON = 1; // Turn on PWMx
-    }
-    else if ((CCPTMRS0 & 0x03) == 0x01) {
+    } else if ((CCPTMRS0 & 0x03) == 0x01) {
         T4CONbits.TMR4ON = 0; // STOP TIMERx registers to POR state
         PR4 = period; // Set period
         T4CONbits.TMR4ON = 1; // Turn on PWMx
-    }
-    else if ((CCPTMRS0 & 0x03) == 0x02) {
+    } else if ((CCPTMRS0 & 0x03) == 0x02) {
         T6CONbits.TMR6ON = 0; // STOP TIMERx registers to POR state
         PR6 = period; // Set period
         T6CONbits.TMR6ON = 1; // Turn on PWMx
     }
 }
 
+void OpenEPWM2(UINT8 period, UINT8 timer_source) {
+    ECCP2CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
 
-/* Work In Progress */
+    //configure timer source for CCP
+    CCPTMRS0 &= 0b11100111;
+    CCPTMRS0 |= ((timer_source & 0b00110000) >> 1);
 
+    if ((CCPTMRS0 & 0x18) == 0x00) {
+        T2CONbits.TMR2ON = 0; // STOP TIMERx registers to POR state
+        PR2 = period; // Set period
+        T2CONbits.TMR2ON = 1; // Turn on PWMx
+    } else if ((CCPTMRS0 & 0x18) == 0x08) {
+        T4CONbits.TMR4ON = 0; // STOP TIMERx registers to POR state
+        PR4 = period; // Set period
+        T4CONbits.TMR4ON = 1; // Turn on PWMx
+    } else if ((CCPTMRS0 & 0x18) == 0x10) {
+        T6CONbits.TMR6ON = 0; // STOP TIMERx registers to POR state
+        PR6 = period; // Set period
+        T6CONbits.TMR6ON = 1; // Turn on PWMx
+    }
+}
+
+void OpenEPWM3(unsigned char period, unsigned char timer_source) {
+    CCP3CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
+
+    //configure timer source for CCP
+    CCPTMRS0 &= 0b00111111;
+    CCPTMRS0 |= ((timer_source & 0b00110000) << 2);
+
+    if ((CCPTMRS0 & 0xC0) == 0x00) {
+        T2CONbits.TMR2ON = 0; // STOP TIMERx registers to POR state
+        PR2 = period; // Set period
+        T2CONbits.TMR2ON = 1; // Turn on PWMx
+    } else if ((CCPTMRS0 & 0xC0) == 0x40) {
+        T4CONbits.TMR4ON = 0; // STOP TIMERx registers to POR state
+        PR4 = period; // Set period
+        T4CONbits.TMR4ON = 1; // Turn on PWMx
+    } else if ((CCPTMRS0 & 0xC0) == 0x80) {
+        T6CONbits.TMR6ON = 0; // STOP TIMERx registers to POR state
+        PR6 = period; // Set period
+        T6CONbits.TMR6ON = 1; // Turn on PWMx
+    }
+}
+
+void CloseEPWM1(void) {
+    ECCP1CON = 0x00; // Turn off PWM
+}
+
+void SetDCEPWM1(UINT16 dutycycle) {
+    union PWMDC DCycle;
+
+    // Save the dutycycle value in the union
+    DCycle.lpwm = dutycycle << 6;
+
+    // Write the high byte into ECCPR1L
+    CCPR1L = DCycle.bpwm[1];
+
+    // Write the low byte into ECCP1CON5:4
+    ECCP1CON = (ECCP1CON & 0xCF) | ((DCycle.bpwm[0] >> 2) & 0x30);
+}
+
+void SetOutputEPWM1(UINT8 outputconfig, UINT8 outputmode) {
+    /* set P1M1 and P1M0 */
+    outputconfig |= 0b00111111;
+    outputmode |= 0b11111100;
+    ECCP1CON = (ECCP1CON | 0b11000000) & outputconfig;
+    /* set CCP1M3, CCP1M2, CCP1M1, CCP1M0 */
+    ECCP1CON = (ECCP1CON | 0b00001111) & outputmode;
+
+    //--------------------------------------
+    if (SINGLE_OUT == outputconfig) {
+        TRISCbits.TRISC2 = 0;
+    } else if (IS_DUAL_PWM(outputconfig)) {
+        TRISCbits.TRISC2 = 0;
+        TRISBbits.TRISB2 = 0;
+    } else if (IS_QUAD_PWM(outputconfig)) {
+        TRISBbits.TRISB4 = 0;
+        TRISBbits.TRISB1 = 0;
+        TRISCbits.TRISC2 = 0;
+        TRISBbits.TRISB2 = 0;
+    }
+    //---------------------------------------
+}
+
+void CloseEPWM2(void) {
+    ECCP2CON = 0x00; // Turn off PWM
+}
+
+void SetDCEPWM2(UINT16 dutycycle) {
+    union PWMDC DCycle;
+
+    // Save the dutycycle value in the union
+    DCycle.lpwm = dutycycle << 6;
+
+    // Write the high byte into ECCPR1L
+    CCPR2L = DCycle.bpwm[1];
+
+    // Write the low byte into ECCP1CON5:4
+    ECCP2CON = (ECCP2CON & 0xCF) | ((DCycle.bpwm[0] >> 2) & 0x30);
+}
+
+void SetOutputEPWM2(UINT8 outputconfig, UINT8 outputmode) {
+#ifndef _OMNI_CODE_
+    UINT8 TBLPTR_U, TBLPTR_L;
+    _asm
+        movff TBLPTRU, TBLPTR_U
+        movff TBLPTRL, TBLPTR_L
+    _endasm
+#endif
+    /* set P1M1 and P1M0 */
+    outputconfig |= 0b00111111;
+    outputmode |= 0b11111100;
+    ECCP2CON = (ECCP2CON | 0b11000000) & outputconfig;
+    /* set CCP1M3, CCP1M2, CCP1M1, CCP1M0 */
+    ECCP2CON = (ECCP2CON | 0b00001111) & outputmode;
+
+    //--------------------------------------
+    if (SINGLE_OUT == outputconfig) {
+        if (((*(unsigned char far rom *)0x300005) & 0b00000001)) {
+            TRISCbits.TRISC1 = 0;
+        } else {
+            TRISBbits.TRISB3 = 0;
+        }
+    } else if (IS_DUAL_PWM(outputconfig)) {
+
+        if (((*(unsigned char far rom *)0x300005) & 0b00000001)) {
+            TRISCbits.TRISC1 = 0;
+            TRISCbits.TRISC0 = 0;
+        } else {
+            TRISBbits.TRISB5 = 0;
+            TRISBbits.TRISB3 = 0;
+        }
+    }
+    else if (IS_QUAD_PWM(outputconfig)) {
+        if (((*(unsigned char far rom *)0x300005) & 0b00000001)) {
+            TRISCbits.TRISC1 = 0;
+            TRISCbits.TRISC0 = 0;
+        } else {
+            TRISBbits.TRISB5 = 0;
+            TRISBbits.TRISB3 = 0;
+        }
+        TRISDbits.TRISD3 = 0;
+        TRISDbits.TRISD4 = 0;
+    }
+#ifndef _OMNI_CODE_
+    _asm
+        movff TBLPTR_U, TBLPTRU
+        movff TBLPTR_L, TBLPTRL
+    _endasm
+#endif
+}
+
+void CloseEPWM3(void) {
+    CCP3CON = 0x0; // Turn off PWM
+}
+
+void SetDCEPWM3(UINT16 dutycycle) {
+    union PWMDC DCycle;
+
+    // Save the dutycycle value in the union
+    DCycle.lpwm = dutycycle << 6;
+
+    // Write the high byte into ECCPR1L
+    CCPR3L = DCycle.bpwm[1];
+
+    // Write the low byte into ECCP1CON5:4
+    CCP3CON = (CCP3CON & 0xCF) | ((DCycle.bpwm[0] >> 2) & 0x30);
+}
+
+void SetOutputEPWM3(UINT8 outputconfig, UINT8 outputmode) {
+#ifndef _OMNI_CODE_
+    UINT8 TBLPTR_U, TBLPTR_L;
+    _asm
+        movff TBLPTRU, TBLPTR_U
+        movff TBLPTRL, TBLPTR_L
+    _endasm
+#endif
+    /* set P1M1 and P1M0 */
+    outputconfig |= 0b00111111;
+    outputmode |= 0b11111100;
+    CCP3CON = (CCP3CON | 0b11000000) & outputconfig;
+    /* set CCP1M3, CCP1M2, CCP1M1, CCP1M0 */
+    CCP3CON = (CCP3CON | 0b00001111) & outputmode;
+
+    if (SINGLE_OUT == outputconfig) {
+        if (((*(unsigned char far rom *)0x300005) & 0b00000001))
+            TRISBbits.TRISB5 = 0;
+        else
+            TRISEbits.TRISE0 = 0;
+    } else if (IS_DUAL_PWM(outputconfig)) {
+        if (((*(unsigned char far rom *)0x300005) & 0b00000001))
+            TRISBbits.TRISB5 = 0;
+        else
+            TRISEbits.TRISE0 = 0;
+        TRISEbits.TRISE1 = 0;
+    }
+}
+
+// we've done with E...
+
+void OpenPWM4(UINT8 period, UINT8 timer_source) {
+
+    CCP4CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
+
+    //configure timer source for CCP
+    CCPTMRS1 &= 0b11111100;
+    CCPTMRS1 |= ((timer_source & 0b00110000) >> 4);
+
+    PWM4_TRIS = 0;
+
+    if ((CCPTMRS1 & 0x03) == 0x00) {
+        T2CONbits.TMR2ON = 0; // STOP TIMERx registers to POR state
+        PR2 = period; // Set period
+        T2CONbits.TMR2ON = 1; // Turn on PWMx
+    }
+    else if ((CCPTMRS1 & 0x03) == 0x01) {
+        T4CONbits.TMR4ON = 0; // STOP TIMERx registers to POR state
+        PR4 = period; // Set period
+        T4CONbits.TMR4ON = 1; // Turn on PWMx
+    }
+    else if ((CCPTMRS1 & 0x03) == 0x02) {
+        T6CONbits.TMR6ON = 0; // STOP TIMERx registers to POR state
+        PR6 = period; // Set period
+        T6CONbits.TMR6ON = 1; // Turn on PWMx
+    }
+}
+
+void ClosePWM4(void) {
+    CCP4CON = 0; // Turn off PWM4
+}
+
+void SetDCPWM4(UINT16 dutycycle) {
+    union PWMDC DCycle;
+
+    // Save the dutycycle value in the union
+    DCycle.lpwm = dutycycle << 6;
+
+    // Write the high byte into CCPR4L
+    CCPR4L = DCycle.bpwm[1];
+
+    // Write the low byte into CCP4CON5:4
+    CCP4CON = (CCP4CON & 0xCF) | ((DCycle.bpwm[0] >> 2) & 0x30);
+}
+
+void OpenPWM5(UINT8 period, UINT8 timer_source) {
+    CCP5CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
+    //configure timer source for CCP
+    CCPTMRS1 &= 0b11110011;
+    CCPTMRS1 |= ((timer_source & 0b00110000) >> 2);
+
+    PWM5_TRIS = 0;
+
+    if ((CCPTMRS1 & 0x0C) == 0x00) {
+        T2CONbits.TMR2ON = 0; // STOP TIMERx registers to POR state
+        PR2 = period; // Set period
+        T2CONbits.TMR2ON = 1; // Turn on PWMx
+    }
+    else if ((CCPTMRS1 & 0x0C) == 0x04) {
+        T4CONbits.TMR4ON = 0; // STOP TIMERx registers to POR state
+        PR4 = period; // Set period
+        T4CONbits.TMR4ON = 1; // Turn on PWMx
+    } else if ((CCPTMRS1 & 0x0C) == 0x08) {
+        T6CONbits.TMR6ON = 0; // STOP TIMERx registers to POR state
+        PR6 = period; // Set period
+        T6CONbits.TMR6ON = 1; // Turn on PWMx
+    }
+}
+
+void ClosePWM5(void) {
+    CCP5CON = 0; // Turn off PWM5
+}
+
+void SetDCPWM5(UINT16 dutycycle) {
+    union PWMDC DCycle;
+
+    // Save the dutycycle value in the union
+    DCycle.lpwm = dutycycle << 6;
+
+    // Write the high byte into CCPR5L
+    CCPR5L = DCycle.bpwm[1];
+
+    // Write the low byte into CCP5CON5:4
+    CCP5CON = (CCP5CON & 0xCF) | ((DCycle.bpwm[0] >> 2) & 0x30);
+}
 
 #endif	/* ROSSO_PWM_H */
 

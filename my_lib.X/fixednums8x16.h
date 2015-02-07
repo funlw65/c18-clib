@@ -19,7 +19,11 @@
 #ifndef FIXEDNUMS8x16_H
 #define FIXEDNUMS8x16_H
 
-static const UINT8 fixednums8x16[] = {
+const
+#ifdef __18CXX
+rom
+#endif
+UINT8 fixednums8x16[] = {
     0x0, 0x0,	// size of zero indicates fixed width font
     8,		// width
     15,		// height
