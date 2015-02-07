@@ -27,6 +27,8 @@
       <itemPath>rosso_hwspi.h</itemPath>
       <itemPath>rosso_hwspi2.h</itemPath>
       <itemPath>TypeDefs.h</itemPath>
+      <itemPath>rosso_glcd.h</itemPath>
+      <itemPath>rosso_sdcard.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

@@ -1,6 +1,6 @@
 /* 
  * File:   rosso_delays.h
- * Author: Worker
+ * Author: Vasile Guta Ciucur
  *
  * Created on December 10, 2014, 4:31 PM
  */
@@ -14,7 +14,7 @@
 #include <plib/delays.h>
 #endif
 
-
+// the following delays are true for PIC18F46K22 at 64MHz (16MIPS)
 #define delay_500ns() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_1us() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
 #define delay_2us() delay_1us();delay_1us();

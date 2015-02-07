@@ -1,11 +1,8 @@
 /*
- * File:   main_example.c
- * Author: @YourNameHere
+ * File:   %<%NAME%>%.%<%EXTENSION%>%
+ * Author: %<%USER%>%
  *
- * Created on @YourCurrentDate
- * Description: @What ever your app is doing, but for now is:
- *    This is a template for your "Il Pinguino Rosso" project.
- * 
+ * Created on %<%DATE%>%, %<%TIME%>%
  */
 
 #include <TypeDefs.h>
@@ -15,8 +12,7 @@
 #include <rosso.h> // processor type, speed, configuration bits, hardware, app_offset.
 // add here other definitions and include header files if needed
 
-// add here your global variables and other fuctions you need
-
+// add here your global variables, definitions and other fuctions you may need
 
 // declaring the headers for the interrupt functions
 void
@@ -36,19 +32,16 @@ low_isr(void);
 #pragma romdata bootloader = 0x06
 const rom char bootloader[APP_START - 0x06];
 extern void _startup(void);
-
 #pragma code AppVector = APP_START
 void AppVector(void) {
     _asm GOTO _startup _endasm
 }
-
 #pragma code AppHighIntVector = APP_HINT
 void AppHighIntVector(void) {
     _asm
         GOTO high_isr // branch to the high_isr()
     _endasm
 }
-
 #pragma code AppLowIntVector = APP_LINT
 void low_vector(void) {
     _asm
@@ -56,9 +49,8 @@ void low_vector(void) {
     _endasm
 }
 #endif
-
-#pragma code  // return to the default // code section
-#endif // let this be close to main function with nothing between
+#pragma code  // Let this code pragma
+#endif // to be close to main function with nothing between!!!
 void main() {
     AllDigital(); // all pins digital
 #ifdef ONBOARD

@@ -8,7 +8,6 @@
 /*
  * It requires from you a definition of desired baudrate before including this header. 
  * By example:
- *
  * #define USART_BAUDRATE2 19200
  * #include <rosso_hw2serial.h>
  */

@@ -133,6 +133,24 @@ void lcd_write_char(UINT8 data) {
     _lcd_write_data(data);
 }
 
+void lcd_write_str(UINT8 *data){
+    while(*data){
+        _lcd_write_data(*data);
+        *data++;
+    }
+}
+
+#ifdef __18CXX
+void lcd_write_strF(const rom UINT8 *data){
+#else
+void lcd_write_strF(const UINT8 *data){
+#endif
+    while(*data){
+        _lcd_write_data(*data);
+        *data++;
+    }
+} 
+
 void lcd_cursor_position(UINT8 line, UINT8 pos) {
     LCD_POS = pos + _lcd_line2index(line);
     _lcd_restore_cursor();

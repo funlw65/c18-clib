@@ -40,7 +40,11 @@ row
 #define VERDANA24_WIDTH 10
 #define VERDANA24_HEIGHT 24
 
-static const UINT8 Verdana24[] = {
+const
+#ifdef __18CXX
+rom
+#endif
+UINT8 Verdana24[] = {
     0x0E, 0xF9, // size
     0x0A, // width
     0x18, // height
