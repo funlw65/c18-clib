@@ -8,18 +8,171 @@
 #ifndef ROSSO_H
 #define	ROSSO_H
 
+/* Definitions for _HTC_EDITION_ values */
+//#define __LITE__ 0
+//#define __STD__ 1
+//#define __PRO__ 2
+
+/* common definitions */
+
+#define	___mkstr1(x)	#x
+#define	___mkstr(x)	___mkstr1(x)
+
+#define _OMNITARGET	((void *)0xFFFFFFFF)
+
+extern const char __xc8_OPTIM_SPEED;
+
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+
+
+// flash_write is no longer supported. Use the peripheral library implementation
+// --runtime=+plib must be used
+#define _FLASH_UNSUPPORTED __attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash")))
+_FLASH_UNSUPPORTED void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+#define FLASH_WRITE(src, size, dest)	flash_write(src,size,dest)
+#define flash_erase(addr)		EraseFlash(addr,(addr)+1)
+#define FLASH_ERASE(addr)		EraseFlash(addr,(addr)+1)
+
+/* Get definitions for errata codes that may be
+ * defined in preprocessor symbol _ERRATA_TYPES */
+#define	ERRATA_4000	(1<<0)	// Program mem accesses/jumps across 4000h address boundary
+#define	ERRATA_FASTINTS (1<<1)	// Fast interrupt shadow registers corruption
+#define	ERRATA_LFSR	(1<<2)	// Broken LFSR instruction
+#define	ERRATA_MINUS40	(1<<3)	// Program memory reads at -40 degrees
+#define	ERRATA_RESET	(1<<4)	// GOTO instruction cannot exist at reset vector
+#define	ERRATA_BSR15	(1<<5)	// Flag problems when BSR holds value 15
+#define	ERRATA_DAW	(1<<6)	// Broken DAW instruction
+#define	ERRATA_EEDATARD	(1<<7)	// Read EEDAT in immeadiate instruction after RD set
+#define	ERRATA_EEADR	(1<<8)	// Don't set RD bit immediately after loading EEADR
+#define	ERRATA_EE_LVD	(1<<9)	// LVD must stabilise before writing EEPROM
+#define	ERRATA_FL_LVD	(1<<10)	// LVD must stabilise before writing Flash
+#define	ERRATA_TBLWTINT	(1<<11)	// Clear interrupt registers before tblwt instruction
+#define	ERRATA_FW4000	(1<<12)	// Flash write exe must act on opposite side of 4000h boundary.
+#define	ERRATA_RESETRAM	(1<<13)	// RAM contents can corrupt if async. reset occur during write access.
+#define	ERRATA_FETCH	(1<<14)	// Corruptable instruction fetch. Apply FFFFh at required locations.
+
+
+/* Macros to access bytes within words and words within longs */
+#define LOW_BYTE(x)     ((unsigned char)((x)&0xFF))
+#define HIGH_BYTE(x)    ((unsigned char)(((x)>>8)&0xFF))
+#define LOW_WORD(x)     ((unsigned short)((x)&0xFFFF))
+#define HIGH_WORD(x)    ((unsigned short)(((x)>>16)&0xFFFF))
+
+/* C access to assembler insructions */
+#define	CLRWDT()	asm(" clrwdt")
+#define	ClrWdt()	asm(" clrwdt")
+// function version of nop
+#pragma intrinsic(__nop)
+extern void __nop(void);
+#define NOP()		__nop()
+#define	Nop()		__nop()
+#define	RESET()		asm(" reset")
+#define	Reset()		asm(" reset")
+#define SLEEP()		asm(" sleep")
+#define Sleep()		asm(" sleep")
+
+#define	__PROG_CONFIG(a, x)	\
+			__config(___mkstr(__PROG_CONFIG), ___mkstr(pic18), a, x)
+
+#define __CONFIG(a, b) \
+			__config(___mkstr(__CONFIG), ___mkstr(pic18), ___mkstr(b))
+
+#ifndef __J_PART
+#define __IDLOC(w) \
+			__config(___mkstr(__IDLOC), ___mkstr(pic18), ___mkstr(w))
+#endif
+
+/* Initialise device EEPROM (if available) with 8 bytes of data at a time eg.
+ * // store initial values to first 16-bytes of EEPROM address range.
+ * __EEPROM_DATA(0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07);
+ * __EEPROM_DATA(0x08,0x09,0x0A,0x0B,0x0C,0x0D,0x0E,0x0F);*/
+#if _EEPROMSIZE > 0
+ #define __EEPROM_DATA(a, b, c, d, e, f, g, h) \
+			 asm("\tpsect eeprom_data,class=EEDATA,noexec"); \
+			 asm("\tdb\t" ___mkstr(a) "," ___mkstr(b) "," ___mkstr(c) "," ___mkstr(d) "," \
+				      ___mkstr(e) "," ___mkstr(f) "," ___mkstr(g) "," ___mkstr(h))
+#else
+ #define __EEPROM_DATA(a, b, c, d, e, f, g, h)	// Added only for code portability
+#endif
+
+// Various helper macros used in EEPROM routines
+#if	_EEPROMSIZE > 256
+ #define _LOAD_EEADR(addr)	(EEADRH=(((addr)>>8)&0xFF),EEADR=((addr)&0xFF))
+#else
+ #define _LOAD_EEADR(addr)	(EEADR=((addr)&0xFF))
+#endif
+
+#if	_EEPROMSIZE > 0
+ #if defined(_18F86K90_FAMILY_) || defined(_18F87K22_FAMILY_)
+  #define _CLEAR_EEIF()	PIR6bits.EEIF=0
+ #elif defined(_18F66K80_FAMILY_)
+  #define _CLEAR_EEIF()	PIR4bits.EEIF=0
+ #else
+  #define _CLEAR_EEIF()	PIR2bits.EEIF=0
+ #endif
+#else
+ #define _CLEAR_EEIF()
+#endif
+
+#if defined(SMALL_DATA)
+ #define _LOAD_TBLPTR(addr)	                                                \
+			TBLPTRU=0;                                                      \
+			*((far unsigned char**)&TBLPTR)=(far unsigned char*)(addr)
+#else
+ #define _LOAD_TBLPTR(addr)	                                                \
+			*((far unsigned char**)&TBLPTR)=(far unsigned char*)(addr)
+#endif
+
+// MACROS for EEPROM Access
+/* macro versions of EEPROM read and write */
+
+/* NOTE WELL:
+
+   EEPROM_READ() is NOT safe to use immediately after any
+   write to EEPROM, as it does NOT wait for WR to clear.  This is by
+   design, to allow minimal code size if a sequence of reads is
+   desired.  To guarantee uncorrupted writes insert
+	while(WR)continue;
+   before calling EEPROM_READ().
+*/
+#if _EEPROMSIZE > 0 && defined(_PLIB)
+ #define EEPROM_READ(addr)	Read_b_eep(addr)
+ #define eeprom_read(addr)	Read_b_eep(addr)
+#else
+ #define EEPROM_READ(addr)	0	// Added only for code portability
+ #define eeprom_read(addr)	0
+#endif
+
+#if _EEPROMSIZE > 0 && defined(_PLIB)
+ #define EEPROM_WRITE(addr, value)	(Busy_eep(), Write_b_eep(addr,value))
+ #define eeprom_write(addr, value)	(Busy_eep(), Write_b_eep(addr,value))
+#else
+ #define EEPROM_WRITE(addr, value)	// Added only for code portability
+ #define eeprom_write(addr, value)
+#endif
+
+/* Accurate read/write macros for 16-Bit timers */
+/*** please note, the timer needs to be enabled ***
+ *** to handle 16-Bit read/write operations for ***
+ *** these routines to be of benefit ***/
+#define T1RD16ON  T1CON|=0x80
+#define T3RD16ON  T3CON|=0x80
+#define WRITETIMER0(x) ((void)(TMR0H=((x)>>8),TMR0L=((x)&0xFF)))
+#define WRITETIMER1(x) ((void)(TMR1H=((x)>>8),TMR1L=((x)&0xFF)))
+#define WRITETIMER3(x) ((void)(TMR3H=((x)>>8),TMR3L=((x)&0xFF)))
+#define READTIMER0() (TMR0)
+#define READTIMER1() (TMR1)
+#define READTIMER3() (TMR3)
+
+/////////////////////
+
 #define sei() RCON=0;RCONbits.IPEN=1;INTCONbits.PEIE=1;INTCONbits.GIE=1;
 #define cli() INTCONbits.GIE=0;
 
 #define _XTAL_FREQ 64000000
-#include <p18f46k22.h>
-#ifdef __18CXX
-#ifndef NOBOOT
-#define APP_START          0x300
-#define APP_HINT           0x308
-#define APP_LINT           0x318
-#endif
-#endif
+#include <pic18f46k22.h>
+
 #define AllDigital() ANSELA=0;ANSELB=0;ANSELC=0;ANSELD=0;ANSELE=0;ADCON0=0;ADCON1=0;ADCON2=0;CM1CON0=0;CM2CON0=0;CM2CON1=0;
 #ifdef ONBOARD // onboard definitions for "Il Pinguino Rosso" dev. board
 #define OnBoardLED         LATCbits.LATC2

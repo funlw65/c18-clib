@@ -72,8 +72,8 @@ void SPI_init(SPISPEED spi_rate, SPIMODE bus_mode, SPIPHASE smp_phase) {
     SSPCON1 |= SSPENB; // enable synchronous serial port
 }
 
-#define SPI_Low_Speed()  CloseSPI();SPI_init(SPI_FOSC_64, MODE_00, SMP_END);
-#define SPI_High_Speed() CloseSPI();SPI_init(SPI_FOSC_4,  MODE_00, SMP_END);
+#define SPI_Low_Speed()  CloseSPI();SPI_init(SPI_FOSC_64, MODE_00, SMPEND);
+#define SPI_High_Speed() CloseSPI();SPI_init(SPI_FOSC_4,  MODE_00, SMPEND);
 
 UINT8 SPI_read(void) {
     UINT8 TempVar;
