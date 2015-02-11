@@ -8,11 +8,22 @@
 #ifndef ROSSO_DELAYS_H
 #define	ROSSO_DELAYS_H
 
-#ifdef __18CXX // if MPLAB C18 Toolchain is used
+#pragma intrinsic(_delay)
+extern __nonreentrant void _delay(unsigned long);
+#pragma intrinsic(_delaywdt)
+extern __nonreentrant void _delaywdt(unsigned long);
+#pragma intrinsic(_delay3)
+extern __nonreentrant void _delay3(unsigned char);
+// NOTE: To use the macros below, YOU must have previously defined _XTAL_FREQ
+#define __delay_us(x) _delay((unsigned long)((x)*(_XTAL_FREQ/4000000.0)))
+#define __delay_ms(x) _delay((unsigned long)((x)*(_XTAL_FREQ/4000.0)))
+#define __delaywdt_us(x) _delaywdt((unsigned long)((x)*(_XTAL_FREQ/4000000.0)))
+#define __delaywdt_ms(x) _delaywdt((unsigned long)((x)*(_XTAL_FREQ/4000.0)))
+
 #include <delays.h>
-#elif __XC8         // if XC8 Toolchain is used
-#include <plib/delays.h>
-#endif
+
+#define __delay_us(x) _delay((unsigned long)((x)*(_XTAL_FREQ/4000000.0)))
+#define __delay_ms(x) _delay((unsigned long)((x)*(_XTAL_FREQ/4000.0)))
 
 // the following delays are true for PIC18F46K22 at 64MHz (16MIPS)
 #define delay_500ns() Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop(); Nop();
@@ -82,21 +93,21 @@
 #define delay_100ms() Delay10KTCYx(160)  //= 10000 x 160 / 16 = 100ms
 #define delay_150ms() Delay10KTCYx(240)  //= 10000 x 240 / 16 = 150ms
 
-#if __18CXX
-void __delay_us(UINT16 x){
+//#if __18CXX
+void _delay_us(UINT16 x){
     UINT16 i;
     for(i=0; i<x; i++){
         delay_1us();
     }
 }
 
-void __delay_ms(UINT16 x){
+void _delay_ms(UINT16 x){
     UINT16 i;
     for(i=0; i<x; i++){
         delay_1ms();
     }
 }
-#endif
+//#endif
 
 #endif	/* ROSSO_DELAYS_H */
 

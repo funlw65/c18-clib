@@ -29,6 +29,7 @@
       <itemPath>TypeDefs.h</itemPath>
       <itemPath>rosso_glcd.h</itemPath>
       <itemPath>rosso_sdcard.h</itemPath>
+      <itemPath>rosso_f32.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
