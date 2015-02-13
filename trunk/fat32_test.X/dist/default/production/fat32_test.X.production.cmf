@@ -1,0 +1,1370 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$/tmp/cgt1OJyK3.obj
+end_init CODE 0 3A2 3A2 4 1
+reset_vec CODE 0 300 300 4 1
+idloc IDLOC 0 200000 200000 8 1
+config CONFIG 0 300000 300000 E 1
+$dist/default/production/fat32_test.X.production.obj
+intcodelo CODE 0 318 318 8A 1
+intcode CODE 0 308 308 10 1
+smallconst SMALLCONST 0 1000 1000 FE 1
+intcode_body CODE 0 3CAE 3CAE 66 1
+text28 CODE 0 3EAC 3EAC 10 1
+text27 CODE 0 3E9A 3E9A 12 1
+text26 CODE 0 3E6C 3E6C 18 1
+text25 CODE 0 376C 376C 124 1
+text24 CODE 0 3A58 3A58 B0 1
+text23 CODE 0 3890 3890 F4 1
+text22 CODE 0 3298 3298 1C4 1
+text21 CODE 0 3984 3984 D4 1
+text20 CODE 0 3BA6 3BA6 86 1
+text19 CODE 0 21F4 21F4 428 1
+text18 CODE 0 3B08 3B08 9E 1
+text17 CODE 0 361A 361A 152 1
+text16 CODE 0 29DC 29DC 27E 1
+text15 CODE 0 3C2C 3C2C 82 1
+text14 CODE 0 30AE 30AE 1EA 1
+text13 CODE 0 1C00 1C00 5F4 1
+text12 CODE 0 2C5A 2C5A 250 1
+text11 CODE 0 2EAA 2EAA 204 1
+text10 CODE 0 3ED6 3ED6 4 1
+text9 CODE 0 10FE 10FE B02 1
+text8 CODE 0 3ED2 3ED2 4 1
+text7 CODE 0 345C 345C 1BE 1
+text6 CODE 0 3D72 3D72 52 1
+text5 CODE 0 3E0E 3E0E 38 1
+text4 CODE 0 3EBC 3EBC C 1
+text3 CODE 0 3E46 3E46 26 1
+text2 CODE 0 3E84 3E84 16 1
+text1 CODE 0 3EC8 3EC8 A 1
+text0 CODE 0 261C 261C 3C0 1
+cstackCOMRAM COMRAM 1 1 1 22 1
+cstackBANK0 BANK0 1 60 60 8E 1
+cstackBANK1 BANK1 1 1C2 1C2 2C 1
+bssBIGRAM BIGRAM 1 1EE 1EE 200 1
+dataBANK1 BANK1 1 178 178 4A 1
+bssBANK1 BANK1 1 100 100 78 1
+bssBANK0 BANK0 1 EE EE 3 1
+bssCOMRAM COMRAM 1 23 23 1E 1
+cinit CODE 0 3D14 3D14 5E 1
+idataBANK1 CODE 0 3DC4 3DC4 4A 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+BANK0 0000F1-0000FF 1
+BANK10 000A00-000AFF 1
+BANK11 000B00-000BFF 1
+BANK12 000C00-000CFF 1
+BANK13 000D00-000DFF 1
+BANK14 000E00-000EFF 1
+BANK15 000F00-000F37 1
+BANK3 0003EE-0003FF 1
+BANK4 000400-0004FF 1
+BANK5 000500-0005FF 1
+BANK6 000600-0006FF 1
+BANK7 000700-0007FF 1
+BANK8 000800-0008FF 1
+BANK9 000900-0009FF 1
+BIGRAM 000041-00005F 1
+BIGRAM 0000F1-0000FF 1
+BIGRAM 0003EE-000F37 1
+CODE 000304-000307 1
+CODE 0003A6-000FFF 1
+CODE 003EDA-00FFFF 1
+COMRAM 000041-00005F 1
+CONST 000304-000307 1
+CONST 0003A6-000FFF 1
+CONST 003EDA-00FFFF 1
+EEDATA F00000-F003FF 1
+FARRAM 000000-000000 1
+MEDIUMCONST 003EDA-00FFFF 1
+RAM 0000F1-0000FF 1
+RAM 0003EE-000F37 1
+SFR 000F38-000FFF 1
+SMALLCONST 003EDA-00FFFF 1
+STACK 0003EE-0009FF 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <file name>:<line number> <address> <psect name> <class name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production/fat32_test.X.production.obj
+"/home/texan/work/xc8/fat32_test.X/main.c":188 308 intcode CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":196 308 intcode CODE
+"/opt/microchip/xc8/v1.33/sources/pic18/d100tcyx.c":13 318 intcodelo CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":194 318 intcodelo CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":196 35C intcodelo CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":509 10FE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":510 10FE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":511 1110 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":512 111C text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":517 1134 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":519 114A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":523 1152 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":524 1158 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":525 1168 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":527 1180 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":528 11C2 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":530 11D8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":531 11E8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":535 11FE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":536 12DA text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":537 12E0 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":538 12EC text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":545 12F0 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":546 1324 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":547 1340 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":549 1350 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":550 1374 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":555 1382 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":557 1386 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":559 13B8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":560 13FC text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":561 1404 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":564 1414 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":567 141A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":568 1422 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":569 1428 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":570 146E text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":571 1482 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":572 14C2 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":573 14C6 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":574 14C8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":575 14EC text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":576 14F8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":580 14FE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":584 151E text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":585 153A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":587 1546 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":589 1556 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":590 1562 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":591 157A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":592 157E text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":593 159A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":594 15A0 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":596 15A2 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":597 15AE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":598 15AE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":601 15C0 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":602 15D2 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":603 15E2 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":602 15F6 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":604 15FE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":606 1616 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":607 1618 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":609 1618 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":611 1628 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":613 164C text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":618 165A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":621 165E text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":622 1688 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":625 16BC text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":627 16D8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":628 16E0 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":629 16E8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":630 16F0 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":631 16F8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":633 16F8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":635 1700 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":636 1714 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":638 1736 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":639 1750 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":640 176A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":641 1784 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":642 17E2 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":643 1804 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":644 1818 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":650 182E text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":651 1832 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":655 1832 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":658 1842 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":660 1866 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":661 186E text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":663 189C text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":664 18AA text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":666 18CC text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":670 18D4 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":673 18D8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":675 18F4 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":676 18FC text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":675 192C text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":677 1938 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":678 194E text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":679 1964 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":680 197A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":681 1994 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":682 19AE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":683 19C8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":684 19E2 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":685 19FC text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":686 1A1A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":687 1A38 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":689 1A5A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":690 1A88 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":697 1A8E text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":663 1AA4 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":660 1AC4 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":703 1AE2 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":705 1B24 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":706 1B40 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":708 1B56 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":709 1B7A text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":710 1BA4 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":711 1BD6 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":716 1BD8 text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":719 1BDC text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":723 1BEA text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":724 1BEE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":726 1BEE text9 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":311 1C00 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":317 1C04 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":320 1C14 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":322 1C38 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":323 1C52 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":325 1C86 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":326 1C94 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":328 1CB6 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":334 1CC4 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":337 1CD2 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":338 1CFC text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":339 1D0E text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":340 1D16 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":339 1D52 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":342 1D5E text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":343 1D68 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":344 1D70 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":345 1DA0 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":348 1DB8 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":349 1E3E text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":350 1E60 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":360 1E6E text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":363 1EF4 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":364 1F00 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":366 1F34 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":370 1F64 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":371 1F98 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":373 1FBC text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":376 1FD8 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":378 1FD8 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":379 201A text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":380 204C text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":384 2068 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":385 2076 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":386 2076 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":395 2088 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":405 209C text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":410 20D0 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":325 2100 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":322 2120 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":422 216C text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":424 21AE text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":425 21CA text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":426 21D8 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":430 21E6 text13 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":179 21F4 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":185 21F4 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":187 2204 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":188 2220 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":190 222C text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":192 224C text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":194 2258 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":195 227A text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":197 227E text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":198 2292 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":200 22B4 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":201 22E2 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":202 22EE text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":203 230E text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":206 2312 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":210 2330 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":214 2350 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":215 236A text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":217 238C text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":220 2470 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":221 2586 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":225 25BE text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":226 260E text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":228 2612 text19 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":229 2618 text19 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":63 261C text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":65 261C text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":67 2652 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":68 2654 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":69 2656 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":73 2658 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":74 265C text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":76 266C text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":78 2674 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":76 268E text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":80 269A text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":83 26A6 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":84 26AE text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":85 26B6 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":83 26BE text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":89 26CA text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":90 26D2 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":91 26DA text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":92 26E6 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":93 26F0 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":94 26FC text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":97 2700 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":98 2708 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":100 270A text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":101 2716 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":103 2718 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":104 2724 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":106 2726 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":107 2732 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":109 2734 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":110 2740 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":98 2742 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":113 275A text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":114 2762 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":115 276A text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":117 2776 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":120 277A text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":121 278A text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":122 2790 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":124 27A2 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":125 27AA text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":124 27DA text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":127 27E6 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":128 280E text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":129 2814 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":131 2818 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":133 281E text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":134 2846 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":135 284C text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":137 2850 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":139 2856 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":140 287E text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":141 2884 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":143 2888 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":145 288E text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":146 28B6 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":147 28BC text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":149 28C0 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":151 28C6 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":152 28EE text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":153 28F4 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":155 28F8 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":157 28FE text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":158 2926 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":159 292C text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":161 2930 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":163 2936 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":164 295E text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":165 2964 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":167 2968 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":169 296E text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":170 2996 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":171 299C text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":173 29A0 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":175 29A6 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":176 29CE text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":177 29D4 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":179 29D8 text0 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":181 29DA text0 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":287 29DC text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":290 29E0 text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":291 2A16 text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":293 2A54 text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":294 2AA8 text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":295 2ADE text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":297 2B1C text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":299 2B70 text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":300 2B78 text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":301 2BAC text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":302 2BB2 text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":305 2BE0 text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":306 2C3C text16 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":436 2C5A text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":438 2C5E text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":446 2C76 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":447 2C94 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":448 2C9E text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":449 2CA4 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":451 2CA8 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":454 2CAC text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":455 2CB4 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":457 2CB8 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":459 2D3E text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":465 2D68 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":467 2D8C text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":468 2D94 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":470 2DC2 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":474 2DDE text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":475 2E2C text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":470 2E30 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":467 2E38 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":478 2E56 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":479 2E98 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":483 2EA6 text12 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":489 2EAA text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":493 2EAA text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":494 2EF2 text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":496 2F04 text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":497 2FB6 text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":498 2FCA text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":499 2FD2 text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":500 2FF6 text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":501 302C text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":498 3058 text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":494 3064 text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":505 3094 text11 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":232 30AE text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":237 30AE text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":241 30B4 text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":244 3166 text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":247 31D0 text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":248 31D2 text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":250 31EC text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":247 31F0 text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":254 31F8 text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":256 321A text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":257 3220 text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":259 324A text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":261 326A text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":263 327E text14 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":149 3298 text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":152 329C text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":154 32A8 text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":158 32CC text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":159 3374 text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":161 3386 text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":162 338C text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":163 3394 text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":166 33C0 text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":168 33EC text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":169 33F4 text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":172 33FC text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":174 3426 text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":176 344A text22 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":115 345C text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":117 345C text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":120 3468 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":121 346A text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":122 346E text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":123 3476 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":122 347C text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":124 3488 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":127 348A text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":128 34AC text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":129 34B2 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":130 34C2 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":132 34C6 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":134 34CE text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":135 34D0 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":136 34D6 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":138 34DC text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":140 34E8 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":143 34EE text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":144 3510 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":145 3516 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":147 3526 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":148 352C text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":149 3530 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":152 3532 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":154 353A text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":157 3546 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":158 3568 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":160 358A text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":161 3590 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":163 35A0 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":164 35A4 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":166 35A4 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":168 35AA text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":169 35B6 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":171 35BA text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":173 35C4 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":174 35E6 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":175 35EC text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":177 35FC text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":178 3600 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":179 3602 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":181 3602 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":183 3608 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":184 360E text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":186 3612 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":192 3616 text7 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":266 361A text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":267 361E text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":269 3630 text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":271 3638 text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":272 364C text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":273 3688 text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":275 368C text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":276 3708 text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":277 3744 text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":269 3752 text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":280 375C text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":281 3764 text17 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":64 376C text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":65 3770 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":72 3776 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":75 377A text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":76 37B6 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":79 37F0 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":81 37F2 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":82 37FC text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":83 3804 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":84 380C text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":85 3814 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":87 381C text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":88 3826 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":90 382E text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":93 3836 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":94 383A text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":92 383C text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":96 384C text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":98 385C text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":99 3866 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":100 3870 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":102 3874 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":104 3878 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":105 387C text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":106 3880 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":109 3884 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":110 3888 text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":112 388A text25 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":249 3890 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":251 3890 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":253 389C text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":255 38B6 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":256 38BE text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":257 38C4 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":259 38C6 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":261 38CC text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":262 38E8 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":261 38FE text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":264 3906 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":265 390C text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":267 3912 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":269 391A text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":271 392A text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":272 392C text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":276 3932 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":277 3942 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":278 3944 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":275 3948 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":281 3952 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":282 3954 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":283 395A text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":285 395C text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":286 395E text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":287 396E text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":288 3970 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":285 3974 text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":290 397E text23 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":292 3980 text23 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":8 3984 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":14 3984 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":15 399C text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":16 39AA text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":17 39B0 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":18 39B2 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":19 39C6 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":17 39CA text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":22 39D0 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":23 39E4 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":24 3A08 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":25 3A28 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":27 3A2C text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":28 3A40 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":29 3A46 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":30 3A46 text21 CODE
+"/opt/microchip/xc8/v1.33/sources/common/lldiv.c":31 3A56 text21 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":219 3A58 text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":221 3A58 text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":223 3A64 text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":225 3A7E text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":226 3A86 text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":228 3A8C text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":230 3A8E text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":231 3A9A text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":232 3A9C text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":233 3AAC text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":234 3AAE text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":231 3AB2 text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":237 3ABC text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":238 3AD8 text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":237 3AEE text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":240 3AF6 text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":241 3AFA text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":243 3AFE text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":244 3B02 text24 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":246 3B04 text24 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":8 3B08 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":13 3B08 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":14 3B16 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":15 3B1A text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":16 3B1C text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":17 3B30 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":15 3B32 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":20 3B38 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":21 3B5C text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":22 3B7C text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":23 3B90 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":24 3B94 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":25 3B94 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/llmod.c":26 3BA4 text18 CODE
+"/opt/microchip/xc8/v1.33/sources/common/Umul32.c":15 3BA6 text20 CODE
+"/opt/microchip/xc8/v1.33/sources/common/Umul32.c":119 3BA6 text20 CODE
+"/opt/microchip/xc8/v1.33/sources/common/Umul32.c":121 3BBE text20 CODE
+"/opt/microchip/xc8/v1.33/sources/common/Umul32.c":122 3BC4 text20 CODE
+"/opt/microchip/xc8/v1.33/sources/common/Umul32.c":123 3BE4 text20 CODE
+"/opt/microchip/xc8/v1.33/sources/common/Umul32.c":124 3BF8 text20 CODE
+"/opt/microchip/xc8/v1.33/sources/common/Umul32.c":125 3C0C text20 CODE
+"/opt/microchip/xc8/v1.33/sources/common/Umul32.c":128 3C1A text20 CODE
+"/opt/microchip/xc8/v1.33/sources/common/Umul32.c":129 3C2A text20 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":144 3C2C text15 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":145 3C2C text15 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":188 3CAE intcode_body CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":190 3CDA intcode_body CODE
+"/tmp/cgtPEuPnH":1224 3D14 cinit CODE
+"/tmp/cgtPEuPnH":1226 3D14 cinit CODE
+"/tmp/cgtPEuPnH":1229 3D14 cinit CODE
+"/tmp/cgtPEuPnH":1327 3D14 cinit CODE
+"/tmp/cgtPEuPnH":1328 3D18 cinit CODE
+"/tmp/cgtPEuPnH":1329 3D1C cinit CODE
+"/tmp/cgtPEuPnH":1330 3D1C cinit CODE
+"/tmp/cgtPEuPnH":1331 3D1E cinit CODE
+"/tmp/cgtPEuPnH":1332 3D20 cinit CODE
+"/tmp/cgtPEuPnH":1333 3D22 cinit CODE
+"/tmp/cgtPEuPnH":1334 3D24 cinit CODE
+"/tmp/cgtPEuPnH":1335 3D26 cinit CODE
+"/tmp/cgtPEuPnH":1338 3D28 cinit CODE
+"/tmp/cgtPEuPnH":1339 3D2C cinit CODE
+"/tmp/cgtPEuPnH":1340 3D2E cinit CODE
+"/tmp/cgtPEuPnH":1341 3D2E cinit CODE
+"/tmp/cgtPEuPnH":1342 3D30 cinit CODE
+"/tmp/cgtPEuPnH":1343 3D32 cinit CODE
+"/tmp/cgtPEuPnH":1346 3D34 cinit CODE
+"/tmp/cgtPEuPnH":1347 3D36 cinit CODE
+"/tmp/cgtPEuPnH":1348 3D38 cinit CODE
+"/tmp/cgtPEuPnH":1349 3D3A cinit CODE
+"/tmp/cgtPEuPnH":1352 3D3C cinit CODE
+"/tmp/cgtPEuPnH":1353 3D40 cinit CODE
+"/tmp/cgtPEuPnH":1354 3D42 cinit CODE
+"/tmp/cgtPEuPnH":1355 3D42 cinit CODE
+"/tmp/cgtPEuPnH":1356 3D44 cinit CODE
+"/tmp/cgtPEuPnH":1357 3D46 cinit CODE
+"/tmp/cgtPEuPnH":1362 3D48 cinit CODE
+"/tmp/cgtPEuPnH":1363 3D4A cinit CODE
+"/tmp/cgtPEuPnH":1364 3D4C cinit CODE
+"/tmp/cgtPEuPnH":1365 3D4E cinit CODE
+"/tmp/cgtPEuPnH":1366 3D50 cinit CODE
+"/tmp/cgtPEuPnH":1367 3D52 cinit CODE
+"/tmp/cgtPEuPnH":1368 3D54 cinit CODE
+"/tmp/cgtPEuPnH":1369 3D58 cinit CODE
+"/tmp/cgtPEuPnH":1370 3D5C cinit CODE
+"/tmp/cgtPEuPnH":1371 3D5C cinit CODE
+"/tmp/cgtPEuPnH":1372 3D5E cinit CODE
+"/tmp/cgtPEuPnH":1373 3D62 cinit CODE
+"/tmp/cgtPEuPnH":1374 3D64 cinit CODE
+"/tmp/cgtPEuPnH":1375 3D66 cinit CODE
+"/tmp/cgtPEuPnH":1381 3D68 cinit CODE
+"/tmp/cgtPEuPnH":1383 3D68 cinit CODE
+"/tmp/cgtPEuPnH":1384 3D6A cinit CODE
+"/tmp/cgtPEuPnH":1385 3D6C cinit CODE
+"/tmp/cgtPEuPnH":1386 3D6E cinit CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":51 3D72 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":52 3D74 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":53 3D78 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":54 3D7C text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":55 3D80 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":57 3D84 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":58 3D8C text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":59 3D94 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":62 3D98 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":64 3DA0 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":65 3DA8 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":66 3DAA text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":67 3DAC text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":68 3DAE text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":69 3DBA text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":70 3DBC text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":71 3DBE text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":72 3DC0 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":73 3DC2 text6 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":22 3E0E text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":23 3E0E text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":24 3E1A text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":25 3E1E text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":27 3E22 text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":28 3E24 text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":29 3E26 text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":30 3E2A text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":33 3E3A text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":34 3E3C text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":37 3E3E text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":39 3E40 text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":40 3E42 text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":41 3E44 text5 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":55 3E46 text3 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":57 3E46 text3 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":58 3E48 text3 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":57 3E50 text3 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":88 3E6C text26 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":90 3E6E text26 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":91 3E72 text26 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":92 3E74 text26 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":93 3E76 text26 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":94 3E7A text26 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":98 3E7E text26 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":100 3E80 text26 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":98 3E82 text26 CODE
+"/opt/microchip/xc8/v1.33/sources/pic18/d10ktcyx.c":8 3E84 text2 CODE
+"/opt/microchip/xc8/v1.33/sources/pic18/d10ktcyx.c":10 3E86 text2 CODE
+"/opt/microchip/xc8/v1.33/sources/pic18/d10ktcyx.c":11 3E86 text2 CODE
+"/opt/microchip/xc8/v1.33/sources/pic18/d10ktcyx.c":12 3E94 text2 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":78 3E9A text27 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":80 3E9A text27 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":81 3E9E text27 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":82 3EA0 text27 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":84 3EA4 text27 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":85 3EA8 text27 CODE
+"/opt/microchip/xc8/v1.33/sources/pic18/d100tcyx.c":8 3EAC text28 CODE
+"/opt/microchip/xc8/v1.33/sources/pic18/d100tcyx.c":10 3EAE text28 CODE
+"/opt/microchip/xc8/v1.33/sources/pic18/d100tcyx.c":11 3EAE text28 CODE
+"/opt/microchip/xc8/v1.33/sources/pic18/d100tcyx.c":12 3EB6 text28 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":50 3EBC text4 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":51 3EBE text4 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":52 3EC2 text4 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_hwserial.h":53 3EC6 text4 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":47 3EC8 text1 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":48 3EC8 text1 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":49 3EC8 text1 CODE
+"/home/texan/work/xc8/fat32_test.X/main.c":50 3ECA text1 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":196 3ED2 text8 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_sdcard.h":197 3ED2 text8 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":134 3ED6 text10 CODE
+"/home/texan/work/xc8/my_lib.X/rosso_f32.h":139 3ED6 text10 CODE
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___lldiv@counter 78 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@firstSector 1DA 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@fileCreatedFlag 1D2 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+F32_findFiles@flag AD 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__S0 30000E 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__S1 3EE 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__S2 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+F32_writeFile@extraMemory 1C2 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+_SSP2STATbits F6D 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Hintentry 0 0 ABS 0 intentry dist/default/production/fat32_test.X.production.obj
+__Lintentry 0 0 ABS 0 intentry dist/default/production/fat32_test.X.production.obj
+SD_init@i 6D 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_findFiles@cluster B8 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__size_of_low_isr 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_msg1 1001 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+_msg2 107A 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+_SD_cardType 3E 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+__size_of_USART_HW_write 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_msg3 102E 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+_err1 10D1 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+_err2 105B 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+_err3 10EA 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+_err4 1099 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+__size_of_SD_readSingleBlock 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_main 261C 0 CODE 0 text0 dist/default/production/fat32_test.X.production.obj
+F32_getSetFreeCluster@get_set 75 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+___sp 0 0 STACK 2 stack /tmp/cgt1OJyK3.obj
+F32_findFiles@fileName 9B 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+start 3A2 0 CODE 0 init /tmp/cgt1OJyK3.obj
+F32_findFiles@j BC 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_readFile@byteCounter C9 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__end_of_blinkErrorLED 3ED2 0 CODE 0 text1 dist/default/production/fat32_test.X.production.obj
+_fileName 1B6 0 BANK1 1 dataBANK1 dist/default/production/fat32_test.X.production.obj
+SPI2_init@smp_phase 21 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+_Delay100TCYx 3EAC 0 CODE 0 text28 dist/default/production/fat32_test.X.production.obj
+__size_of_F32_findFiles 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__size_of_F32_displayMemory 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_F32_freeMemoryUpdate 29DC 0 CODE 0 text16 dist/default/production/fat32_test.X.production.obj
+_RCREG FAE 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_RCSTA FAB 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_TXREG FAD 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+SPI2_init@bus_mode 20 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+_SPBRG FAF 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Hirdata 0 0 CODE 0 irdata dist/default/production/fat32_test.X.production.obj
+_TXSTA FAC 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Lirdata 0 0 CODE 0 irdata dist/default/production/fat32_test.X.production.obj
+__HRAM 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__LRAM 1 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_USART_HW_write 3EBC 0 CODE 0 text4 dist/default/production/fat32_test.X.production.obj
+__size_of_F32_writeFile 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Hconfig 30000E 0 CONFIG 0 config dist/default/production/fat32_test.X.production.obj
+__Lconfig 300000 0 CONFIG 0 config dist/default/production/fat32_test.X.production.obj
+?___llmod 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@dir 1E8 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+__end_of_test_start 10D1 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+main@i EC 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_findFiles@nextCluster A5 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+_SPI2_read 3E9A 0 CODE 0 text27 dist/default/production/fat32_test.X.production.obj
+SD_sendCommand@response 6A 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hbigram 0 0 ABS 0 bigram dist/default/production/fat32_test.X.production.obj
+__Lbigram 0 0 ABS 0 bigram dist/default/production/fat32_test.X.production.obj
+__Hrparam 0 0 ABS 0 rparam dist/default/production/fat32_test.X.production.obj
+__Lrparam 0 0 ABS 0 rparam dist/default/production/fat32_test.X.production.obj
+_fileSize 27 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+F32_findFiles@firstSector A9 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hram 0 0 ABS 0 ram dist/default/production/fat32_test.X.production.obj
+__Lram 0 0 ABS 0 ram dist/default/production/fat32_test.X.production.obj
+__Hcomram 0 0 ABS 0 comram dist/default/production/fat32_test.X.production.obj
+__Lcomram 0 0 ABS 0 comram dist/default/production/fat32_test.X.production.obj
+__Hsfr 0 0 ABS 0 sfr dist/default/production/fat32_test.X.production.obj
+__Lsfr 0 0 ABS 0 sfr dist/default/production/fat32_test.X.production.obj
+__Hbss 0 0 RAM 1 bss dist/default/production/fat32_test.X.production.obj
+__Lbss 0 0 RAM 1 bss dist/default/production/fat32_test.X.production.obj
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production/fat32_test.X.production.obj
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production/fat32_test.X.production.obj
+F32_freeMemoryUpdate@flag 89 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_searchNextFreeCluster@i 93 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+SD_sendCommand@arg 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__size_of_SD_init 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__end_of_F32_displayMemory 376C 0 CODE 0 text17 dist/default/production/fat32_test.X.production.obj
+__end_of_SPI2_read 3EAC 0 CODE 0 text27 dist/default/production/fat32_test.X.production.obj
+_ADCON0 FC2 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_SDHC_flag 3D 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+_ADCON1 FC1 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_ADCON2 FC0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__size_of_SPI2_init 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_getDateTime_FAT 3ED6 0 CODE 0 text10 dist/default/production/fat32_test.X.production.obj
+_PIE1bits F9D 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/fat32_test.X.production.obj
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/fat32_test.X.production.obj
+_PIR1bits F9E 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_PIR3bits FA4 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+F32_displayMemory@i 9A 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@dataString E1 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+_LATBbits F8A 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_LATCbits F8B 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+F32_getSetFreeCluster@totOrNext 7E 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production/fat32_test.X.production.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production/fat32_test.X.production.obj
+_ANSELA F38 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__end_of_F32_getBootSectorData 261C 0 CODE 0 text19 dist/default/production/fat32_test.X.production.obj
+_ANSELB F39 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+?___lldiv 6C 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+_ANSELC F3A 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_ANSELD F3B 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production/fat32_test.X.production.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production/fat32_test.X.production.obj
+_ANSELE F3C 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Hintret 0 0 ABS 0 intret dist/default/production/fat32_test.X.production.obj
+__Lintret 0 0 ABS 0 intret dist/default/production/fat32_test.X.production.obj
+__Hramtop 1000 0 RAM 0 ramtop dist/default/production/fat32_test.X.production.obj
+__Lramtop 1000 0 RAM 0 ramtop dist/default/production/fat32_test.X.production.obj
+__Hstruct 0 0 COMRAM 1 struct dist/default/production/fat32_test.X.production.obj
+__Lstruct 0 0 COMRAM 1 struct dist/default/production/fat32_test.X.production.obj
+_high_isr 308 0 CODE 0 intcode dist/default/production/fat32_test.X.production.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production/fat32_test.X.production.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production/fat32_test.X.production.obj
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production/fat32_test.X.production.obj
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production/fat32_test.X.production.obj
+_SPBRGH FB0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/production/fat32_test.X.production.obj
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/production/fat32_test.X.production.obj
+__Hintcode 318 0 CODE 0 intcode dist/default/production/fat32_test.X.production.obj
+__Lintcode 308 0 CODE 0 intcode dist/default/production/fat32_test.X.production.obj
+__Hfardata 0 0 FARRAM 0 fardata dist/default/production/fat32_test.X.production.obj
+__Lfardata 0 0 FARRAM 0 fardata dist/default/production/fat32_test.X.production.obj
+__pintcode 308 0 CODE 0 intcode dist/default/production/fat32_test.X.production.obj
+__Habs1 0 0 ABS 0 abs1 dist/default/production/fat32_test.X.production.obj
+__Labs1 0 0 ABS 0 abs1 dist/default/production/fat32_test.X.production.obj
+F32_freeMemoryUpdate@size 81 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+_F32_findFiles 1C00 0 CODE 0 text13 dist/default/production/fat32_test.X.production.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/fat32_test.X.production.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/fat32_test.X.production.obj
+__end_of_SD_writeSingleBlock 3984 0 CODE 0 text23 dist/default/production/fat32_test.X.production.obj
+_Delay10KTCYx 3E84 0 CODE 0 text2 dist/default/production/fat32_test.X.production.obj
+F32_readFile@fileName BF 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_readFile@fileSize CD 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+SD_readSingleBlock@response 72 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_freeMemoryUpdate@freeClusters 8A 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+Delay100TCYx@unit 20 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+F32_findFiles@dir BD 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__end_of_SPI2_init 3DC4 0 CODE 0 text6 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@clusterCount 1CA 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+SD_readSingleBlock@retry 70 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hdata 0 0 ABS 0 data dist/default/production/fat32_test.X.production.obj
+__Ldata 0 0 ABS 0 data dist/default/production/fat32_test.X.production.obj
+stackhi 9FF 0 ABS 0 - /tmp/cgt1OJyK3.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__end_of_F32_writeFile 1C00 0 CODE 0 text9 dist/default/production/fat32_test.X.production.obj
+__Htemp 0 0 COMRAM 1 temp dist/default/production/fat32_test.X.production.obj
+__Ltemp 0 0 COMRAM 1 temp dist/default/production/fat32_test.X.production.obj
+stacklo 3EE 0 ABS 0 - /tmp/cgt1OJyK3.obj
+__Hrbit 0 0 COMRAM 1 rbit dist/default/production/fat32_test.X.production.obj
+F32_writeFile@k 1DE 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+__Lrbit 0 0 COMRAM 1 rbit dist/default/production/fat32_test.X.production.obj
+___lmul 3BA6 0 CODE 0 text20 dist/default/production/fat32_test.X.production.obj
+__Hinit 3A2 0 CODE 0 init dist/default/production/fat32_test.X.production.obj
+__Linit 3A2 0 CODE 0 init dist/default/production/fat32_test.X.production.obj
+__Hintcodelo 3A2 0 CODE 0 intcodelo dist/default/production/fat32_test.X.production.obj
+__Lintcodelo 318 0 CODE 0 intcodelo dist/default/production/fat32_test.X.production.obj
+__Hrbss 0 0 COMRAM 1 rbss dist/default/production/fat32_test.X.production.obj
+__end_of_main 29DC 0 CODE 0 text0 dist/default/production/fat32_test.X.production.obj
+__Lrbss 0 0 COMRAM 1 rbss dist/default/production/fat32_test.X.production.obj
+__end_of_F32_getFirstSector 3CAE 0 CODE 0 text15 dist/default/production/fat32_test.X.production.obj
+__pintcodelo 318 0 CODE 0 intcodelo dist/default/production/fat32_test.X.production.obj
+_temp_buffer 178 0 BANK1 1 dataBANK1 dist/default/production/fat32_test.X.production.obj
+F32_displayMemory@flag 99 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Htext 0 0 ABS 0 text dist/default/production/fat32_test.X.production.obj
+__Ltext 0 0 ABS 0 text dist/default/production/fat32_test.X.production.obj
+___lmul@multiplier 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__size_of_F32_readFile 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+F32_displayMemory@F8237 1A2 0 BANK1 1 dataBANK1 dist/default/production/fat32_test.X.production.obj
+__size_of_blinkErrorLED 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+F32_findFiles@firstCluster B4 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+end_of_initialization 3D68 0 CODE 0 cinit dist/default/production/fat32_test.X.production.obj
+_SD_buffer 1EE 0 BIGRAM 1 bssBIGRAM dist/default/production/fat32_test.X.production.obj
+__end_of_SD_readSingleBlock 3B08 0 CODE 0 text24 dist/default/production/fat32_test.X.production.obj
+Delay10KTCYx@unit 21 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+_appendStartCluster 10C 0 BANK1 1 bssBANK1 dist/default/production/fat32_test.X.production.obj
+_CM1CON0 F79 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_CM2CON0 F78 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_CM2CON1 F77 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+___lmul@multiplicand 64 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+?_F32_getSetFreeCluster 75 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__end_of_msg1 102E 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+_SPI2_init 3D72 0 CODE 0 text6 dist/default/production/fat32_test.X.production.obj
+__HdataBANK1 0 0 ABS 0 dataBANK1 dist/default/production/fat32_test.X.production.obj
+__LdataBANK1 0 0 ABS 0 dataBANK1 dist/default/production/fat32_test.X.production.obj
+SD_readSingleBlock@SD_startBlock 6C 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__pdataBANK1 178 0 BANK1 1 dataBANK1 dist/default/production/fat32_test.X.production.obj
+F32_getBootSectorData@bpb 98 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__size_of_SPI2_read 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_TRISAbits F92 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_RCSTAbits FAB 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_TRISBbits F93 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_TRISCbits F94 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_TRISDbits F95 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_TXSTAbits FAC 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_firstDataSector 110 0 BANK1 1 bssBANK1 dist/default/production/fat32_test.X.production.obj
+__end_of_SD_init 361A 0 CODE 0 text7 dist/default/production/fat32_test.X.production.obj
+USART_HW_write@data 20 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+__size_of_Delay100TCYx 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__size_of_Delay10KTCYx 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__end_of_F32_readFile 2EAA 0 CODE 0 text12 dist/default/production/fat32_test.X.production.obj
+_SSP2BUF F6F 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__size_of_getDateTime_FAT 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__end_of_high_isr 3D14 0 CODE 0 intcode_body dist/default/production/fat32_test.X.production.obj
+_appendFileLocation 104 0 BANK1 1 bssBANK1 dist/default/production/fat32_test.X.production.obj
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/production/fat32_test.X.production.obj
+__Libigdata 0 0 CODE 0 ibigdata dist/default/production/fat32_test.X.production.obj
+SPI2_write@TempVar 20 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+_F32_readFile 2C5A 0 CODE 0 text12 dist/default/production/fat32_test.X.production.obj
+__HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production/fat32_test.X.production.obj
+__LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production/fat32_test.X.production.obj
+__pbssBIGRAM 1EE 0 BIGRAM 1 bssBIGRAM dist/default/production/fat32_test.X.production.obj
+main@error ED 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hifardata 0 0 CODE 0 ifardata dist/default/production/fat32_test.X.production.obj
+__Lifardata 0 0 CODE 0 ifardata dist/default/production/fat32_test.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 dist/default/production/fat32_test.X.production.obj
+__Lbank0 0 0 ABS 0 bank0 dist/default/production/fat32_test.X.production.obj
+_SD_card_type 3ED2 0 CODE 0 text8 dist/default/production/fat32_test.X.production.obj
+__Hbank1 0 0 ABS 0 bank1 dist/default/production/fat32_test.X.production.obj
+__Lbank1 0 0 ABS 0 bank1 dist/default/production/fat32_test.X.production.obj
+__Hbank2 0 0 ABS 0 bank2 dist/default/production/fat32_test.X.production.obj
+__Lbank2 0 0 ABS 0 bank2 dist/default/production/fat32_test.X.production.obj
+__Hbank3 0 0 ABS 0 bank3 dist/default/production/fat32_test.X.production.obj
+_F32_getSetNextCluster 30AE 0 CODE 0 text14 dist/default/production/fat32_test.X.production.obj
+__Lbank3 0 0 ABS 0 bank3 dist/default/production/fat32_test.X.production.obj
+__end_of_USART_HW_init 3E46 0 CODE 0 text5 dist/default/production/fat32_test.X.production.obj
+__Hbank4 0 0 ABS 0 bank4 dist/default/production/fat32_test.X.production.obj
+_SD_totalBlocks 100 0 BANK1 1 bssBANK1 dist/default/production/fat32_test.X.production.obj
+__Lbank4 0 0 ABS 0 bank4 dist/default/production/fat32_test.X.production.obj
+__end_of___lmul 3C2C 0 CODE 0 text20 dist/default/production/fat32_test.X.production.obj
+__Hbank5 0 0 ABS 0 bank5 dist/default/production/fat32_test.X.production.obj
+__Lbank5 0 0 ABS 0 bank5 dist/default/production/fat32_test.X.production.obj
+__Hpowerup 3A2 0 CODE 0 powerup dist/default/production/fat32_test.X.production.obj
+__Lpowerup 3A2 0 CODE 0 powerup dist/default/production/fat32_test.X.production.obj
+__Hbank6 0 0 ABS 0 bank6 dist/default/production/fat32_test.X.production.obj
+?_F32_findFiles 9B 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Lbank6 0 0 ABS 0 bank6 dist/default/production/fat32_test.X.production.obj
+F32_getBootSectorData@mbr 94 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hbank7 0 0 ABS 0 bank7 dist/default/production/fat32_test.X.production.obj
+__Lbank7 0 0 ABS 0 bank7 dist/default/production/fat32_test.X.production.obj
+_dateFAT 37 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+_timeFAT 3B 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+__Hbank8 0 0 ABS 0 bank8 dist/default/production/fat32_test.X.production.obj
+__Lbank8 0 0 ABS 0 bank8 dist/default/production/fat32_test.X.production.obj
+__Htext0 0 0 ABS 0 text0 dist/default/production/fat32_test.X.production.obj
+__Ltext0 0 0 ABS 0 text0 dist/default/production/fat32_test.X.production.obj
+__Hbank9 0 0 ABS 0 bank9 dist/default/production/fat32_test.X.production.obj
+__Lbank9 0 0 ABS 0 bank9 dist/default/production/fat32_test.X.production.obj
+__Htext1 0 0 ABS 0 text1 dist/default/production/fat32_test.X.production.obj
+__Ltext1 0 0 ABS 0 text1 dist/default/production/fat32_test.X.production.obj
+F32_readFile@j D8 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__ptext0 261C 0 CODE 0 text0 dist/default/production/fat32_test.X.production.obj
+__Htext2 0 0 ABS 0 text2 dist/default/production/fat32_test.X.production.obj
+__Ltext2 0 0 ABS 0 text2 dist/default/production/fat32_test.X.production.obj
+__ptext1 3EC8 0 CODE 0 text1 dist/default/production/fat32_test.X.production.obj
+__end_of_msg2 1099 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+__Htext3 0 0 ABS 0 text3 dist/default/production/fat32_test.X.production.obj
+__Ltext3 0 0 ABS 0 text3 dist/default/production/fat32_test.X.production.obj
+__ptext2 3E84 0 CODE 0 text2 dist/default/production/fat32_test.X.production.obj
+__Htext4 0 0 ABS 0 text4 dist/default/production/fat32_test.X.production.obj
+__Ltext4 0 0 ABS 0 text4 dist/default/production/fat32_test.X.production.obj
+__ptext3 3E46 0 CODE 0 text3 dist/default/production/fat32_test.X.production.obj
+__Htext5 0 0 ABS 0 text5 dist/default/production/fat32_test.X.production.obj
+__Ltext5 0 0 ABS 0 text5 dist/default/production/fat32_test.X.production.obj
+_USART_HW_putstr 3E46 0 CODE 0 text3 dist/default/production/fat32_test.X.production.obj
+__ptext4 3EBC 0 CODE 0 text4 dist/default/production/fat32_test.X.production.obj
+__Htext6 0 0 ABS 0 text6 dist/default/production/fat32_test.X.production.obj
+F32_searchNextFreeCluster@startCluster 79 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/default/production/fat32_test.X.production.obj
+__ptext5 3E0E 0 CODE 0 text5 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@appendFile 1D3 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+__Htext7 0 0 ABS 0 text7 dist/default/production/fat32_test.X.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/production/fat32_test.X.production.obj
+__ptext6 3D72 0 CODE 0 text6 dist/default/production/fat32_test.X.production.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+__end_of_F32_freeMemoryUpdate 2C5A 0 CODE 0 text16 dist/default/production/fat32_test.X.production.obj
+__Htext8 0 0 ABS 0 text8 dist/default/production/fat32_test.X.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/production/fat32_test.X.production.obj
+__ptext7 345C 0 CODE 0 text7 dist/default/production/fat32_test.X.production.obj
+__pbssCOMRAM 23 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production/fat32_test.X.production.obj
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production/fat32_test.X.production.obj
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+__ptext8 3ED2 0 CODE 0 text8 dist/default/production/fat32_test.X.production.obj
+__ptext9 10FE 0 CODE 0 text9 dist/default/production/fat32_test.X.production.obj
+__pcstackBANK1 1C2 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext dist/default/production/fat32_test.X.production.obj
+__Lclrtext 0 0 ABS 0 clrtext dist/default/production/fat32_test.X.production.obj
+SPI2_init@spi_rate 22 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+__size_of_F32_getSetFreeCluster 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_F32_displayMemory 361A 0 CODE 0 text17 dist/default/production/fat32_test.X.production.obj
+__end_of__initialization 3D68 0 CODE 0 cinit dist/default/production/fat32_test.X.production.obj
+F32_getSetNextCluster@clusterEntry 7E 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+_BAUDCONbits FB8 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__end_of_F32_searchNextFreeCluster 30AE 0 CODE 0 text11 dist/default/production/fat32_test.X.production.obj
+_rootCluster 2B 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+__end_of_msg3 105B 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+SD_sendCommand@cmd 6B 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__size_of_F32_getSetNextCluster 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__end_of_F32_getSetFreeCluster 345C 0 CODE 0 text22 dist/default/production/fat32_test.X.production.obj
+F32_getSetFreeCluster@FS 7F 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hidata 0 0 CODE 0 idata dist/default/production/fat32_test.X.production.obj
+__Lidata 0 0 CODE 0 idata dist/default/production/fat32_test.X.production.obj
+_dataString 114 0 BANK1 1 bssBANK1 dist/default/production/fat32_test.X.production.obj
+__Hrdata 0 0 COMRAM 1 rdata dist/default/production/fat32_test.X.production.obj
+__Lrdata 0 0 COMRAM 1 rdata dist/default/production/fat32_test.X.production.obj
+__Hidloc 200008 0 IDLOC 0 idloc dist/default/production/fat32_test.X.production.obj
+__Lidloc 200000 0 IDLOC 0 idloc dist/default/production/fat32_test.X.production.obj
+_F32_searchNextFreeCluster 2EAA 0 CODE 0 text11 dist/default/production/fat32_test.X.production.obj
+_SPI2_write 3E6C 0 CODE 0 text26 dist/default/production/fat32_test.X.production.obj
+F32_getSetNextCluster@FATEntrySector 91 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__end_of_USART_HW_write 3EC8 0 CODE 0 text4 dist/default/production/fat32_test.X.production.obj
+__Hstack 0 0 STACK 2 stack dist/default/production/fat32_test.X.production.obj
+__Lstack 0 0 STACK 2 stack dist/default/production/fat32_test.X.production.obj
+__size_of_high_isr 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+int_func 3CAE 0 CODE 0 intcode_body dist/default/production/fat32_test.X.production.obj
+___llmod 3B08 0 CODE 0 text18 dist/default/production/fat32_test.X.production.obj
+__end_of___lldiv 3A58 0 CODE 0 text21 dist/default/production/fat32_test.X.production.obj
+__Hparam 0 0 ABS 0 rparam dist/default/production/fat32_test.X.production.obj
+__Lparam 0 0 ABS 0 rparam dist/default/production/fat32_test.X.production.obj
+F32_writeFile@sector 1E0 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+__Hspace_0 30000E 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+__Lspace_0 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+__end_of_F32_getSetNextCluster 3298 0 CODE 0 text14 dist/default/production/fat32_test.X.production.obj
+__Hspace_1 3EE 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Lspace_1 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Hsmallconst 10FE 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+__Lsmallconst 1000 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+F32_getFirstSector@clusterNumber 6C 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+_SD_readSingleBlock 3A58 0 CODE 0 text24 dist/default/production/fat32_test.X.production.obj
+__psmallconst 1000 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+?___lmul 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hspace_2 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Lspace_2 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_F32_getFirstSector 3C2C 0 CODE 0 text15 dist/default/production/fat32_test.X.production.obj
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production/fat32_test.X.production.obj
+_SD_init 345C 0 CODE 0 text7 dist/default/production/fat32_test.X.production.obj
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production/fat32_test.X.production.obj
+__Hcinit 0 0 ABS 0 cinit dist/default/production/fat32_test.X.production.obj
+__Lcinit 0 0 ABS 0 cinit dist/default/production/fat32_test.X.production.obj
+___lldiv 3984 0 CODE 0 text21 dist/default/production/fat32_test.X.production.obj
+__pcinit 3D14 0 CODE 0 cinit dist/default/production/fat32_test.X.production.obj
+__ramtop 1000 0 RAM 0 ramtop /tmp/cgt1OJyK3.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgt1OJyK3.obj
+_low_isr 318 0 CODE 0 intcodelo dist/default/production/fat32_test.X.production.obj
+_sectorPerCluster 3F 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+main@mySD_type EB 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+F32_writeFile@i 1E5 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+SD_sendCommand@status 69 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hconst 0 0 CODE 0 const dist/default/production/fat32_test.X.production.obj
+F32_readFile@k D6 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Lconst 0 0 CODE 0 const dist/default/production/fat32_test.X.production.obj
+USART_HW_init@usart_div 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_displayMemory@memoryString 85 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@data 1DF 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@prevCluster 1E1 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+F32_readFile@flag D5 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+_SD_writeSingleBlock 3890 0 CODE 0 text23 dist/default/production/fat32_test.X.production.obj
+?_F32_getSetNextCluster 79 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_getSetNextCluster@clusterNumber 79 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+SD_writeSingleBlock@i 72 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production/fat32_test.X.production.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production/fat32_test.X.production.obj
+_SSP2CON1 F6C 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Hbank10 0 0 ABS 0 bank10 dist/default/production/fat32_test.X.production.obj
+__pbssBANK0 EE 0 BANK0 1 bssBANK0 dist/default/production/fat32_test.X.production.obj
+__Lbank10 0 0 ABS 0 bank10 dist/default/production/fat32_test.X.production.obj
+F32_getBootSectorData@dataSectors 90 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@error 1D4 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+__Hbank11 0 0 ABS 0 bank11 dist/default/production/fat32_test.X.production.obj
+__Lbank11 0 0 ABS 0 bank11 dist/default/production/fat32_test.X.production.obj
+__end_of_getDateTime_FAT 3EDA 0 CODE 0 text10 dist/default/production/fat32_test.X.production.obj
+__end_of_SD_sendCommand 3890 0 CODE 0 text25 dist/default/production/fat32_test.X.production.obj
+SD_readSingleBlock@i 73 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hbank12 0 0 ABS 0 bank12 dist/default/production/fat32_test.X.production.obj
+__Lbank12 0 0 ABS 0 bank12 dist/default/production/fat32_test.X.production.obj
+__Hbank13 0 0 ABS 0 bank13 dist/default/production/fat32_test.X.production.obj
+__Lbank13 0 0 ABS 0 bank13 dist/default/production/fat32_test.X.production.obj
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production/fat32_test.X.production.obj
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production/fat32_test.X.production.obj
+__Hbank14 0 0 ABS 0 bank14 dist/default/production/fat32_test.X.production.obj
+__pbssBANK1 100 0 BANK1 1 bssBANK1 dist/default/production/fat32_test.X.production.obj
+__Lbank14 0 0 ABS 0 bank14 dist/default/production/fat32_test.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production/fat32_test.X.production.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production/fat32_test.X.production.obj
+F32_findFiles@sector B0 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Htext20 0 0 ABS 0 text20 dist/default/production/fat32_test.X.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/default/production/fat32_test.X.production.obj
+__ptext10 3ED6 0 CODE 0 text10 dist/default/production/fat32_test.X.production.obj
+_blinkErrorLED 3EC8 0 CODE 0 text1 dist/default/production/fat32_test.X.production.obj
+__Hbank15 0 0 ABS 0 bank15 dist/default/production/fat32_test.X.production.obj
+__Lbank15 0 0 ABS 0 bank15 dist/default/production/fat32_test.X.production.obj
+__Htext11 0 0 ABS 0 text11 dist/default/production/fat32_test.X.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/production/fat32_test.X.production.obj
+__ptext20 3BA6 0 CODE 0 text20 dist/default/production/fat32_test.X.production.obj
+__Htext21 0 0 ABS 0 text21 dist/default/production/fat32_test.X.production.obj
+__Ltext21 0 0 ABS 0 text21 dist/default/production/fat32_test.X.production.obj
+__ptext11 2EAA 0 CODE 0 text11 dist/default/production/fat32_test.X.production.obj
+__Htext12 0 0 ABS 0 text12 dist/default/production/fat32_test.X.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/production/fat32_test.X.production.obj
+__ptext21 3984 0 CODE 0 text21 dist/default/production/fat32_test.X.production.obj
+__Htext22 0 0 ABS 0 text22 dist/default/production/fat32_test.X.production.obj
+__Ltext22 0 0 ABS 0 text22 dist/default/production/fat32_test.X.production.obj
+__ptext12 2C5A 0 CODE 0 text12 dist/default/production/fat32_test.X.production.obj
+__Htext13 0 0 ABS 0 text13 dist/default/production/fat32_test.X.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/production/fat32_test.X.production.obj
+__end_of_Delay100TCYx 3EBC 0 CODE 0 text28 dist/default/production/fat32_test.X.production.obj
+__ptext22 3298 0 CODE 0 text22 dist/default/production/fat32_test.X.production.obj
+__end_of_Delay10KTCYx 3E9A 0 CODE 0 text2 dist/default/production/fat32_test.X.production.obj
+__size_of_USART_HW_putstr 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Htext23 0 0 ABS 0 text23 dist/default/production/fat32_test.X.production.obj
+__Ltext23 0 0 ABS 0 text23 dist/default/production/fat32_test.X.production.obj
+__ptext13 1C00 0 CODE 0 text13 dist/default/production/fat32_test.X.production.obj
+__Htext14 0 0 ABS 0 text14 dist/default/production/fat32_test.X.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/production/fat32_test.X.production.obj
+__ptext23 3890 0 CODE 0 text23 dist/default/production/fat32_test.X.production.obj
+__HidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production/fat32_test.X.production.obj
+__LidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production/fat32_test.X.production.obj
+__Htext24 0 0 ABS 0 text24 dist/default/production/fat32_test.X.production.obj
+__Ltext24 0 0 ABS 0 text24 dist/default/production/fat32_test.X.production.obj
+__ptext14 30AE 0 CODE 0 text14 dist/default/production/fat32_test.X.production.obj
+__end_of_err1 10EA 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+__end_of_F32_findFiles 21F4 0 CODE 0 text13 dist/default/production/fat32_test.X.production.obj
+__pidataBANK1 3DC4 0 CODE 0 idataBANK1 dist/default/production/fat32_test.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/default/production/fat32_test.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/production/fat32_test.X.production.obj
+__ptext24 3A58 0 CODE 0 text24 dist/default/production/fat32_test.X.production.obj
+__Htext25 0 0 ABS 0 text25 dist/default/production/fat32_test.X.production.obj
+__Ltext25 0 0 ABS 0 text25 dist/default/production/fat32_test.X.production.obj
+__ptext15 3C2C 0 CODE 0 text15 dist/default/production/fat32_test.X.production.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgt1OJyK3.obj
+__Htext16 0 0 ABS 0 text16 dist/default/production/fat32_test.X.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/default/production/fat32_test.X.production.obj
+__ptext25 376C 0 CODE 0 text25 dist/default/production/fat32_test.X.production.obj
+__Htext26 0 0 ABS 0 text26 dist/default/production/fat32_test.X.production.obj
+__Ltext26 0 0 ABS 0 text26 dist/default/production/fat32_test.X.production.obj
+__ptext16 29DC 0 CODE 0 text16 dist/default/production/fat32_test.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production/fat32_test.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production/fat32_test.X.production.obj
+__ptext26 3E6C 0 CODE 0 text26 dist/default/production/fat32_test.X.production.obj
+F32_findFiles@i AE 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Htext27 0 0 ABS 0 text27 dist/default/production/fat32_test.X.production.obj
+__Ltext27 0 0 ABS 0 text27 dist/default/production/fat32_test.X.production.obj
+___llmod@divisor 64 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__ptext17 361A 0 CODE 0 text17 dist/default/production/fat32_test.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/default/production/fat32_test.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/default/production/fat32_test.X.production.obj
+__ptext27 3E9A 0 CODE 0 text27 dist/default/production/fat32_test.X.production.obj
+__Htext28 0 0 ABS 0 text28 dist/default/production/fat32_test.X.production.obj
+__Ltext28 0 0 ABS 0 text28 dist/default/production/fat32_test.X.production.obj
+__ptext18 3B08 0 CODE 0 text18 dist/default/production/fat32_test.X.production.obj
+__Htext19 0 0 ABS 0 text19 dist/default/production/fat32_test.X.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/default/production/fat32_test.X.production.obj
+__ptext28 3EAC 0 CODE 0 text28 dist/default/production/fat32_test.X.production.obj
+_bytesPerSector EE 0 BANK0 1 bssBANK0 dist/default/production/fat32_test.X.production.obj
+__ptext19 21F4 0 CODE 0 text19 dist/default/production/fat32_test.X.production.obj
+_F32_writeFile$2117 1C6 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgt1OJyK3.obj
+USART_HW_putstr@c 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+USART_HW_putstr@s 21 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+F32_searchNextFreeCluster@value 8D 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__Hend_init 3A6 0 CODE 0 end_init dist/default/production/fat32_test.X.production.obj
+__Lend_init 3A2 0 CODE 0 end_init dist/default/production/fat32_test.X.production.obj
+_F32_getSetFreeCluster 3298 0 CODE 0 text22 dist/default/production/fat32_test.X.production.obj
+___lldiv@divisor 70 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__size_of_SD_sendCommand 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__size_of___lldiv 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__size_of_F32_getBootSectorData 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__size_of_USART_HW_init 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__end_of_SD_card_type 3ED6 0 CODE 0 text8 dist/default/production/fat32_test.X.production.obj
+SD_writeSingleBlock@response 74 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_searchNextFreeCluster@sector 89 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_displayMemory@memory 79 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__end_of___llmod 3BA6 0 CODE 0 text18 dist/default/production/fat32_test.X.production.obj
+__smallconst 1000 0 SMALLCONST 0 smallconst /tmp/cgt1OJyK3.obj
+SD_writeSingleBlock@SD_startBlock 6C 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+?_F32_searchNextFreeCluster 79 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+_SD_sendCommand 376C 0 CODE 0 text25 dist/default/production/fat32_test.X.production.obj
+__Hreset_vec 304 0 CODE 0 reset_vec dist/default/production/fat32_test.X.production.obj
+__Lreset_vec 300 0 CODE 0 reset_vec dist/default/production/fat32_test.X.production.obj
+__end_of_err2 107A 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+_totalClusters 2F 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+F32_getSetNextCluster@FATEntryValue 95 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__accesstop 60 0 ABS 0 - /tmp/cgt1OJyK3.obj
+__size_of_SPI2_write 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/fat32_test.X.production.obj
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/fat32_test.X.production.obj
+__pintcode_body 3CAE 0 CODE 0 intcode_body dist/default/production/fat32_test.X.production.obj
+F32_writeFile@firstClusterLow 1D0 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+intlevel0 0 0 CODE 0 text /tmp/cgt1OJyK3.obj
+_freeClusterCountUpdated F0 0 BANK0 1 bssBANK0 dist/default/production/fat32_test.X.production.obj
+__end_of_SPI2_write 3E84 0 CODE 0 text26 dist/default/production/fat32_test.X.production.obj
+intlevel1 0 0 CODE 0 text /tmp/cgt1OJyK3.obj
+_SSP2STAT F6D 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+intlevel2 0 0 CODE 0 text /tmp/cgt1OJyK3.obj
+_test_start 10B5 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+_reservedSectorCount 39 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+SD_writeSingleBlock@retry 70 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+intlevel3 0 0 CODE 0 text /tmp/cgt1OJyK3.obj
+__size_of___lmul 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+__size_of_SD_writeSingleBlock 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_SSP2CON1bits F6C 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+SPI2_read@TempVar 20 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+SD_init@SD_version 6C 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@start 1D5 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+F32_getSetNextCluster@FATEntryOffset 8E 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+SD_sendCommand@retry 68 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_getBootSectorData@partition 96 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__end_of_USART_HW_putstr 3E6C 0 CODE 0 text3 dist/default/production/fat32_test.X.production.obj
+_USART_HW_init 3E0E 0 CODE 0 text5 dist/default/production/fat32_test.X.production.obj
+__end_of_err3 10FD 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+F32_readFile@firstSector D1 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_getSetFreeCluster@FSEntry 76 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_getSetNextCluster@get_set 7D 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+start_initialization 3D14 0 CODE 0 cinit dist/default/production/fat32_test.X.production.obj
+F32_searchNextFreeCluster@cluster 8F 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+___lldiv@quotient 74 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_readFile@cluster D9 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@cluster 1EA 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+_appendFileSector 108 0 BANK1 1 bssBANK1 dist/default/production/fat32_test.X.production.obj
+_SD_startBlock 23 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+F32_getSetNextCluster@retry 90 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__size_of_F32_freeMemoryUpdate 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+F32_writeFile@fileName DF 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@j 1E7 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+__end_of_low_isr 3A2 0 CODE 0 intcodelo dist/default/production/fat32_test.X.production.obj
+__initialization 3D14 0 CODE 0 cinit dist/default/production/fat32_test.X.production.obj
+F32_readFile@dir DD 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+_F32_writeFile 10FE 0 CODE 0 text9 dist/default/production/fat32_test.X.production.obj
+__size_of_F32_searchNextFreeCluster 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_unusedSectors 33 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
+?_F32_getFirstSector 6C 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+___llmod@dividend 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+SD_init@response 6E 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+SD_init@retry 6F 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__activetblptr 2 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+___llmod@counter 20 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+___lmul@product 68 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+__end_of_err4 10B5 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
+__size_of_SD_card_type 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+SPI2_write@data_out 21 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
+__size_of___llmod 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+_F32_getBootSectorData 21F4 0 CODE 0 text19 dist/default/production/fat32_test.X.production.obj
+__size_of_F32_getFirstSector 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
+F32_writeFile@firstClusterHigh 1CE 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+F32_writeFile@nextCluster 1D6 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
+___lldiv@dividend 6C 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect in on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+reset_vec 0 300 300 4 1
+intcode 0 308 308 10 1
+intcodelo 0 318 318 8E 1
+smallconst 0 1000 1000 FE 1
+config 0 300000 300000 E 1
+idloc 0 200000 200000 8 1
+cstackCOMRAM 1 1 1 40 1
+cstackBANK0 1 60 60 91 1
+bssBANK1 1 100 100 EE 1
+bssBIGRAM 1 1EE 1EE 200 1
+text9 0 10FE 10FE 2DDC 1
