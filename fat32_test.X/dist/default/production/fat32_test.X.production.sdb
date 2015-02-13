@@ -1,0 +1,1050 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F46K22 ]
+[d frameptr 4065 ]
+"27 /home/texan/work/xc8/my_lib.X/rosso_hwserial.h
+[e E5 _BOOL `uc
+FALSE 0
+TRUE 1
+]
+"51 /home/texan/work/xc8/my_lib.X/rosso_hwspi2.h
+[e E8073 . `uc
+SPI_FOSC_4 0
+SPI_FOSC_16 1
+SPI_FOSC_64 2
+SPI_FOSC_TMR2 3
+SLV_SSON 4
+SLV_SSOFF 5
+]
+[e E8067 . `uc
+MODE_00 0
+MODE_01 1
+MODE_10 2
+MODE_11 3
+]
+[e E8063 . `uc
+SMPMID 0
+SMPEND 128
+]
+"97 /home/texan/work/xc8/my_lib.X/rosso_delays.h
+[v __delay_us _delay_us `(v  1 e 0 0 ]
+"104
+[v __delay_ms _delay_ms `(v  1 e 0 0 ]
+"134 /home/texan/work/xc8/my_lib.X/rosso_f32.h
+[v _getDateTime_FAT getDateTime_FAT `(uc  1 e 1 0 ]
+"144
+[v _F32_getFirstSector F32_getFirstSector `(ul  1 e 4 0 ]
+"149
+[v _F32_getSetFreeCluster F32_getSetFreeCluster `(ul  1 e 4 0 ]
+"179
+[v _F32_getBootSectorData F32_getBootSectorData `(uc  1 e 1 0 ]
+"232
+[v _F32_getSetNextCluster F32_getSetNextCluster `(ul  1 e 4 0 ]
+"266
+[v _F32_displayMemory F32_displayMemory `(v  1 e 0 0 ]
+"287
+[v _F32_freeMemoryUpdate F32_freeMemoryUpdate `(v  1 e 0 0 ]
+"77
+[s S964 dir_Structure 32 `[11]uc 1 name 11 0 `uc 1 attrib 1 11 `uc 1 NTreserved 1 12 `uc 1 timeTenth 1 13 `us 1 createTime 2 14 `us 1 createDate 2 16 `us 1 lastAccessDate 2 18 `us 1 firstClusterHI 2 20 `us 1 writeTime 2 22 `us 1 writeDate 2 24 `us 1 firstClusterLO 2 26 `ul 1 fileSize 4 28 ]
+"311
+[v _F32_findFiles F32_findFiles `(*.39S964  1 e 2 0 ]
+"436
+[v _F32_readFile F32_readFile `(uc  1 e 1 0 ]
+"489
+[v _F32_searchNextFreeCluster F32_searchNextFreeCluster `(ul  1 e 4 0 ]
+"509
+[v _F32_writeFile F32_writeFile `(uc  1 e 1 0 ]
+"732
+[v _F32_deleteFile F32_deleteFile `(v  1 e 0 0 ]
+"22 /home/texan/work/xc8/my_lib.X/rosso_hwserial.h
+[v _USART_HW_init USART_HW_init `(v  1 e 0 0 ]
+"43
+[v _USART_HW_disable USART_HW_disable `(v  1 e 0 0 ]
+"50
+[v _USART_HW_write USART_HW_write `(v  1 e 0 0 ]
+"55
+[v _USART_HW_putstr USART_HW_putstr `(v  1 e 0 0 ]
+"61
+[v _USART_HW_read USART_HW_read `(E5  1 e 1 0 ]
+"51 /home/texan/work/xc8/my_lib.X/rosso_hwspi2.h
+[v _SPI2_init SPI2_init `(v  1 e 0 0 ]
+"78
+[v _SPI2_read SPI2_read `(uc  1 e 1 0 ]
+"88
+[v _SPI2_write SPI2_write `(c  1 e 1 0 ]
+"64 /home/texan/work/xc8/my_lib.X/rosso_sdcard.h
+[v _SD_sendCommand SD_sendCommand `(uc  1 e 1 0 ]
+"115
+[v _SD_init SD_init `(uc  1 e 1 0 ]
+"196
+[v _SD_card_type SD_card_type `(uc  1 e 1 0 ]
+"200
+[v _SD_erase SD_erase `(uc  1 e 1 0 ]
+"219
+[v _SD_readSingleBlock SD_readSingleBlock `(uc  1 e 1 0 ]
+"249
+[v _SD_writeSingleBlock SD_writeSingleBlock `(uc  1 e 1 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/abdiv.c
+[v ___abdiv __abdiv `(c  1 e 1 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/abmod.c
+[v ___abmod __abmod `(c  1 e 1 0 ]
+"31 /opt/microchip/xc8/v1.33/sources/common/abtofl.c
+[v ___abtofl __abtofl `(d  1 e 3 0 ]
+"33 /opt/microchip/xc8/v1.33/sources/common/abtoft.c
+[v ___abtoft __abtoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"36 /opt/microchip/xc8/v1.33/sources/common/altofl.c
+[v ___altofl __altofl `(d  1 e 3 0 ]
+"42 /opt/microchip/xc8/v1.33/sources/common/altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/atmod.c
+[v ___atmod __atmod `(m  1 e 3 0 ]
+"37 /opt/microchip/xc8/v1.33/sources/common/attofl.c
+[v ___attofl __attofl `(d  1 e 3 0 ]
+"37 /opt/microchip/xc8/v1.33/sources/common/attoft.c
+[v ___attoft __attoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"31 /opt/microchip/xc8/v1.33/sources/common/awtofl.c
+[v ___awtofl __awtofl `(d  1 e 3 0 ]
+"32 /opt/microchip/xc8/v1.33/sources/common/awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+"63 /opt/microchip/xc8/v1.33/sources/common/double.c
+[v ___flpack __flpack `(d  1 e 3 0 ]
+"88 /opt/microchip/xc8/v1.33/sources/common/fladd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"49 /opt/microchip/xc8/v1.33/sources/common/fldiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v1.33/sources/common/flmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/flneg.c
+[v ___flneg __flneg `(d  1 e 3 0 ]
+"62 /opt/microchip/xc8/v1.33/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"20 /opt/microchip/xc8/v1.33/sources/common/flsub.c
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"43 /opt/microchip/xc8/v1.33/sources/common/fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"86 /opt/microchip/xc8/v1.33/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"49 /opt/microchip/xc8/v1.33/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v1.33/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"20 /opt/microchip/xc8/v1.33/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 /opt/microchip/xc8/v1.33/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"27 /opt/microchip/xc8/v1.33/sources/common/lbtofl.c
+[v ___lbtofl __lbtofl `(d  1 e 3 0 ]
+"27 /opt/microchip/xc8/v1.33/sources/common/lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"30 /opt/microchip/xc8/v1.33/sources/common/lltofl.c
+[v ___lltofl __lltofl `(d  1 e 3 0 ]
+"35 /opt/microchip/xc8/v1.33/sources/common/lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"30 /opt/microchip/xc8/v1.33/sources/common/lttofl.c
+[v ___lttofl __lttofl `(d  1 e 3 0 ]
+"30 /opt/microchip/xc8/v1.33/sources/common/lttoft.c
+[v ___lttoft __lttoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"28 /opt/microchip/xc8/v1.33/sources/common/lwtofl.c
+[v ___lwtofl __lwtofl `(d  1 e 3 0 ]
+"28 /opt/microchip/xc8/v1.33/sources/common/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asfladd.c
+[v ___asfladd __asfladd `(d  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asfldiv.c
+[v ___asfldiv __asfldiv `(d  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asflmul.c
+[v ___asflmul __asflmul `(d  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asflsub.c
+[v ___asflsub __asflsub `(d  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asftadd.c
+[v ___asftadd __asftadd `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asftdiv.c
+[v ___asftdiv __asftdiv `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asftmul.c
+[v ___asftmul __asftmul `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asftsub.c
+[v ___asftsub __asftsub `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/aslmul.c
+[v ___aslmul __aslmul `(ul  1 e 4 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/pic18/d100tcyx.c
+[v _Delay100TCYx Delay100TCYx `(v  1 e 0 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/pic18/d10ktcyx.c
+[v _Delay10KTCYx Delay10KTCYx `(v  1 e 0 0 ]
+"47 /home/texan/work/xc8/fat32_test.X/main.c
+[v _blinkErrorLED blinkErrorLED `(v  1 e 0 0 ]
+"63
+[v _main main `(v  1 e 0 0 ]
+"188
+[v _high_isr high_isr `II(v  1 e 0 0 ]
+"194
+[v _low_isr low_isr `IIL(v  1 e 0 0 ]
+"49 /home/texan/work/xc8/my_lib.X/pic18f46k22.h
+[v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
+"93
+[v _ANSELB ANSELB `VEuc  1 e 1 @3897 ]
+"142
+[v _ANSELC ANSELC `VEuc  1 e 1 @3898 ]
+"192
+[v _ANSELD ANSELD `VEuc  1 e 1 @3899 ]
+"253
+[v _ANSELE ANSELE `VEuc  1 e 1 @3900 ]
+"3696
+[v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @3948 ]
+[s S642 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"3747
+[s S648 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[s S653 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 CKP2 1 0 :1:4 
+]
+[s S656 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SSPEN2 1 0 :1:5 
+]
+[s S659 . 1 `uc 1 SSPM02 1 0 :1:0 
+]
+[s S661 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 SSPM12 1 0 :1:1 
+]
+[s S664 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 SSPM22 1 0 :1:2 
+]
+[s S667 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPM32 1 0 :1:3 
+]
+[s S670 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 SSPOV2 1 0 :1:6 
+]
+[s S673 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 WCOL2 1 0 :1:7 
+]
+[u S676 . 1 `S642 1 . 1 0 `S648 1 . 1 0 `S653 1 . 1 0 `S656 1 . 1 0 `S659 1 . 1 0 `S661 1 . 1 0 `S664 1 . 1 0 `S667 1 . 1 0 `S670 1 . 1 0 `S673 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES676  1 e 1 @3948 ]
+"3836
+[v _SSP2STAT SSP2STAT `VEuc  1 e 1 @3949 ]
+[s S372 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"3994
+[s S375 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S378 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+[s S387 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S392 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 A 1 0 :1:5 
+]
+[s S397 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S402 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S407 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_WRITE 1 0 :1:2 
+]
+[s S410 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_ADDRESS 1 0 :1:5 
+]
+[s S413 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S418 . 1 `uc 1 BF2 1 0 :1:0 
+]
+[s S420 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CKE2 1 0 :1:6 
+]
+[s S423 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DA2 1 0 :1:5 
+]
+[s S426 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DATA_ADDRESS2 1 0 :1:5 
+]
+[s S429 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_A2 1 0 :1:5 
+]
+[s S432 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_nA2 1 0 :1:5 
+]
+[s S435 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 I2C_DAT2 1 0 :1:5 
+]
+[s S438 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ2 1 0 :1:2 
+]
+[s S441 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 I2C_START2 1 0 :1:3 
+]
+[s S444 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 I2C_STOP2 1 0 :1:4 
+]
+[s S447 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 P2 1 0 :1:4 
+]
+[s S450 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE2 1 0 :1:2 
+]
+[s S453 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW2 1 0 :1:2 
+]
+[s S456 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W2 1 0 :1:2 
+]
+[s S459 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_nW2 1 0 :1:2 
+]
+[s S462 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 S2 1 0 :1:3 
+]
+[s S465 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SMP2 1 0 :1:7 
+]
+[s S468 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 START2 1 0 :1:3 
+]
+[s S471 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 STOP2 1 0 :1:4 
+]
+[s S474 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 UA2 1 0 :1:1 
+]
+[s S477 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 nA2 1 0 :1:5 
+]
+[s S480 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 nADDRESS2 1 0 :1:5 
+]
+[s S483 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW2 1 0 :1:2 
+]
+[s S486 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE2 1 0 :1:2 
+]
+[u S489 . 1 `S372 1 . 1 0 `S375 1 . 1 0 `S378 1 . 1 0 `S387 1 . 1 0 `S392 1 . 1 0 `S397 1 . 1 0 `S402 1 . 1 0 `S407 1 . 1 0 `S410 1 . 1 0 `S413 1 . 1 0 `S418 1 . 1 0 `S420 1 . 1 0 `S423 1 . 1 0 `S426 1 . 1 0 `S429 1 . 1 0 `S432 1 . 1 0 `S435 1 . 1 0 `S438 1 . 1 0 `S441 1 . 1 0 `S444 1 . 1 0 `S447 1 . 1 0 `S450 1 . 1 0 `S453 1 . 1 0 `S456 1 . 1 0 `S459 1 . 1 0 `S462 1 . 1 0 `S465 1 . 1 0 `S468 1 . 1 0 `S471 1 . 1 0 `S474 1 . 1 0 `S477 1 . 1 0 `S480 1 . 1 0 `S483 1 . 1 0 `S486 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES489  1 e 1 @3949 ]
+"4318
+[v _SSP2BUF SSP2BUF `VEuc  1 e 1 @3951 ]
+"5338
+[v _CM2CON1 CM2CON1 `VEuc  1 e 1 @3959 ]
+"5459
+[v _CM2CON0 CM2CON0 `VEuc  1 e 1 @3960 ]
+"5738
+[v _CM1CON0 CM1CON0 `VEuc  1 e 1 @3961 ]
+[s S798 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"7956
+[s S807 . 1 `uc 1 LB0 1 0 :1:0 
+]
+[s S809 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+]
+[s S812 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LB2 1 0 :1:2 
+]
+[s S815 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LB3 1 0 :1:3 
+]
+[s S818 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LB4 1 0 :1:4 
+]
+[s S821 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LB5 1 0 :1:5 
+]
+[s S824 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LB6 1 0 :1:6 
+]
+[s S827 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S830 . 1 `S798 1 . 1 0 `S807 1 . 1 0 `S809 1 . 1 0 `S812 1 . 1 0 `S815 1 . 1 0 `S818 1 . 1 0 `S821 1 . 1 0 `S824 1 . 1 0 `S827 1 . 1 0 ]
+[v _LATBbits LATBbits `VES830  1 e 1 @3978 ]
+"8088
+[v _LATCbits LATCbits `VES830  1 e 1 @3979 ]
+[s S722 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"8438
+[s S731 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+[u S740 . 1 `S722 1 . 1 0 `S731 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES740  1 e 1 @3986 ]
+"8659
+[v _TRISBbits TRISBbits `VES740  1 e 1 @3987 ]
+"8880
+[v _TRISCbits TRISCbits `VES740  1 e 1 @3988 ]
+"9101
+[v _TRISDbits TRISDbits `VES740  1 e 1 @3989 ]
+[s S220 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"9775
+[s S228 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+[u S233 . 1 `S220 1 . 1 0 `S228 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES233  1 e 1 @3997 ]
+"9851
+[v _PIR1bits PIR1bits `VES233  1 e 1 @3998 ]
+[s S763 . 1 `uc 1 TMR1GIF 1 0 :1:0 
+`uc 1 TMR3GIF 1 0 :1:1 
+`uc 1 TMR5GIF 1 0 :1:2 
+`uc 1 CTMUIF 1 0 :1:3 
+`uc 1 TX2IF 1 0 :1:4 
+`uc 1 RC2IF 1 0 :1:5 
+`uc 1 BCL2IF 1 0 :1:6 
+`uc 1 SSP2IF 1 0 :1:7 
+]
+"10384
+[s S772 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIF 1 0 :1:1 
+]
+[s S775 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXBNIF 1 0 :1:4 
+]
+[u S778 . 1 `S763 1 . 1 0 `S772 1 . 1 0 `S775 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES778  1 e 1 @4004 ]
+"10727
+[v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
+[s S250 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"10926
+[s S259 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S262 . 1 `uc 1 RX9D1 1 0 :1:0 
+`uc 1 OERR1 1 0 :1:1 
+`uc 1 FERR1 1 0 :1:2 
+`uc 1 ADDEN1 1 0 :1:3 
+`uc 1 CREN1 1 0 :1:4 
+`uc 1 SREN1 1 0 :1:5 
+`uc 1 RX91 1 0 :1:6 
+`uc 1 SPEN1 1 0 :1:7 
+]
+[s S271 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S274 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S277 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[s S279 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[u S282 . 1 `S250 1 . 1 0 `S259 1 . 1 0 `S262 1 . 1 0 `S271 1 . 1 0 `S274 1 . 1 0 `S277 1 . 1 0 `S279 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES282  1 e 1 @4011 ]
+"11188
+[v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
+[s S166 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"11348
+[s S175 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S184 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S187 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S189 . 1 `S166 1 . 1 0 `S175 1 . 1 0 `S184 1 . 1 0 `S187 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES189  1 e 1 @4012 ]
+"11568
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"11645
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"11722
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"11799
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
+[s S32 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 CKTXP 1 0 :1:4 
+`uc 1 DTRXP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"13038
+[s S41 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+]
+[s S44 . 1 `uc 1 ABDEN1 1 0 :1:0 
+]
+[s S46 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 ABDOVF1 1 0 :1:7 
+]
+[s S49 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 BRG161 1 0 :1:3 
+]
+[s S52 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DTRXP1 1 0 :1:5 
+]
+[s S55 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RCIDL1 1 0 :1:6 
+]
+[s S58 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S61 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RCMT1 1 0 :1:6 
+]
+[s S64 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXDTP 1 0 :1:5 
+]
+[s S67 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXDTP1 1 0 :1:5 
+]
+[s S70 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP1 1 0 :1:4 
+]
+[s S73 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXCKP 1 0 :1:4 
+]
+[s S76 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXCKP1 1 0 :1:4 
+]
+[s S79 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 WUE1 1 0 :1:1 
+]
+[s S82 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S85 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S88 . 1 `S32 1 . 1 0 `S41 1 . 1 0 `S44 1 . 1 0 `S46 1 . 1 0 `S49 1 . 1 0 `S52 1 . 1 0 `S55 1 . 1 0 `S58 1 . 1 0 `S61 1 . 1 0 `S64 1 . 1 0 `S67 1 . 1 0 `S70 1 . 1 0 `S73 1 . 1 0 `S76 1 . 1 0 `S79 1 . 1 0 `S82 1 . 1 0 `S85 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES88  1 e 1 @4024 ]
+"13947
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"14017
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"14084
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+"120 /home/texan/work/xc8/my_lib.X/rosso_f32.h
+[v _firstDataSector firstDataSector `VEul  1 e 4 0 ]
+[v _rootCluster rootCluster `VEul  1 e 4 0 ]
+[v _totalClusters totalClusters `VEul  1 e 4 0 ]
+"121
+[v _bytesPerSector bytesPerSector `VEus  1 e 2 0 ]
+[v _sectorPerCluster sectorPerCluster `VEus  1 e 2 0 ]
+[v _reservedSectorCount reservedSectorCount `VEus  1 e 2 0 ]
+"122
+[v _unusedSectors unusedSectors `ul  1 e 4 0 ]
+[v _appendFileSector appendFileSector `ul  1 e 4 0 ]
+[v _appendFileLocation appendFileLocation `ul  1 e 4 0 ]
+[v _fileSize fileSize `ul  1 e 4 0 ]
+"123
+[v _appendStartCluster appendStartCluster `ul  1 e 4 0 ]
+"126
+[v _freeClusterCountUpdated freeClusterCountUpdated `uc  1 e 1 0 ]
+"129
+[v _dataString dataString `VE[100]uc  1 e 100 0 ]
+"130
+[v _timeFAT timeFAT `us  1 e 2 0 ]
+[v _dateFAT dateFAT `us  1 e 2 0 ]
+"56 /home/texan/work/xc8/my_lib.X/rosso_sdcard.h
+[v _SD_startBlock SD_startBlock `VEul  1 e 4 0 ]
+[v _SD_totalBlocks SD_totalBlocks `VEul  1 e 4 0 ]
+"57
+[v _SDHC_flag SDHC_flag `VEuc  1 e 1 0 ]
+[v _SD_cardType SD_cardType `VEuc  1 e 1 0 ]
+[v _SD_buffer SD_buffer `VE[512]uc  1 e 512 0 ]
+"30 /home/texan/work/xc8/fat32_test.X/main.c
+[v _fileName fileName `[12]uc  1 e 12 0 ]
+"35
+[v _temp_buffer temp_buffer `[42]uc  1 e 42 0 ]
+"36
+[v _test_start test_start `C[28]uc  1 e 28 0 ]
+"38
+[v _err1 err1 `C[25]uc  1 e 25 0 ]
+"39
+[v _err2 err2 `C[31]uc  1 e 31 0 ]
+"40
+[v _err3 err3 `C[19]uc  1 e 19 0 ]
+"41
+[v _err4 err4 `C[28]uc  1 e 28 0 ]
+"43
+[v _msg1 msg1 `C[45]uc  1 e 45 0 ]
+"44
+[v _msg2 msg2 `C[31]uc  1 e 31 0 ]
+"45
+[v _msg3 msg3 `C[45]uc  1 e 45 0 ]
+"63
+[v _main main `(v  1 e 0 0 ]
+{
+"64
+[v main@error error `uc  1 a 1 141 ]
+[v main@i i `uc  1 a 1 140 ]
+[v main@mySD_type mySD_type `uc  1 a 1 139 ]
+"184
+} 0
+"47
+[v _blinkErrorLED blinkErrorLED `(v  1 e 0 0 ]
+{
+"52
+} 0
+"8 /opt/microchip/xc8/v1.33/sources/pic18/d10ktcyx.c
+[v _Delay10KTCYx Delay10KTCYx `(v  1 e 0 0 ]
+{
+[v Delay10KTCYx@unit unit `uc  1 a 1 wreg ]
+[v Delay10KTCYx@unit unit `uc  1 a 1 wreg ]
+[v Delay10KTCYx@unit unit `uc  1 a 1 32 ]
+"13
+} 0
+"55 /home/texan/work/xc8/my_lib.X/rosso_hwserial.h
+[v _USART_HW_putstr USART_HW_putstr `(v  1 e 0 0 ]
+{
+"56
+[v USART_HW_putstr@c c `uc  1 a 1 0 ]
+"55
+[v USART_HW_putstr@s s `*.25uc  1 p 2 32 ]
+"59
+} 0
+"50
+[v _USART_HW_write USART_HW_write `(v  1 e 0 0 ]
+{
+[v USART_HW_write@data data `uc  1 a 1 wreg ]
+[v USART_HW_write@data data `uc  1 a 1 wreg ]
+[v USART_HW_write@data data `uc  1 a 1 31 ]
+"53
+} 0
+"22
+[v _USART_HW_init USART_HW_init `(v  1 e 0 0 ]
+{
+"23
+[v USART_HW_init@usart_div usart_div `us  1 a 2 0 ]
+"41
+} 0
+"51 /home/texan/work/xc8/my_lib.X/rosso_hwspi2.h
+[v _SPI2_init SPI2_init `(v  1 e 0 0 ]
+{
+[v SPI2_init@spi_rate spi_rate `E8073  1 a 1 wreg ]
+[v SPI2_init@spi_rate spi_rate `E8073  1 a 1 wreg ]
+[v SPI2_init@bus_mode bus_mode `E8067  1 p 1 31 ]
+[v SPI2_init@smp_phase smp_phase `E8063  1 p 1 32 ]
+[v SPI2_init@spi_rate spi_rate `E8073  1 a 1 33 ]
+"73
+} 0
+"115 /home/texan/work/xc8/my_lib.X/rosso_sdcard.h
+[v _SD_init SD_init `(uc  1 e 1 0 ]
+{
+"117
+[v SD_init@retry retry `us  1 a 2 15 ]
+"116
+[v SD_init@response response `uc  1 a 1 14 ]
+[v SD_init@i i `uc  1 a 1 13 ]
+[v SD_init@SD_version SD_version `uc  1 a 1 12 ]
+"193
+} 0
+"196
+[v _SD_card_type SD_card_type `(uc  1 e 1 0 ]
+{
+"198
+} 0
+"509 /home/texan/work/xc8/my_lib.X/rosso_f32.h
+[v _F32_writeFile F32_writeFile `(uc  1 e 1 0 ]
+{
+"514
+[v F32_writeFile@cluster cluster `ul  1 a 4 40 ]
+[v F32_writeFile@prevCluster prevCluster `ul  1 a 4 31 ]
+[v F32_writeFile@firstSector firstSector `ul  1 a 4 24 ]
+[v F32_writeFile@nextCluster nextCluster `ul  1 a 4 20 ]
+[v F32_writeFile@clusterCount clusterCount `ul  1 a 4 8 ]
+"515
+[v F32_writeFile@extraMemory extraMemory `ul  1 a 4 0 ]
+[s S964 dir_Structure 32 `[11]uc 1 name 11 0 `uc 1 attrib 1 11 `uc 1 NTreserved 1 12 `uc 1 timeTenth 1 13 `us 1 createTime 2 14 `us 1 createDate 2 16 `us 1 lastAccessDate 2 18 `us 1 firstClusterHI 2 20 `us 1 writeTime 2 22 `us 1 writeDate 2 24 `us 1 firstClusterLO 2 26 `ul 1 fileSize 4 28 ]
+"513
+[v F32_writeFile@dir dir `*.39S964  1 a 2 38 ]
+"512
+[v F32_writeFile@i i `us  1 a 2 35 ]
+[v F32_writeFile@firstClusterLow firstClusterLow `us  1 a 2 14 ]
+[v F32_writeFile@firstClusterHigh firstClusterHigh `us  1 a 2 12 ]
+"510
+[v F32_writeFile@j j `uc  1 a 1 37 ]
+"511
+[v F32_writeFile@sector sector `uc  1 a 1 30 ]
+"510
+[v F32_writeFile@data data `uc  1 a 1 29 ]
+[v F32_writeFile@k k `uc  1 a 1 28 ]
+[v F32_writeFile@start start `uc  1 a 1 19 ]
+[v F32_writeFile@error error `uc  1 a 1 18 ]
+[v F32_writeFile@appendFile appendFile `uc  1 a 1 17 ]
+[v F32_writeFile@fileCreatedFlag fileCreatedFlag `uc  1 a 1 16 ]
+"509
+[v F32_writeFile@fileName fileName `*.39uc  1 p 2 127 ]
+[v F32_writeFile@dataString dataString `*.39uc  1 p 2 129 ]
+"730
+} 0
+"134
+[v _getDateTime_FAT getDateTime_FAT `(uc  1 e 1 0 ]
+{
+"142
+} 0
+"489
+[v _F32_searchNextFreeCluster F32_searchNextFreeCluster `(ul  1 e 4 0 ]
+{
+"490
+[v F32_searchNextFreeCluster@cluster cluster `ul  1 a 4 47 ]
+[v F32_searchNextFreeCluster@sector sector `ul  1 a 4 41 ]
+[v F32_searchNextFreeCluster@value value `*.39ul  1 a 2 45 ]
+"491
+[v F32_searchNextFreeCluster@i i `uc  1 a 1 51 ]
+"489
+[v F32_searchNextFreeCluster@startCluster startCluster `ul  1 p 4 25 ]
+"506
+} 0
+"436
+[v _F32_readFile F32_readFile `(uc  1 e 1 0 ]
+{
+[v F32_readFile@flag flag `uc  1 a 1 wreg ]
+"438
+[v F32_readFile@cluster cluster `ul  1 a 4 121 ]
+[v F32_readFile@firstSector firstSector `ul  1 a 4 113 ]
+[v F32_readFile@fileSize fileSize `ul  1 a 4 109 ]
+[v F32_readFile@byteCounter byteCounter `ul  1 a 4 105 ]
+[s S964 dir_Structure 32 `[11]uc 1 name 11 0 `uc 1 attrib 1 11 `uc 1 NTreserved 1 12 `uc 1 timeTenth 1 13 `us 1 createTime 2 14 `us 1 createDate 2 16 `us 1 lastAccessDate 2 18 `us 1 firstClusterHI 2 20 `us 1 writeTime 2 22 `us 1 writeDate 2 24 `us 1 firstClusterLO 2 26 `ul 1 fileSize 4 28 ]
+"437
+[v F32_readFile@dir dir `*.39S964  1 a 2 125 ]
+"439
+[v F32_readFile@k k `us  1 a 2 118 ]
+"440
+[v F32_readFile@j j `uc  1 a 1 120 ]
+"436
+[v F32_readFile@flag flag `uc  1 a 1 wreg ]
+[v F32_readFile@fileName fileName `*.39uc  1 p 2 95 ]
+"438
+[v F32_readFile@flag flag `uc  1 a 1 117 ]
+"487
+} 0
+"77
+[s S964 dir_Structure 32 `[11]uc 1 name 11 0 `uc 1 attrib 1 11 `uc 1 NTreserved 1 12 `uc 1 timeTenth 1 13 `us 1 createTime 2 14 `us 1 createDate 2 16 `us 1 lastAccessDate 2 18 `us 1 firstClusterHI 2 20 `us 1 writeTime 2 22 `us 1 writeDate 2 24 `us 1 firstClusterLO 2 26 `ul 1 fileSize 4 28 ]
+"311
+[v _F32_findFiles F32_findFiles `(*.39S964  1 e 2 0 ]
+{
+[v F32_findFiles@flag flag `uc  1 a 1 wreg ]
+"312
+[v F32_findFiles@cluster cluster `ul  1 a 4 88 ]
+[v F32_findFiles@firstCluster firstCluster `ul  1 a 4 84 ]
+[v F32_findFiles@sector sector `ul  1 a 4 80 ]
+[v F32_findFiles@firstSector firstSector `ul  1 a 4 73 ]
+[v F32_findFiles@nextCluster nextCluster `ul  1 a 4 69 ]
+"313
+[v F32_findFiles@dir dir `*.39S964  1 a 2 93 ]
+"314
+[v F32_findFiles@i i `us  1 a 2 78 ]
+"315
+[v F32_findFiles@j j `uc  1 a 1 92 ]
+"311
+[v F32_findFiles@flag flag `uc  1 a 1 wreg ]
+[v F32_findFiles@fileName fileName `*.39uc  1 p 2 59 ]
+"317
+[v F32_findFiles@flag flag `uc  1 a 1 77 ]
+"434
+} 0
+"232
+[v _F32_getSetNextCluster F32_getSetNextCluster `(ul  1 e 4 0 ]
+{
+"236
+[v F32_getSetNextCluster@FATEntrySector FATEntrySector `ul  1 a 4 49 ]
+"235
+[v F32_getSetNextCluster@FATEntryValue FATEntryValue `*.39ul  1 a 2 53 ]
+"234
+[v F32_getSetNextCluster@FATEntryOffset FATEntryOffset `us  1 a 2 46 ]
+"237
+[v F32_getSetNextCluster@retry retry `uc  1 a 1 48 ]
+"232
+[v F32_getSetNextCluster@clusterNumber clusterNumber `ul  1 p 4 25 ]
+[v F32_getSetNextCluster@get_set get_set `uc  1 p 1 29 ]
+"233
+[v F32_getSetNextCluster@clusterEntry clusterEntry `ul  1 p 4 30 ]
+"264
+} 0
+"144
+[v _F32_getFirstSector F32_getFirstSector `(ul  1 e 4 0 ]
+{
+[v F32_getFirstSector@clusterNumber clusterNumber `ul  1 p 4 12 ]
+"146
+} 0
+"287
+[v _F32_freeMemoryUpdate F32_freeMemoryUpdate `(v  1 e 0 0 ]
+{
+[v F32_freeMemoryUpdate@flag flag `uc  1 a 1 wreg ]
+"288
+[v F32_freeMemoryUpdate@freeClusters freeClusters `ul  1 a 4 42 ]
+"287
+[v F32_freeMemoryUpdate@flag flag `uc  1 a 1 wreg ]
+[v F32_freeMemoryUpdate@size size `ul  1 p 4 33 ]
+"290
+[v F32_freeMemoryUpdate@flag flag `uc  1 a 1 41 ]
+"308
+} 0
+"266
+[v _F32_displayMemory F32_displayMemory `(v  1 e 0 0 ]
+{
+[v F32_displayMemory@flag flag `uc  1 a 1 wreg ]
+"267
+[v F32_displayMemory@memoryString memoryString `[20]uc  1 a 20 37 ]
+"268
+[v F32_displayMemory@i i `uc  1 a 1 58 ]
+"266
+[v F32_displayMemory@flag flag `uc  1 a 1 wreg ]
+[v F32_displayMemory@memory memory `ul  1 p 4 25 ]
+[v F32_displayMemory@F8237 F8237 `[20]uc  1 s 20 F8237 ]
+[v F32_displayMemory@flag flag `uc  1 a 1 57 ]
+"285
+} 0
+"8 /opt/microchip/xc8/v1.33/sources/common/llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+{
+"11
+[v ___llmod@counter counter `uc  1 a 1 31 ]
+"8
+[v ___llmod@dividend dividend `ul  1 p 4 0 ]
+[v ___llmod@divisor divisor `ul  1 p 4 4 ]
+"26
+} 0
+"179 /home/texan/work/xc8/my_lib.X/rosso_f32.h
+[v _F32_getBootSectorData F32_getBootSectorData `(uc  1 e 1 0 ]
+{
+"183
+[v F32_getBootSectorData@dataSectors dataSectors `ul  1 a 4 48 ]
+[s S921 BS_Structure 512 `[3]uc 1 jumpBoot 3 0 `[8]uc 1 OEMName 8 3 `us 1 bytesPerSector 2 11 `uc 1 sectorPerCluster 1 13 `us 1 reservedSectorCount 2 14 `uc 1 numberofFATs 1 16 `us 1 rootEntryCount 2 17 `us 1 totalSectors_F16 2 19 `uc 1 mediaType 1 21 `us 1 FATsize_F16 2 22 `us 1 sectorsPerTrack 2 24 `us 1 numberofHeads 2 26 `ul 1 hiddenSectors 4 28 `ul 1 totalSectors_F32 4 32 `ul 1 FATsize_F32 4 36 `us 1 extFlags 2 40 `us 1 FSversion 2 42 `ul 1 rootCluster 4 44 `us 1 FSinfo 2 48 `us 1 BackupBootSector 2 50 `[12]uc 1 reserved 12 52 `uc 1 driveNumber 1 64 `uc 1 reserved1 1 65 `uc 1 bootSignature 1 66 `ul 1 volumeID 4 67 `[11]uc 1 volumeLabel 11 71 `[8]uc 1 fileSystemType 8 82 `[420]uc 1 bootData 420 90 `us 1 bootEndSignature 2 510 ]
+"180
+[v F32_getBootSectorData@bpb bpb `*.39S921  1 a 2 56 ]
+[s S955 partitionInfo_Structure 16 `uc 1 status 1 0 `uc 1 headStart 1 1 `us 1 cylSectStart 2 2 `uc 1 type 1 4 `uc 1 headEnd 1 5 `us 1 cylSectEnd 2 6 `ul 1 firstSector 4 8 `ul 1 sectorsTotal 4 12 ]
+"182
+[v F32_getBootSectorData@partition partition `*.39S955  1 a 2 54 ]
+[s S951 MBRinfo_Structure 512 `[446]uc 1 nothing 446 0 `[64]uc 1 partitionData 64 446 `us 1 signature 2 510 ]
+"181
+[v F32_getBootSectorData@mbr mbr `*.39S951  1 a 2 52 ]
+"230
+} 0
+"15 /opt/microchip/xc8/v1.33/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 8 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 0 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
+"129
+} 0
+"8 /opt/microchip/xc8/v1.33/sources/common/lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"11
+[v ___lldiv@quotient quotient `ul  1 a 4 20 ]
+"12
+[v ___lldiv@counter counter `uc  1 a 1 24 ]
+"8
+[v ___lldiv@dividend dividend `ul  1 p 4 12 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 16 ]
+"31
+} 0
+"149 /home/texan/work/xc8/my_lib.X/rosso_f32.h
+[v _F32_getSetFreeCluster F32_getSetFreeCluster `(ul  1 e 4 0 ]
+{
+[v F32_getSetFreeCluster@totOrNext totOrNext `uc  1 a 1 wreg ]
+[s S913 FSInfo_Structure 512 `ul 1 leadSignature 4 0 `[480]uc 1 reserved1 480 4 `ul 1 structureSignature 4 484 `ul 1 freeClusterCount 4 488 `ul 1 nextFreeCluster 4 492 `[12]uc 1 reserved2 12 496 `ul 1 trailSignature 4 508 ]
+"152
+[v F32_getSetFreeCluster@FS FS `*.39S913  1 a 2 31 ]
+"149
+[v F32_getSetFreeCluster@totOrNext totOrNext `uc  1 a 1 wreg ]
+[v F32_getSetFreeCluster@get_set get_set `uc  1 p 1 21 ]
+"150
+[v F32_getSetFreeCluster@FSEntry FSEntry `ul  1 p 4 22 ]
+"152
+[v F32_getSetFreeCluster@totOrNext totOrNext `uc  1 a 1 30 ]
+"177
+} 0
+"249 /home/texan/work/xc8/my_lib.X/rosso_sdcard.h
+[v _SD_writeSingleBlock SD_writeSingleBlock `(uc  1 e 1 0 ]
+{
+"251
+[v SD_writeSingleBlock@i i `us  1 a 2 18 ]
+[v SD_writeSingleBlock@retry retry `us  1 a 2 16 ]
+"250
+[v SD_writeSingleBlock@response response `uc  1 a 1 20 ]
+"249
+[v SD_writeSingleBlock@SD_startBlock SD_startBlock `ul  1 p 4 12 ]
+"293
+} 0
+"219
+[v _SD_readSingleBlock SD_readSingleBlock `(uc  1 e 1 0 ]
+{
+"221
+[v SD_readSingleBlock@i i `us  1 a 2 19 ]
+[v SD_readSingleBlock@retry retry `us  1 a 2 16 ]
+"220
+[v SD_readSingleBlock@response response `uc  1 a 1 18 ]
+"219
+[v SD_readSingleBlock@SD_startBlock SD_startBlock `ul  1 p 4 12 ]
+"247
+} 0
+"64
+[v _SD_sendCommand SD_sendCommand `(uc  1 e 1 0 ]
+{
+[v SD_sendCommand@cmd cmd `uc  1 a 1 wreg ]
+"65
+[v SD_sendCommand@response response `uc  1 a 1 10 ]
+[v SD_sendCommand@status status `uc  1 a 1 9 ]
+[v SD_sendCommand@retry retry `uc  1 a 1 8 ]
+"64
+[v SD_sendCommand@cmd cmd `uc  1 a 1 wreg ]
+[v SD_sendCommand@arg arg `ul  1 p 4 0 ]
+[v SD_sendCommand@cmd cmd `uc  1 a 1 11 ]
+"113
+} 0
+"88 /home/texan/work/xc8/my_lib.X/rosso_hwspi2.h
+[v _SPI2_write SPI2_write `(c  1 e 1 0 ]
+{
+[v SPI2_write@data_out data_out `uc  1 a 1 wreg ]
+"89
+[v SPI2_write@TempVar TempVar `uc  1 a 1 31 ]
+"88
+[v SPI2_write@data_out data_out `uc  1 a 1 wreg ]
+"90
+[v SPI2_write@data_out data_out `uc  1 a 1 32 ]
+"100
+} 0
+"78
+[v _SPI2_read SPI2_read `(uc  1 e 1 0 ]
+{
+"79
+[v SPI2_read@TempVar TempVar `uc  1 a 1 31 ]
+"86
+} 0
+"8 /opt/microchip/xc8/v1.33/sources/pic18/d100tcyx.c
+[v _Delay100TCYx Delay100TCYx `(v  1 e 0 0 ]
+{
+[v Delay100TCYx@unit unit `uc  1 a 1 wreg ]
+[v Delay100TCYx@unit unit `uc  1 a 1 wreg ]
+[v Delay100TCYx@unit unit `uc  1 a 1 31 ]
+"13
+} 0
+"194 /home/texan/work/xc8/fat32_test.X/main.c
+[v _low_isr low_isr `IIL(v  1 e 0 0 ]
+{
+"196
+} 0
+"188
+[v _high_isr high_isr `II(v  1 e 0 0 ]
+{
+"190
+} 0
