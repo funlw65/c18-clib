@@ -52,6 +52,13 @@ void USART_HW2_write(UINT8 data) {
     TXREG2 = data; // transfer data
 }
 
+void USART_HW2_putstr(UINT8 * s) {
+    UINT8 c;
+    while ((c = *s++))
+        USART_HW2_write(c);
+}
+
+
 BOOL USART_HW2_read(UINT8 *data) {
     if (PIR3bits.RC2IF) { // check if data available
         *data = RCREG2; // pass received byte to caller

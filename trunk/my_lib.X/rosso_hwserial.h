@@ -52,6 +52,12 @@ void USART_HW_write(UINT8 data) {
     TXREG = data; // transfer data
 }
 
+void USART_HW_putstr(UINT8 * s) {
+    UINT8 c;
+    while ((c = *s++))
+        USART_HW_write(c);
+}
+
 BOOL USART_HW_read(UINT8 *data) {
     if (PIR1bits.RCIF) { // check if data available
         *data = RCREG; // pass received byte to caller
