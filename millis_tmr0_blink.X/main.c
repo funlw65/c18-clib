@@ -12,6 +12,7 @@
 #include <rosso.h> // processor type, speed, configuration bits, hardware, app_offset.
 #define TMR0_MILLIS // automatically sets the RATE to 1000
 #include <rosso_isr_delays.h>
+
 UINT32 previous,current;
 
 // declaring the headers for the interrupt functions

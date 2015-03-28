@@ -5,6 +5,14 @@
  * Created on December 16, 2014, 9:34 PM
  */
 
+/*
+ * Description: a standard "Hello world" program for testing the 16x2 LCD.
+ * It also tests the reading and displaying a string stored in the FLASH (pro-
+ * gram space) opposed to one stored in RAM (well, I guess is just me, learning
+ * how to do things in C18 and XC8...).
+ *
+ */
+
 #include <TypeDefs.h>
 //#define NOBOOT 1 // uncomment if you don't use a bootloader
 // disable following line if your hardware differs
@@ -14,7 +22,13 @@
 #include <rosso_lcd4.h>
 #include <rosso_conversion.h>
 
-UINT8 s[4];
+UINT8 s[4]; // buffer for number conversion
+#ifdef __18CXX // this is for MPLAB C18 compiler
+const rom UINT8 sf[]=" ENG\0"; // this should be stored in FLASH
+#else // __XC8
+const UINT8 sf[]=" ENG\0"; // this should be stored in FLASH
+#endif
+UINT8 sr[]="Hello World!\0";
 
 // declaring the headers for the interrupt functions
 void
@@ -34,33 +48,25 @@ low_isr(void);
 #pragma romdata bootloader = 0x6
 const rom char bootloader[APP_START - 0x6];
 extern void _startup(void);
-
 #pragma code AppVector = APP_START
-
 void AppVector(void) {
     _asm GOTO _startup _endasm
 }
-
 #pragma code AppHighIntVector = APP_HINT
-
 void AppHighIntVector(void) {
     _asm
-    GOTO high_isr // branch to the high_isr()
-            _endasm
+        GOTO high_isr // branch to the high_isr()
+    _endasm
 }
-
 #pragma code AppLowIntVector = APP_LINT
-
 void low_vector(void) {
     _asm
-    GOTO low_isr // branch to the low_isr()
-            _endasm
+        GOTO low_isr // branch to the low_isr()
+    _endasm
 }
 #endif
-
-#pragma code  // return to the default // code section
-#endif
-
+#pragma code  // This must be close to main() function, with nothing between;
+#endif        // Man, C18 is a real PITA regarding this.
 void main() {
     UINT8 i = 0;
     UINT8 counter = 0;
@@ -70,7 +76,7 @@ void main() {
     OnBoardButton_dir = 1; //input
     OnBoardLED = 0;
 #endif
-    //ei(); // enable general interrupts if needed
+    //sei(); // enable general interrupts if needed
     // Add other initializations you may have...
     lcd_init(LCD_HD44780);
     // signal the start four times
@@ -83,21 +89,11 @@ void main() {
         delay_100ms();
     }
     lcd_cursor_position(0, 0);
-    _lcd_write_data('H');
-    _lcd_write_data('e');
-    _lcd_write_data('l');
-    _lcd_write_data('l');
-    _lcd_write_data('o');
-    _lcd_write_data(' ');
-    _lcd_write_data('W');
-    _lcd_write_data('o');
-    _lcd_write_data('r');
-    _lcd_write_data('l');
-    _lcd_write_data('d');
-    _lcd_write_data('!');
+    lcd_write_str(sr);  // reading the string from the RAM
+    lcd_write_strF(sf); // reading the string from the FLASH
     while (1) {
         // Add your repeating code...
-        counter += 1;
+        counter += 1; // count up to 255 and start again from zer0
         lcd_cursor_position(1, 0);
         byte2dec(counter, s);
         for (i = 0; i < 3; i++) _lcd_write_data(s[i]);
@@ -109,7 +105,6 @@ void main() {
 #ifdef __18CXX
 #pragma interrupt high_isr
 #endif
-
 void
 #ifdef __XC8
 interrupt
@@ -121,7 +116,6 @@ high_isr(void) {
 #ifdef __18CXX
 #pragma interruptlow low_isr
 #endif
-
 void
 #ifdef __XC8
 interrupt low_priority

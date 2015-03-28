@@ -166,8 +166,9 @@ extern void __nop(void);
 #define READTIMER3() (TMR3)
 
 /////////////////////
-
+// sei()= Set interrupts (Activate global interrupts on high/low priority system)
 #define sei() RCON=0;RCONbits.IPEN=1;INTCONbits.PEIE=1;INTCONbits.GIE=1;
+// cli()= Clear Interrupts (Deactivate global interrupts)
 #define cli() INTCONbits.GIE=0;
 
 #define _XTAL_FREQ 64000000
@@ -182,7 +183,7 @@ extern void __nop(void);
 #endif
 
 
-#ifdef NOBOOT
+#ifdef NOBOOT // then set the configuration bits for 16MHz crystal with PLL at 64MHz maximum speed
 #pragma config FOSC = HSMP      // Oscillator Selection bits (HS oscillator (medium power 4-16 MHz))
 #pragma config PLLCFG = ON      // 4X PLL Enable (Oscillator multiplied by 4)
 #pragma config PRICLKEN = ON    // Primary clock enable bit (Primary clock is always enabled)

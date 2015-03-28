@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgt1OJyK3.obj
+$/tmp/cgtdKA0Pw.obj
 end_init CODE 0 3A2 3A2 4 1
 reset_vec CODE 0 300 300 4 1
 idloc IDLOC 0 200000 200000 8 1
@@ -644,53 +644,53 @@ $dist/default/production/fat32_test.X.production.obj
 "/home/texan/work/xc8/my_lib.X/rosso_f32.h":145 3C2C text15 CODE
 "/home/texan/work/xc8/fat32_test.X/main.c":188 3CAE intcode_body CODE
 "/home/texan/work/xc8/fat32_test.X/main.c":190 3CDA intcode_body CODE
-"/tmp/cgtPEuPnH":1224 3D14 cinit CODE
-"/tmp/cgtPEuPnH":1226 3D14 cinit CODE
-"/tmp/cgtPEuPnH":1229 3D14 cinit CODE
-"/tmp/cgtPEuPnH":1327 3D14 cinit CODE
-"/tmp/cgtPEuPnH":1328 3D18 cinit CODE
-"/tmp/cgtPEuPnH":1329 3D1C cinit CODE
-"/tmp/cgtPEuPnH":1330 3D1C cinit CODE
-"/tmp/cgtPEuPnH":1331 3D1E cinit CODE
-"/tmp/cgtPEuPnH":1332 3D20 cinit CODE
-"/tmp/cgtPEuPnH":1333 3D22 cinit CODE
-"/tmp/cgtPEuPnH":1334 3D24 cinit CODE
-"/tmp/cgtPEuPnH":1335 3D26 cinit CODE
-"/tmp/cgtPEuPnH":1338 3D28 cinit CODE
-"/tmp/cgtPEuPnH":1339 3D2C cinit CODE
-"/tmp/cgtPEuPnH":1340 3D2E cinit CODE
-"/tmp/cgtPEuPnH":1341 3D2E cinit CODE
-"/tmp/cgtPEuPnH":1342 3D30 cinit CODE
-"/tmp/cgtPEuPnH":1343 3D32 cinit CODE
-"/tmp/cgtPEuPnH":1346 3D34 cinit CODE
-"/tmp/cgtPEuPnH":1347 3D36 cinit CODE
-"/tmp/cgtPEuPnH":1348 3D38 cinit CODE
-"/tmp/cgtPEuPnH":1349 3D3A cinit CODE
-"/tmp/cgtPEuPnH":1352 3D3C cinit CODE
-"/tmp/cgtPEuPnH":1353 3D40 cinit CODE
-"/tmp/cgtPEuPnH":1354 3D42 cinit CODE
-"/tmp/cgtPEuPnH":1355 3D42 cinit CODE
-"/tmp/cgtPEuPnH":1356 3D44 cinit CODE
-"/tmp/cgtPEuPnH":1357 3D46 cinit CODE
-"/tmp/cgtPEuPnH":1362 3D48 cinit CODE
-"/tmp/cgtPEuPnH":1363 3D4A cinit CODE
-"/tmp/cgtPEuPnH":1364 3D4C cinit CODE
-"/tmp/cgtPEuPnH":1365 3D4E cinit CODE
-"/tmp/cgtPEuPnH":1366 3D50 cinit CODE
-"/tmp/cgtPEuPnH":1367 3D52 cinit CODE
-"/tmp/cgtPEuPnH":1368 3D54 cinit CODE
-"/tmp/cgtPEuPnH":1369 3D58 cinit CODE
-"/tmp/cgtPEuPnH":1370 3D5C cinit CODE
-"/tmp/cgtPEuPnH":1371 3D5C cinit CODE
-"/tmp/cgtPEuPnH":1372 3D5E cinit CODE
-"/tmp/cgtPEuPnH":1373 3D62 cinit CODE
-"/tmp/cgtPEuPnH":1374 3D64 cinit CODE
-"/tmp/cgtPEuPnH":1375 3D66 cinit CODE
-"/tmp/cgtPEuPnH":1381 3D68 cinit CODE
-"/tmp/cgtPEuPnH":1383 3D68 cinit CODE
-"/tmp/cgtPEuPnH":1384 3D6A cinit CODE
-"/tmp/cgtPEuPnH":1385 3D6C cinit CODE
-"/tmp/cgtPEuPnH":1386 3D6E cinit CODE
+"/tmp/cgt1qsJm2":1224 3D14 cinit CODE
+"/tmp/cgt1qsJm2":1226 3D14 cinit CODE
+"/tmp/cgt1qsJm2":1229 3D14 cinit CODE
+"/tmp/cgt1qsJm2":1327 3D14 cinit CODE
+"/tmp/cgt1qsJm2":1328 3D18 cinit CODE
+"/tmp/cgt1qsJm2":1329 3D1C cinit CODE
+"/tmp/cgt1qsJm2":1330 3D1C cinit CODE
+"/tmp/cgt1qsJm2":1331 3D1E cinit CODE
+"/tmp/cgt1qsJm2":1332 3D20 cinit CODE
+"/tmp/cgt1qsJm2":1333 3D22 cinit CODE
+"/tmp/cgt1qsJm2":1334 3D24 cinit CODE
+"/tmp/cgt1qsJm2":1335 3D26 cinit CODE
+"/tmp/cgt1qsJm2":1338 3D28 cinit CODE
+"/tmp/cgt1qsJm2":1339 3D2C cinit CODE
+"/tmp/cgt1qsJm2":1340 3D2E cinit CODE
+"/tmp/cgt1qsJm2":1341 3D2E cinit CODE
+"/tmp/cgt1qsJm2":1342 3D30 cinit CODE
+"/tmp/cgt1qsJm2":1343 3D32 cinit CODE
+"/tmp/cgt1qsJm2":1346 3D34 cinit CODE
+"/tmp/cgt1qsJm2":1347 3D36 cinit CODE
+"/tmp/cgt1qsJm2":1348 3D38 cinit CODE
+"/tmp/cgt1qsJm2":1349 3D3A cinit CODE
+"/tmp/cgt1qsJm2":1352 3D3C cinit CODE
+"/tmp/cgt1qsJm2":1353 3D40 cinit CODE
+"/tmp/cgt1qsJm2":1354 3D42 cinit CODE
+"/tmp/cgt1qsJm2":1355 3D42 cinit CODE
+"/tmp/cgt1qsJm2":1356 3D44 cinit CODE
+"/tmp/cgt1qsJm2":1357 3D46 cinit CODE
+"/tmp/cgt1qsJm2":1362 3D48 cinit CODE
+"/tmp/cgt1qsJm2":1363 3D4A cinit CODE
+"/tmp/cgt1qsJm2":1364 3D4C cinit CODE
+"/tmp/cgt1qsJm2":1365 3D4E cinit CODE
+"/tmp/cgt1qsJm2":1366 3D50 cinit CODE
+"/tmp/cgt1qsJm2":1367 3D52 cinit CODE
+"/tmp/cgt1qsJm2":1368 3D54 cinit CODE
+"/tmp/cgt1qsJm2":1369 3D58 cinit CODE
+"/tmp/cgt1qsJm2":1370 3D5C cinit CODE
+"/tmp/cgt1qsJm2":1371 3D5C cinit CODE
+"/tmp/cgt1qsJm2":1372 3D5E cinit CODE
+"/tmp/cgt1qsJm2":1373 3D62 cinit CODE
+"/tmp/cgt1qsJm2":1374 3D64 cinit CODE
+"/tmp/cgt1qsJm2":1375 3D66 cinit CODE
+"/tmp/cgt1qsJm2":1381 3D68 cinit CODE
+"/tmp/cgt1qsJm2":1383 3D68 cinit CODE
+"/tmp/cgt1qsJm2":1384 3D6A cinit CODE
+"/tmp/cgt1qsJm2":1385 3D6C cinit CODE
+"/tmp/cgt1qsJm2":1386 3D6E cinit CODE
 "/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":51 3D72 text6 CODE
 "/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":52 3D74 text6 CODE
 "/home/texan/work/xc8/my_lib.X/rosso_hwspi2.h":53 3D78 text6 CODE
@@ -801,9 +801,9 @@ _err4 1099 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.produc
 __size_of_SD_readSingleBlock 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
 _main 261C 0 CODE 0 text0 dist/default/production/fat32_test.X.production.obj
 F32_getSetFreeCluster@get_set 75 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgt1OJyK3.obj
+___sp 0 0 STACK 2 stack /tmp/cgtdKA0Pw.obj
 F32_findFiles@fileName 9B 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
-start 3A2 0 CODE 0 init /tmp/cgt1OJyK3.obj
+start 3A2 0 CODE 0 init /tmp/cgtdKA0Pw.obj
 F32_findFiles@j BC 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 F32_readFile@byteCounter C9 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 __end_of_blinkErrorLED 3ED2 0 CODE 0 text1 dist/default/production/fat32_test.X.production.obj
@@ -921,14 +921,14 @@ F32_writeFile@clusterCount 1CA 0 BANK1 1 cstackBANK1 dist/default/production/fat
 SD_readSingleBlock@retry 70 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production/fat32_test.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production/fat32_test.X.production.obj
-stackhi 9FF 0 ABS 0 - /tmp/cgt1OJyK3.obj
+stackhi 9FF 0 ABS 0 - /tmp/cgtdKA0Pw.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 __pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 __end_of_F32_writeFile 1C00 0 CODE 0 text9 dist/default/production/fat32_test.X.production.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production/fat32_test.X.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production/fat32_test.X.production.obj
-stacklo 3EE 0 ABS 0 - /tmp/cgt1OJyK3.obj
+stacklo 3EE 0 ABS 0 - /tmp/cgtdKA0Pw.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/fat32_test.X.production.obj
 F32_writeFile@k 1DE 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/fat32_test.X.production.obj
@@ -1127,8 +1127,8 @@ __Hcinit 0 0 ABS 0 cinit dist/default/production/fat32_test.X.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/default/production/fat32_test.X.production.obj
 ___lldiv 3984 0 CODE 0 text21 dist/default/production/fat32_test.X.production.obj
 __pcinit 3D14 0 CODE 0 cinit dist/default/production/fat32_test.X.production.obj
-__ramtop 1000 0 RAM 0 ramtop /tmp/cgt1OJyK3.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgt1OJyK3.obj
+__ramtop 1000 0 RAM 0 ramtop /tmp/cgtdKA0Pw.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtdKA0Pw.obj
 _low_isr 318 0 CODE 0 intcodelo dist/default/production/fat32_test.X.production.obj
 _sectorPerCluster 3F 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
 main@mySD_type EB 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
@@ -1216,7 +1216,7 @@ __ptext24 3A58 0 CODE 0 text24 dist/default/production/fat32_test.X.production.o
 __Htext25 0 0 ABS 0 text25 dist/default/production/fat32_test.X.production.obj
 __Ltext25 0 0 ABS 0 text25 dist/default/production/fat32_test.X.production.obj
 __ptext15 3C2C 0 CODE 0 text15 dist/default/production/fat32_test.X.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/cgt1OJyK3.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgtdKA0Pw.obj
 __Htext16 0 0 ABS 0 text16 dist/default/production/fat32_test.X.production.obj
 __Ltext16 0 0 ABS 0 text16 dist/default/production/fat32_test.X.production.obj
 __ptext25 376C 0 CODE 0 text25 dist/default/production/fat32_test.X.production.obj
@@ -1243,7 +1243,7 @@ __ptext28 3EAC 0 CODE 0 text28 dist/default/production/fat32_test.X.production.o
 _bytesPerSector EE 0 BANK0 1 bssBANK0 dist/default/production/fat32_test.X.production.obj
 __ptext19 21F4 0 CODE 0 text19 dist/default/production/fat32_test.X.production.obj
 _F32_writeFile$2117 1C6 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/cgt1OJyK3.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgtdKA0Pw.obj
 USART_HW_putstr@c 60 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 USART_HW_putstr@s 21 0 COMRAM 1 cstackCOMRAM dist/default/production/fat32_test.X.production.obj
 F32_searchNextFreeCluster@value 8D 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
@@ -1260,7 +1260,7 @@ SD_writeSingleBlock@response 74 0 BANK0 1 cstackBANK0 dist/default/production/fa
 F32_searchNextFreeCluster@sector 89 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 F32_displayMemory@memory 79 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 __end_of___llmod 3BA6 0 CODE 0 text18 dist/default/production/fat32_test.X.production.obj
-__smallconst 1000 0 SMALLCONST 0 smallconst /tmp/cgt1OJyK3.obj
+__smallconst 1000 0 SMALLCONST 0 smallconst /tmp/cgtdKA0Pw.obj
 SD_writeSingleBlock@SD_startBlock 6C 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 ?_F32_searchNextFreeCluster 79 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
 _SD_sendCommand 376C 0 CODE 0 text25 dist/default/production/fat32_test.X.production.obj
@@ -1269,22 +1269,22 @@ __Lreset_vec 300 0 CODE 0 reset_vec dist/default/production/fat32_test.X.product
 __end_of_err2 107A 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
 _totalClusters 2F 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
 F32_getSetNextCluster@FATEntryValue 95 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
-__accesstop 60 0 ABS 0 - /tmp/cgt1OJyK3.obj
+__accesstop 60 0 ABS 0 - /tmp/cgtdKA0Pw.obj
 __size_of_SPI2_write 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/fat32_test.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/fat32_test.X.production.obj
 __pintcode_body 3CAE 0 CODE 0 intcode_body dist/default/production/fat32_test.X.production.obj
 F32_writeFile@firstClusterLow 1D0 0 BANK1 1 cstackBANK1 dist/default/production/fat32_test.X.production.obj
-intlevel0 0 0 CODE 0 text /tmp/cgt1OJyK3.obj
+intlevel0 0 0 CODE 0 text /tmp/cgtdKA0Pw.obj
 _freeClusterCountUpdated F0 0 BANK0 1 bssBANK0 dist/default/production/fat32_test.X.production.obj
 __end_of_SPI2_write 3E84 0 CODE 0 text26 dist/default/production/fat32_test.X.production.obj
-intlevel1 0 0 CODE 0 text /tmp/cgt1OJyK3.obj
+intlevel1 0 0 CODE 0 text /tmp/cgtdKA0Pw.obj
 _SSP2STAT F6D 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
-intlevel2 0 0 CODE 0 text /tmp/cgt1OJyK3.obj
+intlevel2 0 0 CODE 0 text /tmp/cgtdKA0Pw.obj
 _test_start 10B5 0 SMALLCONST 0 smallconst dist/default/production/fat32_test.X.production.obj
 _reservedSectorCount 39 0 COMRAM 1 bssCOMRAM dist/default/production/fat32_test.X.production.obj
 SD_writeSingleBlock@retry 70 0 BANK0 1 cstackBANK0 dist/default/production/fat32_test.X.production.obj
-intlevel3 0 0 CODE 0 text /tmp/cgt1OJyK3.obj
+intlevel3 0 0 CODE 0 text /tmp/cgtdKA0Pw.obj
 __size_of___lmul 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
 __size_of_SD_writeSingleBlock 0 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
 _SSP2CON1bits F6C 0 ABS 0 - dist/default/production/fat32_test.X.production.obj
