@@ -1,0 +1,18 @@
+_GLCD_SaveCmdPort: CODE, 2486 0 68
+___awdiv: CODE, 1674 0 164
+_GLCD_WriteCommand: CODE, 2618 0 44
+_GLCD_WriteData: CODE, 1434 0 240
+_main: CODE, 2400 0 86
+_GLCD_Init: CODE, 2188 0 108
+_GLCD_GotoXY: CODE, 1964 0 114
+_GLCD_ReadData: CODE, 2726 0 14
+_high_isr: CODE, 8 0 2392
+__initialization: CODE, 2704 0 12
+_GLCD_SetDot: CODE, 2078 0 110
+_GLCD_RestoreCmdPort: CODE, 2554 0 64
+_GLCD_DoReadData: CODE, 1838 0 126
+_low_isr: CODE, 24 0 138
+_GLCD_DrawRoundRect: CODE, 166 0 774
+_GLCD_Enable: CODE, 2662 0 42
+_GLCD_FillRect: CODE, 940 0 494
+Total: 4990
