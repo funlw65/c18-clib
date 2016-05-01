@@ -44,8 +44,6 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
-      <itemPath>pic18f46k22_evb.brd</itemPath>
-      <itemPath>pic18f46k22_evb.sch</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -117,8 +115,6 @@
         <property key="preprocessor.macros" value=""/>
         <property key="warning.level" value="0"/>
       </C18-AS>
-      <C18-LD>
-      </C18-LD>
       <C18LanguageToolchain>
         <property key="extended-mode" value="false"/>
         <property key="extended-mode-mcc18" value="false"/>
