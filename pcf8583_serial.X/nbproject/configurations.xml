@@ -18,7 +18,6 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
-      <itemPath>/home/xuser/MPLABXProjects/pcf8583_serial.X/pcf8583p_serial-cache.lib</itemPath>
       <itemPath>/home/xuser/MPLABXProjects/pcf8583_serial.X/pcf8583p_serial.pro</itemPath>
       <itemPath>/home/xuser/MPLABXProjects/pcf8583_serial.X/pcf8583p_serial.sch</itemPath>
     </logicalFolder>
