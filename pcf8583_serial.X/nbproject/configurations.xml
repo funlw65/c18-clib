@@ -18,6 +18,9 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>/home/xuser/MPLABXProjects/pcf8583_serial.X/pcf8583p_serial-cache.lib</itemPath>
+      <itemPath>/home/xuser/MPLABXProjects/pcf8583_serial.X/pcf8583p_serial.pro</itemPath>
+      <itemPath>/home/xuser/MPLABXProjects/pcf8583_serial.X/pcf8583p_serial.sch</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -30,7 +33,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit2PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.33</languageToolchainVersion>
+        <languageToolchainVersion>1.37</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <compileType>
