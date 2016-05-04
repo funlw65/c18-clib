@@ -18,6 +18,9 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>/home/xuser/MPLABXProjects/lcd_helloworld.X/lcd_helloworld-cache.lib.txt</itemPath>
+      <itemPath>/home/xuser/MPLABXProjects/lcd_helloworld.X/lcd_helloworld-rescue.lib.txt</itemPath>
+      <itemPath>/home/xuser/MPLABXProjects/lcd_helloworld.X/lcd_helloworld.pro</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
