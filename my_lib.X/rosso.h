@@ -67,8 +67,8 @@ _FLASH_UNSUPPORTED void flash_write(const unsigned char *, unsigned int, __far u
 extern void __nop(void);
 #define NOP()		__nop()
 #define	Nop()		__nop()
-#define	RESET()		asm(" reset")
-#define	Reset()		asm(" reset")
+//#define	RESET()		asm(" reset")
+//#define	Reset()		asm(" reset")
 #define SLEEP()		asm(" sleep")
 #define Sleep()		asm(" sleep")
 

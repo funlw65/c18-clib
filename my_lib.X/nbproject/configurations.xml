@@ -30,6 +30,7 @@
       <itemPath>rosso_glcd.h</itemPath>
       <itemPath>rosso_sdcard.h</itemPath>
       <itemPath>rosso_f32.h</itemPath>
+      <itemPath>rosso_adc.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -125,6 +126,7 @@
         <property key="stack-analysis-mplink" value="false"/>
       </C18LanguageToolchain>
       <Simulator>
+        <property key="W9602_COMP_DAC_SOURCE_UNAVAILABLE" value="report"/>
         <property key="breakoptions.coreerrors" value="Ignore"/>
         <property key="breakoptions.corewarnings" value="Ignore"/>
         <property key="breakoptions.peripheralerrors" value="Ignore"/>

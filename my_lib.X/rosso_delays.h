@@ -94,19 +94,23 @@ extern __nonreentrant void _delay3(unsigned char);
 #define delay_150ms() Delay10KTCYx(240)  //= 10000 x 240 / 16 = 150ms
 
 //#if __18CXX
-void _delay_us(UINT16 x){
-    UINT16 i;
-    for(i=0; i<x; i++){
+
+/* 
+ * Just for the illusion, as these two are introducing even more delay
+ */
+void _delay_us(UINT16 x) {
+    do {
         delay_1us();
-    }
+    } while (--x);
 }
 
-void _delay_ms(UINT16 x){
-    UINT16 i;
-    for(i=0; i<x; i++){
+void _delay_ms(UINT16 x) {
+    do {
         delay_1ms();
-    }
+    } while (--x);
 }
+/* end */
+
 //#endif
 
 #endif	/* ROSSO_DELAYS_H */

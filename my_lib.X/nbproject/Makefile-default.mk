@@ -72,6 +72,9 @@ LDLIBSOPTIONS=
 FIXDEPS=fixDeps
 
 .build-conf:  ${BUILD_SUBPROJECTS}
+ifneq ($(INFORMATION_MESSAGE), )
+	@echo $(INFORMATION_MESSAGE)
+endif
 	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/my_lib.X.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=18F46K22
@@ -87,19 +90,19 @@ endif
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/main_sample.o: main_sample.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main_sample.o.d 
 	@${RM} ${OBJECTDIR}/main_sample.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG  -p$(MP_PROCESSOR_OPTION) -ms -oa- -o-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/main_sample.o   main_sample.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/main_sample.o   main_sample.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/main_sample.o 
 	@${FIXDEPS} "${OBJECTDIR}/main_sample.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 else
 ${OBJECTDIR}/main_sample.o: main_sample.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main_sample.o.d 
 	@${RM} ${OBJECTDIR}/main_sample.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa- -o-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/main_sample.o   main_sample.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/main_sample.o   main_sample.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/main_sample.o 
 	@${FIXDEPS} "${OBJECTDIR}/main_sample.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
