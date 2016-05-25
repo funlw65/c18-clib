@@ -43,7 +43,7 @@ const
 #ifdef __18CXX
 rom
 #endif
-UINT8 Corsiva_12[] = {
+uint8_t Corsiva_12[] = {
     0x16, 0x3A, // size
     0x0A, // width
     0x0B, // height

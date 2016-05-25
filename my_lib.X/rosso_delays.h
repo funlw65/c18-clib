@@ -98,13 +98,13 @@ extern __nonreentrant void _delay3(unsigned char);
 /* 
  * Just for the illusion, as these two are introducing even more delay
  */
-void _delay_us(UINT16 x) {
+void _delay_us(uint16_t x) {
     do {
         delay_1us();
     } while (--x);
 }
 
-void _delay_ms(UINT16 x) {
+void _delay_ms(uint16_t x) {
     do {
         delay_1ms();
     } while (--x);

@@ -44,7 +44,7 @@ const
 #ifdef __18CXX
 rom
 #endif
-UINT8 Verdana24[] = {
+uint8_t Verdana24[] = {
     0x0E, 0xF9, // size
     0x0A, // width
     0x18, // height

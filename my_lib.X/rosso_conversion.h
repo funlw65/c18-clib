@@ -8,23 +8,23 @@
 #ifndef ROSSO_CONVERSION_H
 #define	ROSSO_CONVERSION_H
 
-UINT8 dectobcd(UINT8 pValue) {
+uint8_t dectobcd(uint8_t pValue) {
     return (((pValue / 10) << 4) | (pValue % 10));
 }
 
-UINT8 bcdtodec(UINT8 pValue) {
+uint8_t bcdtodec(uint8_t pValue) {
     return ((pValue >> 4) * 10 + (pValue & 0x0F));
 }
 
-UINT8 nibble2hex(UINT8 val) {
-    UINT8 s;
+uint8_t nibble2hex(uint8_t val) {
+    uint8_t s;
     s = '0' + (val & 0xf);
     if (s > '9')
         s += 'A' - '9' - 1;
     return s;
 }
 
-void byte2dec(UINT8 val, UINT8 *s) {
+void byte2dec(uint8_t val, uint8_t *s) {
     if (val > 99) {
         s[2] = '0' + (val % 10);
         val /= 10;
@@ -46,7 +46,7 @@ void byte2dec(UINT8 val, UINT8 *s) {
     }
 }
 
-void word2dec(UINT16 val, UINT8 *s) {
+void word2dec(uint16_t val, uint8_t *s) {
     if (val > 9999) {
         s[4] = '0' + (val % 10);
         val /= 10;
@@ -95,7 +95,7 @@ void word2dec(UINT16 val, UINT8 *s) {
     }
 }
 
-void double2dec(UINT32 val, UINT8 *s) {
+void double2dec(uint32_t val, uint8_t *s) {
     if (val > 999999999) {
         s[9] = '0' + (val % 10);
         val /= 10;
@@ -264,7 +264,7 @@ void double2dec(UINT32 val, UINT8 *s) {
     }
 }
 
-void double2hex(UINT32 val, UINT8 *s) {
+void double2hex(uint32_t val, uint8_t *s) {
     s[0] = nibble2hex(val >> 28);
     s[1] = nibble2hex(val >> 24);
     s[2] = nibble2hex(val >> 20);
@@ -276,7 +276,7 @@ void double2hex(UINT32 val, UINT8 *s) {
     s[8] = 0;
 }
 
-void word2hex(UINT16 val, UINT8 *s) {
+void word2hex(uint16_t val, uint8_t *s) {
     s[0] = nibble2hex(val >> 12);
     s[1] = nibble2hex(val >> 8);
     s[2] = nibble2hex(val >> 4);
@@ -284,7 +284,7 @@ void word2hex(UINT16 val, UINT8 *s) {
     s[4] = 0;
 }
 
-void byte2hex(UINT8 val, UINT8 *s) {
+void byte2hex(uint8_t val, uint8_t *s) {
     s[0] = nibble2hex(val >> 4);
     s[1] = nibble2hex(val);
     s[2] = 0;

@@ -75,8 +75,8 @@ void SPI_init(SPISPEED spi_rate, SPIMODE bus_mode, SPIPHASE smp_phase) {
 #define SPI_Low_Speed()  CloseSPI();SPI_init(SPI_FOSC_64, MODE_00, SMPEND);
 #define SPI_High_Speed() CloseSPI();SPI_init(SPI_FOSC_4,  MODE_00, SMPEND);
 
-UINT8 SPI_read(void) {
-    UINT8 TempVar;
+uint8_t SPI_read(void) {
+    uint8_t TempVar;
     TempVar = SSPBUF; // Clear BF
     PIR1bits.SSPIF = 0; // Clear interrupt flag
     SSPBUF = 0x00; // initiate bus cycle
@@ -85,8 +85,8 @@ UINT8 SPI_read(void) {
     return ( SSPBUF); // return with byte read
 }
 
-INT8 SPI_write(UINT8 data_out) {
-    UINT8 TempVar;
+int8_t SPI_write(uint8_t data_out) {
+    uint8_t TempVar;
     TempVar = SSPBUF; // Clears BF
     PIR1bits.SSPIF = 0; // Clear interrupt flag
     SSPCON1bits.WCOL = 0; //Clear any previous write collision

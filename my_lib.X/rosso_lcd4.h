@@ -83,10 +83,10 @@ typedef enum {
 } CHIP;
 
 // global variable for cursor position
-UINT8 LCD_POS;
+uint8_t LCD_POS;
 
-void __lcd_write_nibble(UINT8 value) {
-    UINT8_BITS nibble;
+void __lcd_write_nibble(uint8_t value) {
+    uint8_bits_t nibble;
     nibble.Val = value;
     LCD_D4 = nibble.bits.b0;
     LCD_D5 = nibble.bits.b1;
@@ -97,24 +97,24 @@ void __lcd_write_nibble(UINT8 value) {
     LCD_EN = 0;
 }
 
-void __lcd_write(UINT8 value) {
+void __lcd_write(uint8_t value) {
     __lcd_write_nibble(value >> 4); // write high nibble
     __lcd_write_nibble(value); // write low nibble
     delay_35us(); // > 37 us
     delay_3us();
 }
 
-void _lcd_write_data(UINT8 value) {
+void _lcd_write_data(uint8_t value) {
     LCD_RS = 1; // select data mode
     __lcd_write(value); // write byte
 }
 
-void _lcd_write_command(UINT8 value) {
+void _lcd_write_command(uint8_t value) {
     LCD_RS = 0; // select command mode
     __lcd_write(value); // write byte
 }
 
-UINT8 _lcd_line2index(UINT8 line) {
+uint8_t _lcd_line2index(uint8_t line) {
     //-- force valid line number
     if (line < LCD_NR_LINES) {
         if (line == 0) return 0x00;
@@ -129,56 +129,52 @@ void _lcd_restore_cursor(void) {
     _lcd_write_command(LCD_SET_DDRAM_ADDRESS | LCD_POS);
 }
 
-void lcd_write_char(UINT8 data) {
+void lcd_write_char(uint8_t data) {
     _lcd_write_data(data);
 }
 
-void lcd_write_str(UINT8 *data){
+void lcd_write_str(uint8_t *data){
     while(*data){
         _lcd_write_data(*data);
         *data++;
     }
 }
 
-#ifdef __18CXX
-void lcd_write_strF(const rom UINT8 *data){
-#else
-void lcd_write_strF(const UINT8 *data){
-#endif
+void lcd_write_strF(const uint8_t *data){
     while(*data){
         _lcd_write_data(*data);
         *data++;
     }
 } 
 
-void lcd_cursor_position(UINT8 line, UINT8 pos) {
+void lcd_cursor_position(uint8_t line, uint8_t pos) {
     LCD_POS = pos + _lcd_line2index(line);
     _lcd_restore_cursor();
 }
 
-void lcd_shift_left(UINT8 nr) {
-    UINT8 i;
+void lcd_shift_left(uint8_t nr) {
+    uint8_t i;
     if (nr > 0) {
         for (i = 0; i < nr; i++) _lcd_write_command(LCD_DISPLAY_SHIFT_LEFT);
     }
 }
 
-void lcd_shift_right(UINT8 nr) {
-    UINT8 i;
+void lcd_shift_right(uint8_t nr) {
+    uint8_t i;
     if (nr > 0) {
         for (i = 0; i < nr; i++) _lcd_write_command(LCD_DISPLAY_SHIFT_RIGHT);
     }
 }
 
-void lcd_cursor_shift_left(UINT8 nr) {
-    UINT8 i;
+void lcd_cursor_shift_left(uint8_t nr) {
+    uint8_t i;
     if (nr > 0) {
         for (i = 0; i < nr; i++) _lcd_write_command(LCD_CURSOR_SHIFT_L_VAL);
     }
 }
 
-void lcd_cursor_shift_right(UINT8 nr) {
-    UINT8 i;
+void lcd_cursor_shift_right(uint8_t nr) {
+    uint8_t i;
     if (nr > 0) {
         for (i = 0; i < nr; i++) _lcd_write_command(LCD_CURSOR_SHIFT_R_VAL);
     }
@@ -191,8 +187,8 @@ void lcd_clear_screen(void) {
     delay_300us();
 }
 
-void lcd_cursor_blink_display(BIT cursor, BIT blink, BIT display) {
-    UINT8 reg;
+void lcd_cursor_blink_display(bit_t cursor, bit_t blink, bit_t display) {
+    uint8_t reg;
     reg = LCD_DISPLAY_ONOFF;
     if (display) reg = reg + 4;
     if (cursor) reg = reg + 2;
@@ -207,8 +203,8 @@ void lcd_home() {
     delay_300us();
 }
 
-void lcd_clear_line(UINT8 line) {
-    UINT8 i;
+void lcd_clear_line(uint8_t line) {
+    uint8_t i;
     // set LCD-cursor at start of line
     LCD_POS = _lcd_line2index(line);
     _lcd_restore_cursor();
@@ -218,8 +214,8 @@ void lcd_clear_line(UINT8 line) {
     _lcd_restore_cursor();
 }
 
-void lcd_progress(UINT8 line, UINT8 amount, UINT8 pattern) {
-    UINT8 i;
+void lcd_progress(uint8_t line, uint8_t amount, uint8_t pattern) {
+    uint8_t i;
     LCD_POS = _lcd_line2index(line);
     _lcd_restore_cursor();
     for (i = 0; i < amount; i++) lcd_write_char(pattern);

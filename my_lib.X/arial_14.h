@@ -50,7 +50,7 @@ const
 #ifdef __18CXX
 rom
 #endif
-UINT8 Arial_14[] = {
+uint8_t Arial_14[] = {
     0x1E, 0x6C, // size
     0x0A, // width
     0x0E, // height

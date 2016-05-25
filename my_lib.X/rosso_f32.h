@@ -12,81 +12,81 @@
 
 //Structure to access Master Boot Record for getting info about partitions
 struct MBRinfo_Structure {
-	UINT8 nothing[446]; //ignore, placed here to fill the gap in the structure
-	UINT8 partitionData[64];//partition records (16x4)
-	UINT16 signature;//0xaa55
+	uint8_t nothing[446]; //ignore, placed here to fill the gap in the structure
+	uint8_t partitionData[64];//partition records (16x4)
+	uint16_t signature;//0xaa55
 };
 
 //Structure to access info of the first partition of the disk
 struct partitionInfo_Structure {
-	UINT8 status; //0x80 - active partition
-	UINT8 headStart;//starting head
-	UINT16 cylSectStart;//starting cylinder and sector
-	UINT8 type;//partition type
-	UINT8 headEnd;//ending head of the partition
-	UINT16 cylSectEnd;//ending cylinder and sector
-	UINT32 firstSector;//total sectors between MBR & the first sector of the partition
-	UINT32 sectorsTotal;//size of this partition in sectors
+	uint8_t status; //0x80 - active partition
+	uint8_t headStart;//starting head
+	uint16_t cylSectStart;//starting cylinder and sector
+	uint8_t type;//partition type
+	uint8_t headEnd;//ending head of the partition
+	uint16_t cylSectEnd;//ending cylinder and sector
+	uint32_t firstSector;//total sectors between MBR & the first sector of the partition
+	uint32_t sectorsTotal;//size of this partition in sectors
 };
 
 //Structure to access boot sector data
 struct BS_Structure {
-	UINT8 jumpBoot[3]; //default: 0x009000EB
-	UINT8 OEMName[8];
-	UINT16 bytesPerSector;//default: 512
-	UINT8 sectorPerCluster;
-	UINT16 reservedSectorCount;
-	UINT8 numberofFATs;
-	UINT16 rootEntryCount;
-	UINT16 totalSectors_F16;//must be 0 for FAT32
-	UINT8 mediaType;
-	UINT16 FATsize_F16;//must be 0 for FAT32
-	UINT16 sectorsPerTrack;
-	UINT16 numberofHeads;
-	UINT32 hiddenSectors;
-	UINT32 totalSectors_F32;
-	UINT32 FATsize_F32;//count of sectors occupied by one FAT
-	UINT16 extFlags;
-	UINT16 FSversion;//0x0000 (defines version 0.0)
-	UINT32 rootCluster;//first cluster of root directory (=2)
-	UINT16 FSinfo;//sector number of FSinfo structure (=1)
-	UINT16 BackupBootSector;
-	UINT8 reserved[12];
-	UINT8 driveNumber;
-	UINT8 reserved1;
-	UINT8 bootSignature;
-	UINT32 volumeID;
-	UINT8 volumeLabel[11];//"NO NAME "
-	UINT8 fileSystemType[8];//"FAT32"
-	UINT8 bootData[420];
-	UINT16 bootEndSignature;//0xaa55
+	uint8_t jumpBoot[3]; //default: 0x009000EB
+	uint8_t OEMName[8];
+	uint16_t bytesPerSector;//default: 512
+	uint8_t sectorPerCluster;
+	uint16_t reservedSectorCount;
+	uint8_t numberofFATs;
+	uint16_t rootEntryCount;
+	uint16_t totalSectors_F16;//must be 0 for FAT32
+	uint8_t mediaType;
+	uint16_t FATsize_F16;//must be 0 for FAT32
+	uint16_t sectorsPerTrack;
+	uint16_t numberofHeads;
+	uint32_t hiddenSectors;
+	uint32_t totalSectors_F32;
+	uint32_t FATsize_F32;//count of sectors occupied by one FAT
+	uint16_t extFlags;
+	uint16_t FSversion;//0x0000 (defines version 0.0)
+	uint32_t rootCluster;//first cluster of root directory (=2)
+	uint16_t FSinfo;//sector number of FSinfo structure (=1)
+	uint16_t BackupBootSector;
+	uint8_t reserved[12];
+	uint8_t driveNumber;
+	uint8_t reserved1;
+	uint8_t bootSignature;
+	uint32_t volumeID;
+	uint8_t volumeLabel[11];//"NO NAME "
+	uint8_t fileSystemType[8];//"FAT32"
+	uint8_t bootData[420];
+	uint16_t bootEndSignature;//0xaa55
 };
 
 //Structure to access FSinfo sector data
 struct FSInfo_Structure {
-	UINT32 leadSignature; //0x41615252
-	UINT8 reserved1[480];
-	UINT32 structureSignature;//0x61417272
-	UINT32 freeClusterCount;//initial: 0xffffffff
-	UINT32 nextFreeCluster;//initial: 0xffffffff
-	UINT8 reserved2[12];
-	UINT32 trailSignature;//0xaa550000
+	uint32_t leadSignature; //0x41615252
+	uint8_t reserved1[480];
+	uint32_t structureSignature;//0x61417272
+	uint32_t freeClusterCount;//initial: 0xffffffff
+	uint32_t nextFreeCluster;//initial: 0xffffffff
+	uint8_t reserved2[12];
+	uint32_t trailSignature;//0xaa550000
 };
 
 //Structure to access Directory Entry in the FAT
 struct dir_Structure {
-	UINT8 name[11];
-	UINT8 attrib; //file attributes
-	UINT8 NTreserved;//always 0
-	UINT8 timeTenth;//tenths of seconds, set to 0 here
-	UINT16 createTime;//time file was created
-	UINT16 createDate;//date file was created
-	UINT16 lastAccessDate;
-	UINT16 firstClusterHI;//higher word of the first cluster number
-	UINT16 writeTime;//time of last write
-	UINT16 writeDate;//date of last write
-	UINT16 firstClusterLO;//lower word of the first cluster number
-	UINT32 fileSize;//size of file in bytes
+	uint8_t name[11];
+	uint8_t attrib; //file attributes
+	uint8_t NTreserved;//always 0
+	uint8_t timeTenth;//tenths of seconds, set to 0 here
+	uint16_t createTime;//time file was created
+	uint16_t createDate;//date file was created
+	uint16_t lastAccessDate;
+	uint16_t firstClusterHI;//higher word of the first cluster number
+	uint16_t writeTime;//time of last write
+	uint16_t writeDate;//date of last write
+	uint16_t firstClusterLO;//lower word of the first cluster number
+	uint32_t fileSize;//size of file in bytes
 };
 
 //Attribute definitions for file/directory
@@ -117,21 +117,21 @@ struct dir_Structure {
 #define FAT32_EOF    0x0fffffff
 
 //************* external variables *************
-volatile UINT32 firstDataSector, rootCluster, totalClusters;
-volatile UINT16 bytesPerSector, sectorPerCluster, reservedSectorCount;
-UINT32 unusedSectors, appendFileSector, appendFileLocation, fileSize,
+volatile uint32_t firstDataSector, rootCluster, totalClusters;
+volatile uint16_t bytesPerSector, sectorPerCluster, reservedSectorCount;
+uint32_t unusedSectors, appendFileSector, appendFileLocation, fileSize,
 appendStartCluster;
 
 //global flag to keep track of free cluster count updating in FSinfo sector
-UINT8 freeClusterCountUpdated;
+uint8_t freeClusterCountUpdated;
 
 //data string where data is collected before sending to the card
-volatile UINT8 dataString[MAX_STRING_SIZE];
-UINT16 timeFAT, dateFAT;
+volatile uint8_t dataString[MAX_STRING_SIZE];
+uint16_t timeFAT, dateFAT;
 
 // TODO: to be rewritten... depends on PCF8583 RTC functions...
 
-UINT8 getDateTime_FAT(void) {
+uint8_t getDateTime_FAT(void) {
 #ifdef ENABLE_PCF8583
     //it should get the time from RTC but for now, returns "error" code
     return 1;
@@ -141,13 +141,13 @@ UINT8 getDateTime_FAT(void) {
 #endif
 }
 
-UINT32 F32_getFirstSector(UINT32 clusterNumber) {
+uint32_t F32_getFirstSector(uint32_t clusterNumber) {
     return (((clusterNumber - 2) * sectorPerCluster) + firstDataSector);
 }
 
 
-UINT32 F32_getSetFreeCluster(UINT8 totOrNext, UINT8 get_set,
-        UINT32 FSEntry) {
+uint32_t F32_getSetFreeCluster(uint8_t totOrNext, uint8_t get_set,
+        uint32_t FSEntry) {
 
     struct FSInfo_Structure *FS = (struct FSInfo_Structure *) &SD_buffer;
 
@@ -176,11 +176,11 @@ UINT32 F32_getSetFreeCluster(UINT8 totOrNext, UINT8 get_set,
     return 0xffffffff;
 }
 
-UINT8 F32_getBootSectorData(void) {
+uint8_t F32_getBootSectorData(void) {
     struct BS_Structure *bpb; //mapping the buffer onto the structure
     struct MBRinfo_Structure *mbr;
     struct partitionInfo_Structure *partition;
-    UINT32 dataSectors;
+    uint32_t dataSectors;
 
     unusedSectors = 0;
 
@@ -229,19 +229,19 @@ UINT8 F32_getBootSectorData(void) {
     return 0;
 }
 
-UINT32 F32_getSetNextCluster(UINT32 clusterNumber, UINT8 get_set,
-        UINT32 clusterEntry) {
-    UINT16 FATEntryOffset;
-    UINT32 *FATEntryValue;
-    UINT32 FATEntrySector;
-    UINT8 retry = 0;
+uint32_t F32_getSetNextCluster(uint32_t clusterNumber, uint8_t get_set,
+        uint32_t clusterEntry) {
+    uint16_t FATEntryOffset;
+    uint32_t *FATEntryValue;
+    uint32_t FATEntrySector;
+    uint8_t retry = 0;
 
     //get sector number of the cluster entry in the FAT
     FATEntrySector = unusedSectors + reservedSectorCount
             + ((clusterNumber * 4) / bytesPerSector);
 
     //get the offset address in that sector number
-    FATEntryOffset = (UINT16) ((clusterNumber * 4) % bytesPerSector);
+    FATEntryOffset = (uint16_t) ((clusterNumber * 4) % bytesPerSector);
 
     //read the sector into a buffer
     while (retry < 10) {
@@ -251,7 +251,7 @@ UINT32 F32_getSetNextCluster(UINT32 clusterNumber, UINT8 get_set,
     }
 
     //get the cluster address from the buffer
-    FATEntryValue = (UINT32 *) & SD_buffer[FATEntryOffset];
+    FATEntryValue = (uint32_t *) & SD_buffer[FATEntryOffset];
 
     if (get_set == GET)
         return ((*FATEntryValue) & 0x0fffffff);
@@ -263,9 +263,9 @@ UINT32 F32_getSetNextCluster(UINT32 clusterNumber, UINT8 get_set,
     return (0);
 }
 
-void F32_displayMemory(UINT8 flag, UINT32 memory) {
-    UINT8 memoryString[] = "              Bytes"; //19 character long string for memory display
-    UINT8 i;
+void F32_displayMemory(uint8_t flag, uint32_t memory) {
+    uint8_t memoryString[] = "              Bytes"; //19 character long string for memory display
+    uint8_t i;
     for (i = 12; i > 0; i--)//converting freeMemory into ASCII string
     {
         if (i == 5 || i == 9) {
@@ -284,8 +284,8 @@ void F32_displayMemory(UINT8 flag, UINT32 memory) {
 #endif
 }
 
-void F32_freeMemoryUpdate(UINT8 flag, UINT32 size) {
-    UINT32 freeClusters;
+void F32_freeMemoryUpdate(uint8_t flag, uint32_t size) {
+    uint32_t freeClusters;
     //convert file size into number of clusters occupied
     if ((size % 512) == 0)
         size = size / 512;
@@ -308,11 +308,11 @@ void F32_freeMemoryUpdate(UINT8 flag, UINT32 size) {
 }
 
 
-struct dir_Structure* F32_findFiles(UINT8 flag, UINT8 *fileName) {
-    UINT32 cluster, sector, firstSector, firstCluster, nextCluster;
+struct dir_Structure* F32_findFiles(uint8_t flag, uint8_t *fileName) {
+    uint32_t cluster, sector, firstSector, firstCluster, nextCluster;
     struct dir_Structure *dir;
-    UINT16 i;
-    UINT8 j;
+    uint16_t i;
+    uint8_t j;
 
     cluster = rootCluster; //root cluster
 
@@ -344,7 +344,7 @@ struct dir_Structure* F32_findFiles(UINT8 flag, UINT8 *fileName) {
                                 appendFileSector = firstSector + sector;
                                 appendFileLocation = i;
                                 appendStartCluster =
-                                        (((UINT32) dir->firstClusterHI) << 16)
+                                        (((uint32_t) dir->firstClusterHI) << 16)
                                         | dir->firstClusterLO;
                                 fileSize = dir->fileSize;
                                 return (dir);
@@ -356,7 +356,7 @@ struct dir_Structure* F32_findFiles(UINT8 flag, UINT8 *fileName) {
                                 //TX_NEWLINE;
                                 //TX_NEWLINE;
 #endif
-                                firstCluster = (((UINT32) dir->firstClusterHI)
+                                firstCluster = (((uint32_t) dir->firstClusterHI)
                                         << 16) | dir->firstClusterLO;
 
                                 //mark file as 'deleted' in FAT table
@@ -433,11 +433,11 @@ struct dir_Structure* F32_findFiles(UINT8 flag, UINT8 *fileName) {
     return 0;
 }
 
-UINT8 F32_readFile(UINT8 flag, UINT8 *fileName) {
+uint8_t F32_readFile(uint8_t flag, uint8_t *fileName) {
     struct dir_Structure *dir;
-    UINT32 cluster, byteCounter = 0, fileSize, firstSector;
-    UINT16 k;
-    UINT8 j, error;
+    uint32_t cluster, byteCounter = 0, fileSize, firstSector;
+    uint16_t k;
+    uint8_t j, error;
 
     //error = F32_convertFileName(fileName); //convert fileName into FAT format
     //if (error)
@@ -454,7 +454,7 @@ UINT8 F32_readFile(UINT8 flag, UINT8 *fileName) {
     if (flag == VERIFY)
         return (1); //specified file name is already existing
 
-    cluster = (((UINT32) dir->firstClusterHI) << 16) | dir->firstClusterLO;
+    cluster = (((uint32_t) dir->firstClusterHI) << 16) | dir->firstClusterLO;
 
     fileSize = dir->fileSize;
 #ifdef ENABLE_SD_CARD_DEBUG
@@ -486,9 +486,9 @@ UINT8 F32_readFile(UINT8 flag, UINT8 *fileName) {
     return 0;
 }
 
-UINT32 F32_searchNextFreeCluster(UINT32 startCluster) {
-    UINT32 cluster, *value, sector;
-    UINT8 i;
+uint32_t F32_searchNextFreeCluster(uint32_t startCluster) {
+    uint32_t cluster, *value, sector;
+    uint8_t i;
 
     startCluster -= (startCluster % 128); //to start with the first file in a FAT sector
     for (cluster = startCluster; cluster < totalClusters; cluster += 128) {
@@ -496,7 +496,7 @@ UINT32 F32_searchNextFreeCluster(UINT32 startCluster) {
                 + ((cluster * 4) / bytesPerSector);
         SD_readSingleBlock(sector);
         for (i = 0; i < 128; i++) {
-            value = (UINT32 *) & SD_buffer[i * 4];
+            value = (uint32_t *) & SD_buffer[i * 4];
             if (((*value) & 0x0fffffff) == 0)
                 return (cluster + i);
         }
@@ -506,12 +506,12 @@ UINT32 F32_searchNextFreeCluster(UINT32 startCluster) {
 }
 
 
-UINT8 F32_writeFile(UINT8 *fileName, UINT8 *dataString) {
-    UINT8 j, k, data = 0, error, fileCreatedFlag = 0, start = 0, appendFile =
+uint8_t F32_writeFile(uint8_t *fileName, uint8_t *dataString) {
+    uint8_t j, k, data = 0, error, fileCreatedFlag = 0, start = 0, appendFile =
             0, sector = 0;
-    UINT16 i, firstClusterHigh = 0, firstClusterLow = 0; //value 0 is assigned just to avoid warning in compilation
+    uint16_t i, firstClusterHigh = 0, firstClusterLow = 0; //value 0 is assigned just to avoid warning in compilation
     struct dir_Structure *dir;
-    UINT32 cluster, nextCluster, prevCluster, firstSector, clusterCount,
+    uint32_t cluster, nextCluster, prevCluster, firstSector, clusterCount,
             extraMemory;
 
     j = F32_readFile(VERIFY, fileName);
@@ -556,8 +556,8 @@ UINT8 F32_writeFile(UINT8 *fileName, UINT8 *dataString) {
         }
         F32_getSetNextCluster(cluster, SET, FAT32_EOF); //last cluster of the file, marked EOF
 
-        firstClusterHigh = (UINT16) ((cluster & 0xffff0000) >> 16);
-        firstClusterLow = (UINT16) (cluster & 0x0000ffff);
+        firstClusterHigh = (uint16_t) ((cluster & 0xffff0000) >> 16);
+        firstClusterLow = (uint16_t) (cluster & 0x0000ffff);
         fileSize = 0;
     }
 
@@ -729,7 +729,7 @@ UINT8 F32_writeFile(UINT8 *fileName, UINT8 *dataString) {
     return 0;
 }
 
-void F32_deleteFile(UINT8 *fileName) {
+void F32_deleteFile(uint8_t *fileName) {
     //uint8_t error;
 
     //error = F32_convertFileName(fileName);

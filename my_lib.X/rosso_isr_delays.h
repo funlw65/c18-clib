@@ -23,16 +23,16 @@
 #endif
 
 #ifdef TMR0_SLOTED
-INT16 tmr0_isr_countdown[TMR0_DELAY_SLOTS];
+int16_t tmr0_isr_countdown[TMR0_DELAY_SLOTS];
 #endif
 #ifdef TMR0_MILLIS
-UINT32 tmr0_isr_walker;
+uint32_t tmr0_isr_walker;
 #endif
-UINT8 tmr0_load;
+uint8_t tmr0_load;
 
 #ifdef TMR0_MILLIS
-UINT32 tmr0_millis(void) {
-    UINT32 temp;
+uint32_t tmr0_millis(void) {
+    uint32_t temp;
     INTCONbits.TMR0IE = 0;
     temp = tmr0_isr_walker;
     INTCONbits.TMR0IE = 1;
@@ -41,14 +41,14 @@ UINT32 tmr0_millis(void) {
 #endif
 
 #ifdef TMR0_SLOTED
-void tmr0_set_delay(UINT8 slot, INT16 ticks) {
+void tmr0_set_delay(uint8_t slot, int16_t ticks) {
     if (slot >= TMR0_DELAY_SLOTS) slot = 0;
     INTCONbits.TMR0IE = 0;
     tmr0_isr_countdown[slot] = ticks;
     INTCONbits.TMR0IE = 1;
 }
 
-BOOL tmr0_check_delay(UINT8 slot) {
+bool_t tmr0_check_delay(uint8_t slot) {
     if (slot >= TMR0_DELAY_SLOTS) return (TRUE);
     if (tmr0_isr_countdown[slot] == 0) {
         if (tmr0_isr_countdown[slot] == 0) {
@@ -64,37 +64,37 @@ BOOL tmr0_check_delay(UINT8 slot) {
 void tmr0_isr_init(void) {
 #define tmr0_div  ((_XTAL_FREQ / 4 / TMR0_ISR_RATE) - 1)
 #ifdef TMR0_SLOTED
-    UINT8 i;
+    uint8_t i;
 #endif
 #if (tmr0_div > ((256 * 256) - 1))
 #error "requested ISR rate is too low"
 #elif (tmr0_div > ((128 * 256) - 1)) 
     T0CONbits.T0PS = 7; // prescaler 256
-    tmr0_load = 255 - (UINT8) (tmr0_div / 256);
+    tmr0_load = 255 - (uint8_t) (tmr0_div / 256);
 
 #elif (tmr0_div > ((64 * 256) - 1))
     T0CONbits.T0PS = 6; // prescaler 128
-    tmr0_load = 255 - (UINT8) (tmr0_div / 128);
+    tmr0_load = 255 - (uint8_t) (tmr0_div / 128);
 
 #elif (tmr0_div > ((32 * 256) - 1))
     T0CONbits.T0PS = 5; // prescaler 64
-    tmr0_load = 255 - (UINT8) (tmr0_div / 64);
+    tmr0_load = 255 - (uint8_t) (tmr0_div / 64);
 
 #elif (tmr0_div > ((16 * 256) - 1)) 
     T0CONbits.T0PS = 4; // prescaler 32
-    tmr0_load = 255 - (UINT8) (tmr0_div / 32);
+    tmr0_load = 255 - (uint8_t) (tmr0_div / 32);
 
 #elif (tmr0_div > ((8 * 256) - 1)) 
     T0CONbits.T0PS = 3; // prescaler 16
-    tmr0_load = 255 - (UINT8) (tmr0_div / 16);
+    tmr0_load = 255 - (uint8_t) (tmr0_div / 16);
 
 #elif (tmr0_div > ((4 * 256) - 1))
     T0CONbits.T0PS = 2; // prescaler 8
-    tmr0_load = 255 - (UINT8) (tmr0_div / 8);
+    tmr0_load = 255 - (uint8_t) (tmr0_div / 8);
 
 #elif (tmr0_div > ((2 * 256) - 1)) 
     T0CONbits.T0PS = 1; // prescaler 4
-    tmr0_load = 255 - (UINT8) (tmr0_div / 4);
+    tmr0_load = 255 - (uint8_t) (tmr0_div / 4);
 
 #else
     T0CONbits.T0PS = 0; //prescaler 2
@@ -117,7 +117,7 @@ void tmr0_isr_init(void) {
 //call the following from the inside high_isr() or low_isr() from main.c
 void tmr0_isr_intr(void) {
 #ifdef TMR0_SLOTED
-    UINT8 index;
+    uint8_t index;
 #endif
     if (INTCONbits.TMR0IF) {
         TMR0L = tmr0_load;

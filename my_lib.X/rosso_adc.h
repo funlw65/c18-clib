@@ -168,18 +168,16 @@
 #endif
 
 
-void adc_init( unsigned char config,
-              unsigned char config2,
-              unsigned char config3)
+void adc_init( uint8_t config,
+              uint8_t config2,
+              uint8_t config3)
 {
     ADCON0 = 0;
 	ADCON1 = 0;
     ADCON2 = 0;
 
-    ADCON0 = (config2) & 0b01111100;	// GET CHANNELS 
-	
+    ADCON0 = (config2) & 0b01111100;	// GET CHANNELS 	
     ADCON1 = config3; // Vref+/- & Trigger & Negetive channel select
-			 
     ADCON2 = (config & 0b10000000)	|	// RESULT
              ((config >> 4) & 0b00000111) |	// CONV CLK
              ((config << 2) & 0b00111000);	// ACQ TIME
@@ -194,7 +192,7 @@ void adc_init( unsigned char config,
 }
 
 
-void adc_setch(unsigned char channel)
+void adc_setch(uint8_t channel)
 {
   ADCON0 = (ADCON0 & 0b10000011)|
            ((channel) & 0b01111100);
@@ -210,16 +208,16 @@ char adc_busy(void)
   return(ADCON0bits.GO);
 }
 
-void adc_setchconv(unsigned char channel)
+void adc_setchconv(uint8_t channel)
 {
   ADCON0 = (ADCON0 & 0b10000011)|
            ((channel) & 0b01111100);
   ADCON0bits.GO = 1;
 }
 
-unsigned int adc_read(void)
+uint16_t adc_read(void)
 {
-  return (((unsigned int)ADRESH)<<8)|(ADRESL);
+  return (((uint16_t)ADRESH)<<8)|(ADRESL);
 }
 
 void adc_close(void)

@@ -44,7 +44,7 @@ const
 #ifdef __18CXX
 rom
 #endif
-UINT8 Arial_Bold_14[] = {
+uint8_t Arial_Bold_14[] = {
     0x22, 0x08, // size
     0x0A, // width
     0x0E, // height

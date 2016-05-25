@@ -20,14 +20,14 @@
 #endif
 
 void USART_HW2_init(void) {
-    UINT16 usart_div = ((_XTAL_FREQ / USART_BAUDRATE2) / 4) - 1;
+    uint16_t usart_div = ((_XTAL_FREQ / USART_BAUDRATE2) / 4) - 1;
     TXSTA2 = 0b00000000; // reset (8 databits, async)
     RCSTA2 = 0b00000000; // reset (8 databits, async)
     //
     BAUDCON2bits.BRG16 = TRUE;
     TXSTA2bits.BRGH = TRUE;
-    SPBRG2 = (UINT8) usart_div;
-    SPBRGH2 = (UINT8) (usart_div >> 8);
+    SPBRG2 = (uint8_t) usart_div;
+    SPBRGH2 = (uint8_t) (usart_div >> 8);
     //
     //_calculate_baudrate();  // transmit and receive speed
     PIE3bits.RC2IE = FALSE; // disable receive interrupts
@@ -47,19 +47,19 @@ void USART_HW2_disable(void) {
 
 #define USART_HW2_enable() RCSTA2bits.SPEN=TRUE; // enable serial port
 
-void USART_HW2_write(UINT8 data) {
+void USART_HW2_write(uint8_t data) {
     while (!PIR3bits.TX2IF); // wait while transmission pending
     TXREG2 = data; // transfer data
 }
 
-void USART_HW2_putstr(UINT8 * s) {
-    UINT8 c;
+void USART_HW2_putstr(uint8_t * s) {
+    uint8_t c;
     while ((c = *s++))
         USART_HW2_write(c);
 }
 
 
-BOOL USART_HW2_read(UINT8 *data) {
+bool_t USART_HW2_read(uint8_t *data) {
     if (PIR3bits.RC2IF) { // check if data available
         *data = RCREG2; // pass received byte to caller
         PIR3bits.RC2IF = FALSE; // eur@fiwhex.nl 12-sept-08

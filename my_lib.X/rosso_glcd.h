@@ -108,18 +108,18 @@
 #define GLCD_FONT_WIDTH_TABLE    6
 
 typedef struct {
-    UINT8 x;
-    UINT8 y;
-    UINT8 page;
+    uint8_t x;
+    uint8_t y;
+    uint8_t page;
 } glcdCoord;
 glcdCoord ks0108Coord;
 
-UINT8 ks0108Inverted = 0;
-UINT8 ks0108FontColor;
+uint8_t ks0108Inverted = 0;
+uint8_t ks0108FontColor;
 #ifdef __18CXX
 const rom UINT8* ks0108Font;
 #else
-const UINT8* ks0108Font;
+const uint8_t* ks0108Font;
 #endif
 
 inline void GLCD_Enable(void) {
@@ -129,7 +129,7 @@ inline void GLCD_Enable(void) {
     delay_1us();
 }
 
-void GLCD_WriteCommand(UINT8 cmd, UINT8 chip) {
+void GLCD_WriteCommand(uint8_t cmd, uint8_t chip) {
     if (chip == GLCD_CHIP1) {
         GLCD_CS2 = 0; // deselect chip 2
         GLCD_CS1 = 1; // select chip 1
@@ -145,8 +145,8 @@ void GLCD_WriteCommand(UINT8 cmd, UINT8 chip) {
     GLCD_DATA_OUT = 0x00;
 }
 
-void GLCD_GotoXY(UINT8 x, UINT8 y) {
-    UINT8 chip = GLCD_CHIP1, cmd;
+void GLCD_GotoXY(uint8_t x, uint8_t y) {
+    uint8_t chip = GLCD_CHIP1, cmd;
     if (x > 127)
         x = 0; // ensure that coordinates are legal
     if (y > 63)
@@ -165,9 +165,9 @@ void GLCD_GotoXY(UINT8 x, UINT8 y) {
     GLCD_WriteCommand(cmd, GLCD_CHIP2);
 }
 
-UINT8 GLCD_DoReadData(UINT8 first) {
-    UINT8 data;
-    volatile UINT8 i;
+uint8_t GLCD_DoReadData(uint8_t first) {
+    uint8_t data;
+    volatile uint8_t i;
     GLCD_DATA_OUT = 0x00;
     GLCD_DATA_DIR = 0xFF; // data port is input
     if (ks0108Coord.x < 64) {
@@ -193,7 +193,7 @@ UINT8 GLCD_DoReadData(UINT8 first) {
     return data;
 }
 
-inline UINT8 GLCD_ReadData(void) {
+inline uint8_t GLCD_ReadData(void) {
     GLCD_DoReadData(1); // dummy read
     return GLCD_DoReadData(0); // "real" read
 }
@@ -211,7 +211,7 @@ UINT8 GLCD_SaveCmdPort() {
     return tmp.Val;
 }
 
-void GLCD_RestoreCmdPort(UINT8_BITS data) {
+void GLCD_RestoreCmdPort(uint8_bits_t data) {
     //
     GLCD_DI = data.bits.b0;
     GLCD_RW = data.bits.b1;
@@ -221,9 +221,9 @@ void GLCD_RestoreCmdPort(UINT8_BITS data) {
     GLCD_RS = data.bits.b5;
 }
 
-void GLCD_WriteData(UINT8 data) {
-    UINT8 displayData, yOffset;
-    UINT8_BITS cmdPort;
+void GLCD_WriteData(uint8_t data) {
+    uint8_t displayData, yOffset;
+    uint8_bits_t cmdPort;
     if (ks0108Coord.x >= 128)
         return;
     if (ks0108Coord.x < 64) {
@@ -271,9 +271,9 @@ void GLCD_WriteData(UINT8 data) {
     GLCD_DATA_OUT = 0x00;
 }
 
-void GLCD_FillRect(UINT8 x, UINT8 y, UINT8 width, UINT8 height,
-        UINT8 color) {
-    UINT8 mask, pageOffset, h, i, data;
+void GLCD_FillRect(uint8_t x, uint8_t y, uint8_t width, uint8_t height,
+        uint8_t color) {
+    uint8_t mask, pageOffset, h, i, data;
     //
     height++;
     pageOffset = y % 8;
@@ -323,8 +323,8 @@ void GLCD_FillRect(UINT8 x, UINT8 y, UINT8 width, UINT8 height,
 #define GLCD_DrawHLine(x, y, length, color) {GLCD_FillRect(x, y, length, 0, color);}
 #define GLCD_ClearScreen() {GLCD_FillRect(0, 0, 127, 63, GLCD_WHITE);}
 
-void GLCD_SetDot(UINT8 x, UINT8 y, UINT8 color) {
-    UINT8 data;
+void GLCD_SetDot(uint8_t x, uint8_t y, uint8_t color) {
+    uint8_t data;
     GLCD_GotoXY(x, y - y % 8); // read data from display memory
     data = GLCD_ReadData();
     if (color == GLCD_BLACK) {
@@ -335,9 +335,9 @@ void GLCD_SetDot(UINT8 x, UINT8 y, UINT8 color) {
     GLCD_WriteData(data); // write data back to display
 }
 
-void GLCD_DrawRoundRect(UINT8 x, UINT8 y, UINT8 width, UINT8 height,
-        UINT8 radius, UINT8 color) {
-    INT16 tSwitch, x1 = 0, y1 = radius;
+void GLCD_DrawRoundRect(uint8_t x, uint8_t y, uint8_t width, uint8_t height,
+        uint8_t radius, uint8_t color) {
+    int16_t tSwitch, x1 = 0, y1 = radius;
     tSwitch = 3 - 2 * radius;
     while (x1 <= y1) {
         GLCD_SetDot(x + radius - x1, y + radius - y1, color);
@@ -366,8 +366,8 @@ void GLCD_DrawRoundRect(UINT8 x, UINT8 y, UINT8 width, UINT8 height,
     GLCD_DrawVLine(x + width, y + radius, height - (2 * radius), color); // right
 }
 
-void GLCD_DrawRect(UINT8 x, UINT8 y, UINT8 width, UINT8 height,
-        UINT8 color) {
+void GLCD_DrawRect(uint8_t x, uint8_t y, uint8_t width, uint8_t height,
+        uint8_t color) {
     GLCD_DrawHLine(x, y, width, color); // top
     GLCD_DrawHLine(x, y + height, width, color); // bottom
     GLCD_DrawVLine(x, y, height, color); // left
@@ -376,11 +376,11 @@ void GLCD_DrawRect(UINT8 x, UINT8 y, UINT8 width, UINT8 height,
 
 #define GLCD_DrawCircle(xCenter, yCenter, radius, color) {GLCD_DrawRoundRect(xCenter-radius, yCenter-radius, 2*radius, 2*radius, radius, color);}
 
-void GLCD_DrawLine(UINT8 x1, UINT8 y1, UINT8 x2, UINT8 y2, UINT8 Color) {
-    UINT8 dy, dx;
-    INT8 addx = 1, addy = 1;
-    INT8 P, diff;
-    UINT8 i = 0;
+void GLCD_DrawLine(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8_t Color) {
+    uint8_t dy, dx;
+    int8_t addx = 1, addy = 1;
+    int8_t P, diff;
+    uint8_t i = 0;
     diff = ((INT8) x2 - x1);
     if (diff < 0) diff *= -1;
     dx = diff;
@@ -422,8 +422,8 @@ void GLCD_DrawLine(UINT8 x1, UINT8 y1, UINT8 x2, UINT8 y2, UINT8 Color) {
     }
 }
 
-void GLCD_InvertRect(UINT8 x, UINT8 y, UINT8 width, UINT8 height) {
-    UINT8 mask, pageOffset, h, i, data, tmpData;
+void GLCD_InvertRect(uint8_t x, uint8_t y, uint8_t width, uint8_t height) {
+    uint8_t mask, pageOffset, h, i, data, tmpData;
     height++;
     pageOffset = y % 8;
     y -= pageOffset;
@@ -463,14 +463,14 @@ void GLCD_InvertRect(UINT8 x, UINT8 y, UINT8 width, UINT8 height) {
     }
 }
 
-void GLCD_SetInverted(UINT8 invert) {
+void GLCD_SetInverted(uint8_t invert) {
     if (ks0108Inverted != invert) {
         GLCD_InvertRect(0, 0, 127, 63);
         ks0108Inverted = invert;
     }
 }
 
-void GLCD_Init(UINT8 invert) {
+void GLCD_Init(uint8_t invert) {
     // command port is output
     GLCD_DI_DIR = 0;
     GLCD_RW_DIR = 0;

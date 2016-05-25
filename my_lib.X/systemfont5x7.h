@@ -46,7 +46,7 @@ const
 #ifdef __18CXX
 rom
 #endif
-UINT8 System5x7[] = {
+uint8_t System5x7[] = {
     0x0, 0x0, // size of zero indicates fixed width font, actual length is width * height
     0x05, // width
     0x07, // height

@@ -51,7 +51,7 @@ void i2c2_stop() {
     while (SSP2CON2bits.PEN == 1);
 }
 
-BOOL i2c2_write(UINT8 data) {
+bool_t i2c2_write(uint8_t data) {
     PIR3bits.SSP2IF = FALSE;
     SSP2BUF = data;
     while (!PIR3bits.SSP2IF);
@@ -63,7 +63,7 @@ BOOL i2c2_write(UINT8 data) {
     }
 }
 
-UINT8 i2c2_read(BOOL myack) {
+uint8_t i2c2_read(bool_t myack) {
     SSP2CON2bits.RCEN = 1;
     while (SSP2STATbits.BF == 0);
     SSP2CON2bits.ACKDT = ~myack;

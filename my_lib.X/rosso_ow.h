@@ -56,7 +56,7 @@
 #define  OW_CRC8INIT     0x00
 #define  OW_CRC8POLY     0x18  // 0x18 = X xor 8 + X xor 5 + X xor 4 + X xor 0
 
-UINT8 ow_input_pin_state(void) {
+uint8_t ow_input_pin_state(void) {
     return d1w_bus_rd;
 }
 
@@ -70,8 +70,8 @@ void ow_parasite_disable(void) {
     d1w_bus_wr = 0;
 }
 
-UINT8 ow_reset(void) {
-    UINT8 err;
+uint8_t ow_reset(void) {
+    uint8_t err;
     d1w_bus_wr = 0;
     d1w_bus_direction = 0;
     __delay_us(480);
@@ -85,7 +85,7 @@ UINT8 ow_reset(void) {
     return err;
 }
 
-UINT8 ow_bit_io_intern(UINT8 b, UINT8 with_parasite) {
+uint8_t ow_bit_io_intern(uint8_t b, uint8_t with_parasite) {
     d1w_bus_direction = 0;
     __delay_us(2);
     if (b) d1w_bus_direction = 1;
@@ -104,12 +104,12 @@ UINT8 ow_bit_io_intern(UINT8 b, UINT8 with_parasite) {
     return (b);
 }
 
-UINT8 ow_bit_io(UINT8 b) {
+uint8_t ow_bit_io(uint8_t b) {
     return ow_bit_io_intern(b & 1, 0);
 }
 
-UINT8 ow_byte_wr(UINT8 b) {
-    UINT8 i = 8, j;
+uint8_t ow_byte_wr(uint8_t b) {
+    uint8_t i = 8, j;
     do {
         j = ow_bit_io(b & 1);
         b >>= 1;
@@ -118,8 +118,8 @@ UINT8 ow_byte_wr(UINT8 b) {
     return b;
 }
 
-UINT8 ow_byte_wr_with_parasite(UINT8 b) {
-    UINT8 i = 8, j;
+uint8_t ow_byte_wr_with_parasite(UINT8 b) {
+    uint8_t i = 8, j;
     do {
         if (i != 1)
             j = ow_bit_io_intern(b & 1, 0);
@@ -131,21 +131,21 @@ UINT8 ow_byte_wr_with_parasite(UINT8 b) {
     return b;
 }
 
-UINT8 ow_byte_rd(void) {
+uint8_t ow_byte_rd(void) {
     // read by sending only "1"s, so bus gets released
     // after the init low - pulse in every slot
     return ow_byte_wr(0xFF);
 }
 
-UINT8 ow_byte_rd_with_parasite(void) {
+uint8_t ow_byte_rd_with_parasite(void) {
     //read by sending only "1"s, so bus gets released
     //after the init low - pulse in every slot
     return ow_byte_wr_with_parasite(0xFF);
 }
 
-UINT8 ow_rom_search(UINT8 diff, UINT8 *id) {
-    UINT8 i, j, next_diff;
-    UINT8 b;
+uint8_t ow_rom_search(uint8_t diff, uint8_t *id) {
+    uint8_t i, j, next_diff;
+    uint8_t b;
     if (ow_reset()) {
         return OW_PRESENCE_ERR; // error, no device found <--- early exit!
     }
@@ -180,8 +180,8 @@ UINT8 ow_rom_search(UINT8 diff, UINT8 *id) {
     return next_diff; // to continue search
 }
 
-void ow_command_intern(UINT8 command, UINT8 *id, UINT8 with_parasite) {
-    UINT8 i;
+void ow_command_intern(uint8_t command, uint8_t *id, uint8_t with_parasite) {
+    uint8_t i;
     ow_reset();
     if (id) {
         ow_byte_wr(OW_MATCH_ROM); // to a single device
@@ -200,15 +200,15 @@ void ow_command_intern(UINT8 command, UINT8 *id, UINT8 with_parasite) {
     }
 }
 
-void ow_command(UINT8 command, UINT8 *id) {
+void ow_command(uint8_t command, uint8_t *id) {
     ow_command_intern(command, id, 0);
 }
 
-void ow_command_with_parasite(UINT8 command, UINT8 *id) {
+void ow_command_with_parasite(uint8_t command, uint8_t *id) {
     ow_command_intern(command, id, 1);
 }
 
-UINT8 ow_crc8(void){
+uint8_t ow_crc8(void){
     // not yet available
 }
 

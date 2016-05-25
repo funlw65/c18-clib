@@ -75,8 +75,8 @@ void SPI2_init(SPISPEED spi_rate, SPIMODE bus_mode, SPIPHASE smp_phase) {
 #define SPI2_Low_Speed()  CloseSPI2();SPI2_init(SPI_FOSC_64,MODE_00,SMPEND);
 #define SPI2_High_Speed() CloseSPI2();SPI2_init(SPI_FOSC_4,MODE_00,SMPEND);
 
-UINT8 SPI2_read(void) {
-    UINT8 TempVar;
+uint8_t SPI2_read(void) {
+    uint8_t TempVar;
     TempVar = SSP2BUF;       //Clear BF
     PIR3bits.SSP2IF = 0;     //Clear interrupt flag
     SSP2BUF = 0x00;          // initiate bus cycle
@@ -85,8 +85,8 @@ UINT8 SPI2_read(void) {
     return ( SSP2BUF );      // return with byte read
 }
 
-INT8 SPI2_write(UINT8 data_out) {
-    UINT8 TempVar;
+int8_t SPI2_write(uint8_t data_out) {
+    uint8_t TempVar;
     TempVar = SSP2BUF; // Clears BF
     PIR3bits.SSP2IF = 0; // Clear interrupt flag
     SSP2CON1bits.WCOL = 0; //Clear any previous write collision

@@ -9,8 +9,8 @@
 #define	ROSSO_PWM_H
 
 union PWMDC {
-    UINT16 lpwm;
-    UINT8 bpwm[2];
+    uint16_t lpwm;
+    uint8_t bpwm[2];
 };
 
 #ifndef USE_OR_MASKS
@@ -108,7 +108,7 @@ union PWMDC {
 #define PWM5_TRIS    TRISAbits.RA4
 
 
-void OpenEPWM1(UINT8 period, UINT8 timer_source) {
+void OpenEPWM1(uint8_t period, uint8_t timer_source) {
     ECCP1CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
 
     //configure timer source for CCP
@@ -130,7 +130,7 @@ void OpenEPWM1(UINT8 period, UINT8 timer_source) {
     }
 }
 
-void OpenEPWM2(UINT8 period, UINT8 timer_source) {
+void OpenEPWM2(uint8_t period, uint8_t timer_source) {
     ECCP2CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
 
     //configure timer source for CCP
@@ -152,7 +152,7 @@ void OpenEPWM2(UINT8 period, UINT8 timer_source) {
     }
 }
 
-void OpenEPWM3(unsigned char period, unsigned char timer_source) {
+void OpenEPWM3(uint8_t period, uint8_t timer_source) {
     CCP3CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
 
     //configure timer source for CCP
@@ -178,7 +178,7 @@ void CloseEPWM1(void) {
     ECCP1CON = 0x00; // Turn off PWM
 }
 
-void SetDCEPWM1(UINT16 dutycycle) {
+void SetDCEPWM1(uint16_t dutycycle) {
     union PWMDC DCycle;
 
     // Save the dutycycle value in the union
@@ -191,7 +191,7 @@ void SetDCEPWM1(UINT16 dutycycle) {
     ECCP1CON = (ECCP1CON & 0xCF) | ((DCycle.bpwm[0] >> 2) & 0x30);
 }
 
-void SetOutputEPWM1(UINT8 outputconfig, UINT8 outputmode) {
+void SetOutputEPWM1(uint8_t outputconfig, uint8_t outputmode) {
     /* set P1M1 and P1M0 */
     outputconfig |= 0b00111111;
     outputmode |= 0b11111100;
@@ -218,7 +218,7 @@ void CloseEPWM2(void) {
     ECCP2CON = 0x00; // Turn off PWM
 }
 
-void SetDCEPWM2(UINT16 dutycycle) {
+void SetDCEPWM2(uint16_t dutycycle) {
     union PWMDC DCycle;
 
     // Save the dutycycle value in the union
@@ -231,9 +231,9 @@ void SetDCEPWM2(UINT16 dutycycle) {
     ECCP2CON = (ECCP2CON & 0xCF) | ((DCycle.bpwm[0] >> 2) & 0x30);
 }
 
-void SetOutputEPWM2(UINT8 outputconfig, UINT8 outputmode) {
+void SetOutputEPWM2(uint8_t outputconfig, uint8_t outputmode) {
 #ifndef _OMNI_CODE_
-    UINT8 TBLPTR_U, TBLPTR_L;
+    uint8_t TBLPTR_U, TBLPTR_L;
     _asm
         movff TBLPTRU, TBLPTR_U
         movff TBLPTRL, TBLPTR_L
@@ -286,7 +286,7 @@ void CloseEPWM3(void) {
     CCP3CON = 0x0; // Turn off PWM
 }
 
-void SetDCEPWM3(UINT16 dutycycle) {
+void SetDCEPWM3(uint16_t dutycycle) {
     union PWMDC DCycle;
 
     // Save the dutycycle value in the union
@@ -299,9 +299,9 @@ void SetDCEPWM3(UINT16 dutycycle) {
     CCP3CON = (CCP3CON & 0xCF) | ((DCycle.bpwm[0] >> 2) & 0x30);
 }
 
-void SetOutputEPWM3(UINT8 outputconfig, UINT8 outputmode) {
+void SetOutputEPWM3(uint8_t outputconfig, uint8_t outputmode) {
 #ifndef _OMNI_CODE_
-    UINT8 TBLPTR_U, TBLPTR_L;
+    uint8_t TBLPTR_U, TBLPTR_L;
     _asm
         movff TBLPTRU, TBLPTR_U
         movff TBLPTRL, TBLPTR_L
@@ -330,7 +330,7 @@ void SetOutputEPWM3(UINT8 outputconfig, UINT8 outputmode) {
 
 // we've done with E...
 
-void OpenPWM4(UINT8 period, UINT8 timer_source) {
+void OpenPWM4(uint8_t period, uint8_t timer_source) {
 
     CCP4CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
 
@@ -361,7 +361,7 @@ void ClosePWM4(void) {
     CCP4CON = 0; // Turn off PWM4
 }
 
-void SetDCPWM4(UINT16 dutycycle) {
+void SetDCPWM4(uint16_t dutycycle) {
     union PWMDC DCycle;
 
     // Save the dutycycle value in the union
@@ -374,7 +374,7 @@ void SetDCPWM4(UINT16 dutycycle) {
     CCP4CON = (CCP4CON & 0xCF) | ((DCycle.bpwm[0] >> 2) & 0x30);
 }
 
-void OpenPWM5(UINT8 period, UINT8 timer_source) {
+void OpenPWM5(uint8_t period, uint8_t timer_source) {
     CCP5CON = 0b00001100; //ccpxm3:ccpxm0 11xx=pwm mode
     //configure timer source for CCP
     CCPTMRS1 &= 0b11110011;
@@ -402,7 +402,7 @@ void ClosePWM5(void) {
     CCP5CON = 0; // Turn off PWM5
 }
 
-void SetDCPWM5(UINT16 dutycycle) {
+void SetDCPWM5(uint16_t dutycycle) {
     union PWMDC DCycle;
 
     // Save the dutycycle value in the union

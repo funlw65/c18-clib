@@ -66,23 +66,23 @@ typedef enum{
 // TODO: Timer alarm not implemented yet
 // TODO: Event counter not implemented yet
 
-UINT8 RTC_seconds; // 00 to 59
-UINT8 RTC_minutes; // 00 to 59
-UINT8 RTC_hours; // 00 to 23
+uint8_t RTC_seconds; // 00 to 59
+uint8_t RTC_minutes; // 00 to 59
+uint8_t RTC_hours; // 00 to 23
 //--
-UINT8 RTC_day; // 1 to 31
-UINT8 RTC_month; // 1 to 12
-UINT8 RTC_century; // 20
-UINT8 RTC_year; // 00 to 99
-UINT8 RTC_dayofweek; // 0 to 6 (Sun = 0, Mon = 1, ..., Sat = 6)
-UINT8 RTC_leapyear; // 0 to 3 (0 - leapyear and 1,2,3 not)
+uint8_t RTC_day; // 1 to 31
+uint8_t RTC_month; // 1 to 12
+uint8_t RTC_century; // 20
+uint8_t RTC_year; // 00 to 99
+uint8_t RTC_dayofweek; // 0 to 6 (Sun = 0, Mon = 1, ..., Sat = 6)
+uint8_t RTC_leapyear; // 0 to 3 (0 - leapyear and 1,2,3 not)
 // 2012 was leapyear    ( leapyear = 0)
 // 2014 is not leapyear ( leapyear = 2)
 
 //
 
-void pcf8583_getyear(UINT8 * cn, UINT8 * yr) {
-    BOOL err;
+void pcf8583_getyear(uint8_t * cn, uint8_t * yr) {
+    bool_t err;
 #if defined(PCF8583_USE_I2C)
     i2c_start();
     err = i2c_write(PCF8583_W_ADDR);
@@ -104,8 +104,8 @@ void pcf8583_getyear(UINT8 * cn, UINT8 * yr) {
 #endif
 }
 
-void pcf8583_setyear(UINT8 cn, UINT8 yr) {
-    BOOL err;
+void pcf8583_setyear(uint8_t cn, uint8_t yr) {
+    bool_t err;
 #if defined(PCF8583_USE_I2C)
     i2c_start();
     err = i2c_write(PCF8583_W_ADDR);
@@ -123,11 +123,11 @@ void pcf8583_setyear(UINT8 cn, UINT8 yr) {
 #endif
 }
 
-void pcf8583_set_datetime(UINT8 hours, UINT8 minutes, UINT8 seconds, UINT8 dayofweek, UINT8 day, UINT8 month, UINT8 leapyear, UINT8 century, UINT8 year) {
-    UINT8 LyDd, WdMo;
-    INT16 err;
-    LyDd = (UINT8) ((dectobcd(leapyear) << 6) | dectobcd(day));
-    WdMo = (UINT8) ((dectobcd(dayofweek) << 5) | dectobcd(month));
+void pcf8583_set_datetime(uint8_t hours, uint8_t minutes, uint8_t seconds, uint8_t dayofweek, uint8_t day, uint8_t month, uint8_t leapyear, uint8_t century, uint8_t year) {
+    uint8_t LyDd, WdMo;
+    int16_t err;
+    LyDd = (uint8_t) ((dectobcd(leapyear) << 6) | dectobcd(day));
+    WdMo = (uint8_t) ((dectobcd(dayofweek) << 5) | dectobcd(month));
 #if defined(PCF8583_USE_I2C)
     // Stop the RTC from counting, before writing to the time and date registers
     i2c_start();
@@ -184,9 +184,9 @@ void pcf8583_set_datetime(UINT8 hours, UINT8 minutes, UINT8 seconds, UINT8 dayof
     pcf8583_setyear(century, year);
 }
 
-void pcf8583_get_datetime(UINT8 * hr, UINT8 * mn, UINT8 * sc, UINT8 * dow, UINT8 * dy, UINT8 * mt, UINT8 * lp, UINT8 * ct, UINT8 * yr) {
-    UINT8 LyDd, WdMo, tmp;
-    INT8 err;
+void pcf8583_get_datetime(uint8_t * hr, uint8_t * mn, uint8_t * sc, uint8_t * dow, uint8_t * dy, uint8_t * mt, uint8_t * lp, uint8_t * ct, uint8_t * yr) {
+    uint8_t LyDd, WdMo, tmp;
+    int8_t err;
 #if defined(PCF8583_USE_I2C)
     // read the date and time registers
     i2c_start();
@@ -235,8 +235,8 @@ void pcf8583_get_datetime(UINT8 * hr, UINT8 * mn, UINT8 * sc, UINT8 * dow, UINT8
     }
 }
 
-UINT8 pcf8583_read_reg(UINT8 reg) {
-    INT8 tmp, err;
+uint8_t pcf8583_read_reg(uint8_t reg) {
+    int8_t tmp, err;
 #if defined(PCF8583_USE_I2C)
     i2c_start();
     err = i2c_write(PCF8583_W_ADDR);
@@ -265,8 +265,8 @@ UINT8 pcf8583_read_reg(UINT8 reg) {
 // other types are not implemented yet.
 
 void pcf8583_en_dis_alarm(ALARMTYPE atype) {
-    UINT8_BITS cfg, alarmcfg;
-    INT8 err;
+    uint8_bits_t cfg, alarmcfg;
+    int8_t err;
     cfg.Val = pcf8583_read_reg(PCF8583_CTRL_STATUS_REG);
     if (atype == PCF8583_NO_ALARM) cfg.bits.b2 = 0;
     else {
@@ -313,9 +313,9 @@ void pcf8583_en_dis_alarm(ALARMTYPE atype) {
     }
 }
 
-void pcf8583_set_alarm_weekdays(BIT d0, BIT d1, BIT d2, BIT d3, BIT d4, BIT d5, BIT d6) {
-    UINT8_BITS wd;
-    INT8 err;
+void pcf8583_set_alarm_weekdays(bit_t d0, bit_t d1, bit_t d2, bit_t d3, bit_t d4, bit_t d5, bit_t d6) {
+    uint8_bits_t wd;
+    int8_t err;
     wd.bits.b0 = d0;
     wd.bits.b1 = d1;
     wd.bits.b2 = d2;
@@ -338,9 +338,9 @@ void pcf8583_set_alarm_weekdays(BIT d0, BIT d1, BIT d2, BIT d3, BIT d4, BIT d5, 
 #endif
 }
 
-void pcf8583_set_alarm_time(UINT8 hours, UINT8 minutes, UINT8 seconds) {
+void pcf8583_set_alarm_time(uint8_t hours, uint8_t minutes, uint8_t seconds) {
     // you need a pull-up 10K resistor on INT pin of PCF8583
-    INT8 err;
+    int8_t err;
 #if defined(PCF8583_USE_I2C)
     i2c_start();
     err = i2c_write(PCF8583_W_ADDR);
@@ -363,8 +363,8 @@ void pcf8583_set_alarm_time(UINT8 hours, UINT8 minutes, UINT8 seconds) {
 }
 
 void pcf8583_stop_alarm(void) { // It only stops the "sound of alarm", it doesn't disable it!
-    UINT8_BITS cfg;
-    INT8 err;
+    uint8_bits_t cfg;
+    int8_t err;
     cfg.Val = pcf8583_read_reg(PCF8583_CTRL_STATUS_REG);
     cfg.bits.b0 = FALSE; // clears timer alarm flag
     cfg.bits.b1 = FALSE; // clears clock alarm flag

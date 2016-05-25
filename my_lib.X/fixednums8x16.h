@@ -23,7 +23,7 @@ const
 #ifdef __18CXX
 rom
 #endif
-UINT8 fixednums8x16[] = {
+uint8_t fixednums8x16[] = {
     0x0, 0x0,	// size of zero indicates fixed width font
     8,		// width
     15,		// height

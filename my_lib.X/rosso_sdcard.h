@@ -53,16 +53,16 @@
 #define ON     1
 #define OFF    0
 
-volatile UINT32 SD_startBlock, SD_totalBlocks;
-volatile UINT8 SDHC_flag, SD_cardType, SD_buffer[512];
+volatile uint32_t SD_startBlock, SD_totalBlocks;
+volatile uint8_t SDHC_flag, SD_cardType, SD_buffer[512];
 
 // select/deselect the sd-card - sorry, is Dharmani's naming choice...
 // the direction(input/output) of this pin will be set inside SD_init() function.
 #define SD_CS_ASSERT()     {SD_CS_PIN=0;}
 #define SD_CS_DEASSERT()   {SD_CS_PIN=1;}
 
-UINT8 SD_sendCommand(UINT8 cmd, UINT32 arg) {
-    UINT8 response, retry = 0, status;
+uint8_t SD_sendCommand(uint8_t cmd, uint32_t arg) {
+    uint8_t response, retry = 0, status;
 
     //SD card accepts byte address while SDHC accepts block address in multiples of 512
     //so, if it's SD card we need to convert block address into corresponding byte address by
@@ -112,9 +112,9 @@ UINT8 SD_sendCommand(UINT8 cmd, UINT32 arg) {
     return response; //return state
 } // end SD_sendCommand
 
-UINT8 SD_init(void) {
-    UINT8 i, response, SD_version;
-    UINT16 retry = 0;
+uint8_t SD_init(void) {
+    uint8_t i, response, SD_version;
+    uint16_t retry = 0;
 
     //set the direction of the CS pin
     SD_CS_DDR = 0; // output
@@ -193,12 +193,12 @@ UINT8 SD_init(void) {
 } // end SD_init
 
 // Call this after SD_init()
-UINT8 SD_card_type(void) { //because now SD_cardType is not public...
+uint8_t SD_card_type(void) { //because now SD_cardType is not public...
     return SD_cardType;
 }
 
-UINT8 SD_erase(UINT32 SD_startBlock, UINT32 SD_totalBlocks) {
-    UINT8 response;
+uint8_t SD_erase(uint32_t SD_startBlock, uint32_t SD_totalBlocks) {
+    uint8_t response;
 
     response = SD_sendCommand(ERASE_BLOCK_START_ADDR, SD_startBlock); //send starting block address
     if (response != 0x00)//check for SD status: 0x00 - OK (No flags set)
@@ -216,9 +216,9 @@ UINT8 SD_erase(UINT32 SD_startBlock, UINT32 SD_totalBlocks) {
     return 0; //normal return
 } // end SD_erase
 
-UINT8 SD_readSingleBlock(UINT32 SD_startBlock) {
-    UINT8 response;
-    UINT16 i, retry = 0;
+uint8_t SD_readSingleBlock(uint32_t SD_startBlock) {
+    uint8_t response;
+    uint16_t i, retry = 0;
 
     response = SD_sendCommand(READ_SINGLE_BLOCK, SD_startBlock); //read a Block command
 
@@ -246,9 +246,9 @@ UINT8 SD_readSingleBlock(UINT32 SD_startBlock) {
     return 0;
 }
 
-UINT8 SD_writeSingleBlock(UINT32 SD_startBlock) {
-    UINT8 response;
-    UINT16 i, retry = 0;
+uint8_t SD_writeSingleBlock(uint32_t SD_startBlock) {
+    uint8_t response;
+    uint16_t i, retry = 0;
 
     response = SD_sendCommand(WRITE_SINGLE_BLOCK, SD_startBlock); //write a Block command
 
