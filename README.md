@@ -9,3 +9,6 @@ This is work in progress! Don't use it for production! Initially, the library wa
 For a while, Microchip made the mplabc18-v3.40-linux-full-installer.run file available for download. It is a full version, without limitations. I told to a lot of friends to get it and now, even if is not available anymore, I consider it being in the Public Domain. Many thanks to the MPLAB C18 Development Team!
 But anyway, the latest version of XC8 compiler is much better now.
 
+```
+ Page done.
+```
