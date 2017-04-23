@@ -1,8 +1,7 @@
 [Go back to the main site](https://funlw65.github.io/)
 <hr />
 
-# :boom: XC8 C library
-
+## :boom: Welcome!
 
 This is work in progress! Don't use it for production! Initially, the library was made to work with both Microchip C compilers, C18 and XC8 but only for one microcontroller, PIC18F46K22 working at 64MHz speed to match an ATmega644P at16MHz (still, some libs are universal). Later, development continued only for the XC8 compiler. There are still some old files, kept for some emergencies.
 
