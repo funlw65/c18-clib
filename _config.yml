@@ -1,3 +1,5 @@
 theme: jekyll-theme-midnight
-gems:
+title: XC8 C library
+description: A C library for PIC using XC8 compiler
+gems: 
   - jemoji
